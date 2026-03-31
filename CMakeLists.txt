@@ -9,13 +9,15 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.10)
 
 qt_add_executable(appflashdraws
-    main.cpp
+
 )
 
 qt_add_qml_module(appflashdraws
     URI flashdraws
     QML_FILES
-        Main.qml
+
+SOURCES source/main.cpp
+QML_FILES source/Main.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
