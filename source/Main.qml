@@ -108,7 +108,9 @@ Window {
                     console.log("time: " + drawTimeInput.text + " seg")
 
                     let component = Qt.createComponent("RefWindow.qml")
-                    component.createObject(root)
+                    let instance = component.createObject(root, {
+                        "sourceRefImg": dirPathInput.text
+                    })
                 }
             }
         }
