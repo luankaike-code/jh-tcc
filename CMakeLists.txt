@@ -20,6 +20,7 @@ qt_add_qml_module(appflashdraws
         source/main.cpp
     QML_FILES
         source/Main.qml
+        source/RefWindow.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

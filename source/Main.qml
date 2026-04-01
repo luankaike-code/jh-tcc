@@ -3,6 +3,7 @@ import QtQuick.Controls 6.11
 import QtQuick.Layouts 6.11
 
 Window {
+    id: root
     width: 640
     height: 480
     minimumWidth: 400
@@ -105,6 +106,9 @@ Window {
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")
+
+                    let component = Qt.createComponent("RefWindow.qml")
+                    component.createObject(root)
                 }
             }
         }
