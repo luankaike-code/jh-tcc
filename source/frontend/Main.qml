@@ -1,6 +1,7 @@
 import QtQuick 6.11
 import QtQuick.Controls 6.11
 import QtQuick.Layouts 6.11
+import flashdraws 0.1
 
 Window {
     id: root
@@ -9,6 +10,10 @@ Window {
     minimumWidth: 400
     visible: true
     title: qsTr("FlashDraws")
+
+    GetterRef {
+        id: getterRef
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -106,6 +111,7 @@ Window {
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")
+                    getterRef.helloWorld("eu tô vivo")
 
                     let component = Qt.createComponent("components/refWindow/RefWindow.qml")
                     let instance = component.createObject(root, {

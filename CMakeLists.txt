@@ -9,19 +9,24 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.10)
 
 qt_add_executable(appflashdraws
-
+    source/backend/utils/refGetter/getterref.cpp
 )
 
 qt_add_qml_module(appflashdraws
     URI flashdraws
-    QML_FILES
+    VERSION 0.1
 
     SOURCES
         source/backend/main.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/refWindow/RefWindow.qml
+        source/backend/utils/refGetter/getterref.h source/backend/utils/refGetter/getterref.cpp
 )
+
+if(UNIX AND NOT APPLE)
+    add_compile_definitions(__float80=long\ double)
+endif()
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -32,6 +37,10 @@ set_target_properties(appflashdraws PROPERTIES
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
+)
+
+target_include_directories(appflashdraws PRIVATE
+    source/backend/utils/refGetter
 )
 
 target_link_libraries(appflashdraws
