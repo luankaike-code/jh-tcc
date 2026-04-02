@@ -17,7 +17,7 @@ Window {
         onGottedAllImagesAtFolder: (images) => {
            let component = Qt.createComponent("components/flashDrawWindow/FlashDrawWindow.qml")
            let instance = component.createObject(root, {
-               "avaibleImages": images
+               "images": images
            })
         }
     }

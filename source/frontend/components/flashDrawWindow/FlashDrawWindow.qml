@@ -9,13 +9,26 @@ Window {
     title: qsTr("FlashDraws Ref")
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    required property list<string> avaibleImages
+    required property list<string> images
+    property list<string> avaibleImages: []
+    property list<string> historycImages: []
 
     Component.onCompleted: {
         x = Screen.width
         y = 0
 
-        refImg.setSrc(avaibleImages[0])
+        refImg.setSrc(getRandomImage())
+    }
+
+    function getRandomImage() {
+
+        if (avaibleImages.length == 0)
+            avaibleImages = images
+
+        const randAvaibleImageIndex = Math.floor(Math.random() * avaibleImages.length)
+        const selectImage = avaibleImages.splice(randAvaibleImageIndex, 1)[0]
+        historycImages.push(selectImage)
+        return selectImage
     }
 
     Image {
@@ -36,9 +49,7 @@ Window {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log(refImg.source)
-            console.log(sourceRefImg)
-            refImg.source = sourceRefImg
+            refImg.setSrc(root.getRandomImage())
         }
     }
 }
