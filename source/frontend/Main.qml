@@ -64,9 +64,6 @@ Window {
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
                     }
-                    onTextChanged: {
-                        sessionTimeText.newSessionTime()
-                    }
                 }
 
                 TextField {
@@ -76,9 +73,6 @@ Window {
 
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
-                    }
-                    onTextChanged: {
-                        sessionTimeText.newSessionTime()
                     }
                 }
             }
@@ -91,17 +85,35 @@ Window {
 
             Text {
                 id: sessionTimeText
-                text: qsTr("Tempo da sessão: ")
+                text: {
+                    let time = parseInt(drawTimeInput.text) || -1
+                    let count = parseInt(countRefInput.text) || -1
 
-                function newSessionTime() {
-                    let time = parseInt(drawTimeInput.text)
-                    let count = parseInt(countRefInput.text)
-
-                    time = time? time : 1
-                    count = count? count : 1
+                    if (time < 0 || count < 0)
+                        return qsTr("")
 
                     let sessionTime = time * count
-                    text = qsTr("Tempo da sessão: " + sessionTime + " seg")
+
+                    let magnitude_relation
+                    let magnitude_symbol
+
+                    if (sessionTime < 60) {
+                        magnitude_relation = 1
+                        magnitude_symbol = "seg"
+                    } else if (sessionTime < 3600) {
+                        magnitude_relation = 60
+                        magnitude_symbol = "min"
+                    } else if (sessionTime < 86400) {
+                        magnitude_relation = 3600
+                        magnitude_symbol = "h"
+                    } else {
+                        magnitude_relation = 86400
+                        magnitude_symbol = "dia"
+                    }
+
+                    sessionTime /= magnitude_relation
+
+                    return qsTr("Tempo da sessão: %1 %2").arg(sessionTime.toFixed(1)).arg(magnitude_symbol)
                 }
             }
         }
