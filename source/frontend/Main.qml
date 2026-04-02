@@ -11,8 +11,8 @@ Window {
     visible: true
     title: qsTr("FlashDraws")
 
-    GetterRef {
-        id: getterRef
+    GetterFiles {
+        id: getterFiles
     }
 
     ColumnLayout {
@@ -111,7 +111,7 @@ Window {
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")
-                    getterRef.helloWorld("eu tô vivo")
+                    getterFiles.helloWorld("eu tô vivo")
 
                     let component = Qt.createComponent("components/flashDrawWindow/FlashDrawWindow.qml")
                     let instance = component.createObject(root, {
