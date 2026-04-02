@@ -1,12 +1,9 @@
 #include "getterfiles.h"
-#include <iostream>
 #include <filesystem>
 
 namespace fs = std::filesystem;
 
-GetterFiles::GetterFiles(QObject *parent) : QObject{parent} {
-    std::cout << "fui criado UwU: " << std::endl;
-}
+GetterFiles::GetterFiles(QObject *parent) : QObject{parent} {}
 
 void GetterFiles::getAllImagesAtFolder(const QString& folder) {
     std::vector<QString> images;
@@ -19,8 +16,4 @@ void GetterFiles::getAllImagesAtFolder(const QString& folder) {
     }
 
     emit gottedAllImagesAtFolder(images);
-}
-
-void GetterFiles::helloWorld(const QString& text) {
-    std::cout << "hello world: " << text.toStdString() << std::endl;
 }
