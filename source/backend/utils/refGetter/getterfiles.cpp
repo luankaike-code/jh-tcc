@@ -1,10 +1,10 @@
-#include "getterref.h"
+#include "getterfiles.h"
 #include <iostream>
 
-GetterRef::GetterRef(QObject *parent) : QObject{parent} {
+GetterFiles::GetterFiles(QObject *parent) : QObject{parent} {
     std::cout << "fui criado UwU: " << std::endl;
 }
 
-void GetterRef::helloWorld(const QString& text) {
+void GetterFiles::helloWorld(const QString& text) {
     std::cout << "hello world: " << text.toStdString() << std::endl;
 }

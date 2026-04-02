@@ -9,7 +9,7 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.10)
 
 qt_add_executable(appflashdraws
-    source/backend/utils/refGetter/getterref.cpp
+    source/backend/utils/refGetter/getterfiles.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -18,10 +18,10 @@ qt_add_qml_module(appflashdraws
 
     SOURCES
         source/backend/main.cpp
+        source/backend/utils/refGetter/getterfiles.h source/backend/utils/refGetter/getterfiles.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/flashDrawWindow/FlashDrawWindow.qml
-        source/backend/utils/refGetter/getterref.h source/backend/utils/refGetter/getterref.cpp
 )
 
 if(UNIX AND NOT APPLE)
