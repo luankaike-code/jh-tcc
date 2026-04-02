@@ -11,7 +11,10 @@ class GetterFiles : public QObject
 public:
     explicit GetterFiles(QObject *parent = nullptr);
 
+    Q_INVOKABLE void getAllImagesAtFolder(const QString& folder);
     Q_INVOKABLE static void helloWorld(const QString& text);
+signals:
+    void gottedAllImagesAtFolder(std::vector<QString> images);
 };
 
 #endif // GETTERFILES_H

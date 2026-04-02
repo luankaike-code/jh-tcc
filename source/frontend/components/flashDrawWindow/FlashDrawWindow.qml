@@ -9,21 +9,24 @@ Window {
     title: qsTr("FlashDraws Ref")
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    required property string sourceRefImg
+    required property list<string> avaibleImages
 
     Component.onCompleted: {
         x = Screen.width
         y = 0
 
-        refImg.setSource(sourceRefImg)
+        refImg.setSrc(avaibleImages[0])
     }
 
     Image {
         id: refImg
-        source: "file:///"+root.sourceRefImg
         width: root.width
         height: root.height
         fillMode: Image.PreserveAspectFit
+
+        function setSrc(image) {
+            source = "file:///"+image
+        }
     }
 
     Text {
