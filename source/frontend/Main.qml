@@ -113,7 +113,7 @@ Window {
                     console.log("time: " + drawTimeInput.text + " seg")
                     getterRef.helloWorld("eu tô vivo")
 
-                    let component = Qt.createComponent("components/refWindow/RefWindow.qml")
+                    let component = Qt.createComponent("components/flashDrawWindow/FlashDrawWindow.qml")
                     let instance = component.createObject(root, {
                         "sourceRefImg": dirPathInput.text
                     })

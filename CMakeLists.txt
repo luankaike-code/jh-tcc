@@ -20,7 +20,7 @@ qt_add_qml_module(appflashdraws
         source/backend/main.cpp
     QML_FILES
         source/frontend/Main.qml
-        source/frontend/components/refWindow/RefWindow.qml
+        source/frontend/components/flashDrawWindow/FlashDrawWindow.qml
         source/backend/utils/refGetter/getterref.h source/backend/utils/refGetter/getterref.cpp
 )
 
