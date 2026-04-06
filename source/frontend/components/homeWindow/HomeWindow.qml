@@ -90,7 +90,16 @@ Window {
             }
         }
 
-        RowLayout {}
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+
+            Text {
+                text: timer.remainingTime >= 0?
+                          qsTr("tempo restante: %1").arg(timer.remainingTime)
+                        :
+                          ""
+            }
+        }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
