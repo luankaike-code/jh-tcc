@@ -1,13 +1,10 @@
 #include "timer.h"
-#include <iostream>
 
 Timer::Timer(QObject *parent) : QObject{parent} {}
 
 void Timer::intervalTimeout() {
     currentInterval++;
     bool is_finished_all_intervals = (currentInterval > intervalCount);
-
-    std::cout << "interval: " << is_finished_all_intervals << std::endl;
 
     if(is_finished_all_intervals){
         qTimer.stop();
