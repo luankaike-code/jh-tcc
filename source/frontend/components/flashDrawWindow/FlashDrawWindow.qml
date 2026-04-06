@@ -14,7 +14,7 @@ Window {
     property list<string> historycImages: []
 
     Component.onCompleted: {
-        x = Screen.width
+        x = Screen.width-width
         y = 0
 
         refImg.setSrc(getRandomImage())
