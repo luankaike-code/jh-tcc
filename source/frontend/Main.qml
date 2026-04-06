@@ -131,7 +131,7 @@ Window {
                 text: qsTr("Iniciar")
 
                 onClicked: {
-                    timer.hello_world()
+                    timer.startRhythmIntervals(3000, 4)
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")

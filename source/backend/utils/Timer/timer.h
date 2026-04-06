@@ -3,14 +3,24 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <QTimer>
+#include <qobjectdefs.h>
 
 class Timer : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+
+    QTimer qTimer;
+    int intervalCount;
+    int currentInterval;
+
+    void intervalTimeout();
 public:
     explicit Timer(QObject *parent = nullptr);
+
     Q_INVOKABLE void hello_world();
+    Q_INVOKABLE void startRhythmIntervals(const int& delay, const int& count);
 };
 
 #endif // TIMER_H
