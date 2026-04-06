@@ -20,6 +20,9 @@ public:
     explicit Timer(QObject *parent = nullptr);
 
     Q_INVOKABLE void startRhythmIntervals(const int& delay, const int& count);
+signals:
+    void finishInterval();
+    void finishAllIntervals();
 };
 
 #endif // TIMER_H

@@ -25,6 +25,13 @@ Window {
 
     Timer {
         id: timer
+
+        onFinishInterval: () => {
+            console.log("intervalo acabou")
+        }
+        onFinishAllIntervals: () => {
+            console.log("todos os intervalos acabaram")
+        }
     }
 
     ColumnLayout {

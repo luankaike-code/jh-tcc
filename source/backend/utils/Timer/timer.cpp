@@ -9,8 +9,12 @@ void Timer::intervalTimeout() {
 
     std::cout << "interval: " << is_finished_all_intervals << std::endl;
 
-    if(is_finished_all_intervals)
+    if(is_finished_all_intervals){
         qTimer.stop();
+        emit finishAllIntervals();
+    } else {
+        emit finishInterval();
+    }
 }
 
 void Timer::startRhythmIntervals(const int& delay, const int& count) {
