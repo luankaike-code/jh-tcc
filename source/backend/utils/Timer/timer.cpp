@@ -1,10 +1,10 @@
 #include "timer.h"
 
-Timer::Timer(QObject *parent) : QObject{parent} {
+Timer::Timer(QObject *parent, int timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
     connect(&qTimerElapsed, &QTimer::timeout, this, &Timer::emitTimeElapsed);
 
-    qTimerElapsed.setInterval(50);
+    qTimerElapsed.setInterval(timeElapsedDelay);
 }
 
 void Timer::emitTimeElapsed() {
@@ -45,5 +45,5 @@ void Timer::startRhythmIntervals(const int& delay, const int& count) {
 }
 
 const int Timer::getRemainingTime() {
-    return qTimer.remainingTime();
+    return qTimer.remainingTime() - timeElapsedDelay;
 }

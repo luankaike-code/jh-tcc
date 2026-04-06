@@ -19,8 +19,10 @@ class Timer : public QObject
 
     void emitTimeElapsed();
     void intervalTimeout();
+
+    int timeElapsedDelay;
 public:
-    explicit Timer(QObject *parent = nullptr);
+    explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
 
     const int getRemainingTime();
 
