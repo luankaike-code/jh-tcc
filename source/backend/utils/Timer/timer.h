@@ -19,7 +19,6 @@ class Timer : public QObject
 public:
     explicit Timer(QObject *parent = nullptr);
 
-    Q_INVOKABLE void hello_world();
     Q_INVOKABLE void startRhythmIntervals(const int& delay, const int& count);
 };
 

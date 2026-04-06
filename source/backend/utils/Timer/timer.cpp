@@ -3,10 +3,6 @@
 
 Timer::Timer(QObject *parent) : QObject{parent} {}
 
-void Timer::hello_world() {
-    std::cout << "hello world" << std::endl;
-}
-
 void Timer::intervalTimeout() {
     currentInterval++;
     bool is_finished_all_intervals = (currentInterval >= intervalCount);
