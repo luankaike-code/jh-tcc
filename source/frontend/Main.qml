@@ -22,6 +22,10 @@ Window {
         }
     }
 
+    Timer {
+        id: timer
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
@@ -127,6 +131,7 @@ Window {
                 text: qsTr("Iniciar")
 
                 onClicked: {
+                    timer.hello_world()
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")
