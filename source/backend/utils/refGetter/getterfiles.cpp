@@ -12,7 +12,7 @@ void GetterFiles::getAllImagesAtFolder(const QString& folder) {
         if (dir_entry.is_directory())
             continue;
 
-        images.push_back(QString::fromStdString(dir_entry.path()));
+        images.push_back(QString::fromStdString(dir_entry.path().string()));
     }
 
     emit gottedAllImagesAtFolder(images);
