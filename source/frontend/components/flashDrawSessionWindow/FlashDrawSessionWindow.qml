@@ -69,6 +69,17 @@ Window {
                }
            }
         }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+           Button {
+               text: "próximo"
+               onClicked: {
+                   timer.play(true)
+                   flashDraw.nextImage()
+               }
+           }
+        }
     }
 
     DraggableArea {
