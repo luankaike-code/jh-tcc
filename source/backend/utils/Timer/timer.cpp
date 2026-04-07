@@ -1,4 +1,5 @@
 #include "timer.h"
+#include <iostream>
 
 Timer::Timer(QObject *parent, int timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
@@ -14,9 +15,10 @@ void Timer::emitTimeElapsed(int customRemainingTime) {
     emit timeElapsed();
 }
 
-void Timer::play() {
+void Timer::play(bool resetTimer) {
     qTimerElapsed.start();
-    qTimer.start();
+
+    qTimer.start(resetTimer? intervalDelay : m_remainingTime);
 }
 
 void Timer::stop() {
@@ -32,10 +34,13 @@ void Timer::intervalTimeout() {
         stop();
         emitTimeElapsed(0);
         emit finishAllIntervals();
-    } else {
-        emitTimeElapsed();
-        emit finishInterval();
+        return;
     }
+
+    if(qTimer.interval() != intervalDelay)
+        qTimer.start(intervalDelay);
+    emitTimeElapsed();
+    emit finishInterval();
 }
 
 void Timer::startRhythmIntervals(const int& delay, const int& count) {
@@ -43,10 +48,11 @@ void Timer::startRhythmIntervals(const int& delay, const int& count) {
 
     currentInterval = 0;
     intervalCount = count;
+    intervalDelay = delay;
 
-    qTimer.setInterval(delay);
+    qTimer.setInterval(intervalDelay);
 
-    play();
+    play(true);
 }
 
 const int Timer::getRemainingTime() {

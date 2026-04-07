@@ -21,6 +21,7 @@ class Timer : public QObject
     void intervalTimeout();
 
     int timeElapsedDelay;
+    int intervalDelay;
     int m_remainingTime;
 public:
     explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
@@ -28,7 +29,7 @@ public:
     const int getRemainingTime();
 
     Q_INVOKABLE void startRhythmIntervals(const int& delay, const int& count);
-    Q_INVOKABLE void play();
+    Q_INVOKABLE void play(bool resetTimer=false);
     Q_INVOKABLE void stop();
 signals:
     void finishInterval();
