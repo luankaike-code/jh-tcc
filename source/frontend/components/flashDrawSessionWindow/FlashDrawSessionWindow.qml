@@ -11,9 +11,16 @@ Window {
     title: qsTr("FlashraDrawSession")
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
+    required property list<string> images
+
     Component.onCompleted: {
         x = Screen.width/2-width/2
         y = Screen.height-height-40
+
+        let component = Qt.createComponent("../flashDrawWindow/FlashDrawWindow.qml")
+        component.createObject(root, {
+            "images": images
+        })
     }
 
     RowLayout {
