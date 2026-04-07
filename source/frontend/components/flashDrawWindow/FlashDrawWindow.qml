@@ -20,6 +20,10 @@ Window {
         refImg.setSrc(getRandomImage())
     }
 
+    function nextImage() {
+        refImg.setSrc(root.getRandomImage())
+    }
+
     function getRandomImage() {
 
         if (avaibleImages.length == 0)
@@ -48,8 +52,6 @@ Window {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
-            refImg.setSrc(root.getRandomImage())
-        }
+        onClicked: root.nextImage()
     }
 }
