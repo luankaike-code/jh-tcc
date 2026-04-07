@@ -16,7 +16,7 @@ Window {
         id: getterFiles
 
         onGottedAllImagesAtFolder: (images) => {
-           let component = Qt.createComponent("../flashDrawWindow/FlashDrawWindow.qml")
+           let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
            let instance = component.createObject(null, {
                "images": images
            })
