@@ -23,17 +23,6 @@ Window {
         }
     }
 
-    Timer {
-        id: timer
-
-        onFinishInterval: () => {
-            console.log("intervalo acabou")
-        }
-        onFinishAllIntervals: () => {
-            console.log("todos os intervalos acabaram")
-        }
-    }
-
     ColumnLayout {
         anchors.fill: parent
 
@@ -90,16 +79,7 @@ Window {
             }
         }
 
-        RowLayout {
-            Layout.alignment: Qt.AlignHCenter
-
-            Text {
-                text: timer.remainingTime >= 0?
-                          qsTr("tempo restante: %1").arg(timer.remainingTime)
-                        :
-                          ""
-            }
-        }
+        RowLayout {}
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
@@ -148,7 +128,6 @@ Window {
                 text: qsTr("Iniciar")
 
                 onClicked: {
-                    timer.startRhythmIntervals(3000, 4)
                     console.log("path: " + dirPathInput.text)
                     console.log("refs: " + countRefInput.text)
                     console.log("time: " + drawTimeInput.text + " seg")
