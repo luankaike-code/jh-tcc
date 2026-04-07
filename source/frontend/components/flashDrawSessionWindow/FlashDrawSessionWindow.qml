@@ -9,7 +9,7 @@ Window {
     minimumWidth: 400
     visible: true
     title: qsTr("FlashraDrawSession")
-    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     required property list<string> images
 
