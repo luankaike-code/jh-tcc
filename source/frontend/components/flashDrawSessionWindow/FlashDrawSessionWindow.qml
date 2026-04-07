@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 6.11
 import QtQuick.Controls 6.11
 import flashdraws 0.1
+import "../draggableArea"
 
 Window {
     id: root
@@ -59,6 +60,13 @@ Window {
            Button {
                text: "retorne"
            }
+        }
+    }
+
+    DraggableArea {
+        onUpdateRealativeDragPosition: (x, y) => {
+            root.x += x
+            root.y += y
         }
     }
 }
