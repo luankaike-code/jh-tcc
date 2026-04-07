@@ -13,13 +13,15 @@ Window {
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     required property list<string> images
+    property var flashDraw
+
 
     Component.onCompleted: {
         x = Screen.width/2-width/2
         y = Screen.height-height-40
 
         let component = Qt.createComponent("../flashDrawWindow/FlashDrawWindow.qml")
-        component.createObject(root, {
+        flashDraw = component.createObject(root, {
             "images": images
         })
 
@@ -28,6 +30,11 @@ Window {
 
     Timer {
         id: timer
+        onFinishInterval: {
+            if(flashDraw){
+                flashDraw.nextImage()
+            }
+        }
     }
 
     RowLayout {
