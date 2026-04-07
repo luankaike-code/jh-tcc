@@ -58,12 +58,10 @@ Window {
         acceptedButtons: Qt.RightButton
 
         onReleased: {
-            console.log("boi")
             is_dragging = false
         }
 
         onPressed: (mouse) => {
-            console.log("oi", is_dragging)
             if(!is_dragging) {
                 mouse_delta.x = mouse.x
                 mouse_delta.y = mouse.y
