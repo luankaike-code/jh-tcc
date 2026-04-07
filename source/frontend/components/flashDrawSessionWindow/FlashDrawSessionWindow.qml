@@ -54,6 +54,9 @@ Window {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
                text: "pause"
+               onClicked: {
+                   timer.stop()
+               }
            }
         }
 
@@ -61,6 +64,9 @@ Window {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
                text: "retorne"
+               onClicked: {
+                   timer.play()
+               }
            }
         }
     }
