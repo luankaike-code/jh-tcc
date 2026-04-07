@@ -18,7 +18,9 @@ Window {
         onGottedAllImagesAtFolder: (images) => {
            let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
            let instance = component.createObject(null, {
-               "images": images
+                "images": images,
+                "delayImages": parseInt(drawTimeInput.text)*1000,
+                "imagesCount": parseInt(countRefInput.text)
            })
         }
     }
@@ -128,9 +130,6 @@ Window {
                 text: qsTr("Iniciar")
 
                 onClicked: {
-                    console.log("path: " + dirPathInput.text)
-                    console.log("refs: " + countRefInput.text)
-                    console.log("time: " + drawTimeInput.text + " seg")
                     getterFiles.getAllImagesAtFolder(dirPathInput.text)
                 }
             }

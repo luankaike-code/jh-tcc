@@ -14,6 +14,8 @@ Window {
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     required property list<string> images
+    required property int delayImages
+    required property int imagesCount
     property var flashDraw
 
 
@@ -26,7 +28,7 @@ Window {
             "images": images
         })
 
-        timer.startRhythmIntervals(3000, 5)
+        timer.startRhythmIntervals(delayImages, imagesCount)
     }
 
     Timer {
