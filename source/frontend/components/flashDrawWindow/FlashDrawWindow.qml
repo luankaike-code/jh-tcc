@@ -55,6 +55,7 @@ Window {
 
         property bool is_dragging: false
         property var mouse_delta: ({x: 0, y: 0})
+        acceptedButtons: Qt.RightButton
 
         onReleased: {
             console.log("boi")
