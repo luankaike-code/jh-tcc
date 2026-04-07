@@ -2,12 +2,15 @@
 
 Timer::Timer(QObject *parent, int timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
-    connect(&qTimerElapsed, &QTimer::timeout, this, &Timer::emitTimeElapsed);
+    connect(&qTimerElapsed, &QTimer::timeout, this, [this](){
+        emitTimeElapsed();
+    });
 
     qTimerElapsed.setInterval(timeElapsedDelay);
 }
 
-void Timer::emitTimeElapsed() {
+void Timer::emitTimeElapsed(int customRemainingTime) {
+    m_remainingTime = customRemainingTime < 0? qTimer.remainingTime() : customRemainingTime;
     emit timeElapsed();
 }
 
@@ -27,8 +30,10 @@ void Timer::intervalTimeout() {
 
     if(is_finished_all_intervals){
         stop();
+        emitTimeElapsed(0);
         emit finishAllIntervals();
     } else {
+        emitTimeElapsed();
         emit finishInterval();
     }
 }
@@ -45,5 +50,5 @@ void Timer::startRhythmIntervals(const int& delay, const int& count) {
 }
 
 const int Timer::getRemainingTime() {
-    return qTimer.remainingTime() - timeElapsedDelay;
+    return m_remainingTime;
 }

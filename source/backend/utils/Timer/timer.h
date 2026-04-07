@@ -17,10 +17,11 @@ class Timer : public QObject
     int intervalCount;
     int currentInterval;
 
-    void emitTimeElapsed();
+    void emitTimeElapsed(int customRemainingTime=-1);
     void intervalTimeout();
 
     int timeElapsedDelay;
+    int m_remainingTime;
 public:
     explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
 
