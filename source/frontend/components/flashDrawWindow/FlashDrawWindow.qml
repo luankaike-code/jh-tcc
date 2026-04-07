@@ -1,4 +1,5 @@
 import QtQuick 6.11
+import "../draggableArea"
 
 Window {
     id: root
@@ -50,30 +51,10 @@ Window {
         text: refImg.status === Image.Ready ? 'Loaded' : 'Not loaded'
     }
 
-    MouseArea {
-        anchors.fill: parent
-
-        property bool is_dragging: false
-        property var mouse_delta: ({x: 0, y: 0})
-        acceptedButtons: Qt.RightButton
-
-        onReleased: {
-            is_dragging = false
-        }
-
-        onPressed: (mouse) => {
-            if(!is_dragging) {
-                mouse_delta.x = mouse.x
-                mouse_delta.y = mouse.y
-                is_dragging = true
-            }
-        }
-
-        onPositionChanged: (mouse) => {
-            if(is_dragging){
-                root.x += mouse.x - mouse_delta.x
-                root.y += mouse.y - mouse_delta.y
-            }
+    DraggableArea {
+        onUpdateRealativeDragPosition: (x, y) => {
+            root.x += x
+            root.y += y
         }
     }
 }
