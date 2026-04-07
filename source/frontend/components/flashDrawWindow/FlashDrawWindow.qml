@@ -52,6 +52,29 @@ Window {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: root.nextImage()
+
+        property bool is_dragging: false
+        property var mouse_delta: ({x: 0, y: 0})
+
+        onReleased: {
+            console.log("boi")
+            is_dragging = false
+        }
+
+        onPressed: (mouse) => {
+            console.log("oi", is_dragging)
+            if(!is_dragging) {
+                mouse_delta.x = mouse.x
+                mouse_delta.y = mouse.y
+                is_dragging = true
+            }
+        }
+
+        onPositionChanged: (mouse) => {
+            if(is_dragging){
+                root.x += mouse.x - mouse_delta.x
+                root.y += mouse.y - mouse_delta.y
+            }
+        }
     }
 }
