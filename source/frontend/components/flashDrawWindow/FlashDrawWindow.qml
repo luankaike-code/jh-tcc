@@ -13,16 +13,35 @@ Window {
     required property list<string> images
     property list<string> avaibleImages: []
     property list<string> historycImages: []
+    property int currentIndex: 0
 
     Component.onCompleted: {
         x = Screen.width-width
         y = 0
 
-        refImg.setSrc(getRandomImage())
+        nextImage()
     }
 
     function nextImage() {
-        refImg.setSrc(root.getRandomImage())
+        if(historycImages.length > 0)
+            currentIndex++
+
+        if(currentIndex < historycImages.length) {
+            refImg.setSrc(historycImages[currentIndex])
+            return
+        }
+
+        refImg.setSrc(getRandomImage())
+    }
+
+    function preventImage() {
+        if(currentIndex < 0)
+            return
+
+        if(currentIndex > 0)
+            currentIndex--
+
+        refImg.setSrc(historycImages[currentIndex])
     }
 
     function getRandomImage() {
