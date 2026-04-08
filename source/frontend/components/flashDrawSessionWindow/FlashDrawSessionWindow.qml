@@ -80,6 +80,17 @@ Window {
                }
            }
         }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+           Button {
+               text: "anterior"
+               onClicked: {
+                   timer.play(true)
+                   flashDraw.preventImage()
+               }
+           }
+        }
     }
 
     DraggableArea {
