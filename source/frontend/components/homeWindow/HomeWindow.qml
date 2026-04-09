@@ -16,12 +16,12 @@ Window {
         id: getterFiles
 
         onGottedAllImagesAtFolder: (images) => {
-           let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
-           let instance = component.createObject(root, {
+            let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
+            let instance = component.createObject(root, {
                 "images": images,
                 "delayImages": parseInt(drawTimeInput.text)*1000,
                 "imagesCount": parseInt(countRefInput.text)
-           })
+            })
         }
     }
 
@@ -31,7 +31,7 @@ Window {
         RowLayout {}
 
         RowLayout {
-           Layout.alignment: Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
 
             Text {
                 text: "FlashDraws"
