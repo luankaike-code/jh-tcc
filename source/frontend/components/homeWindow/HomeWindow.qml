@@ -17,7 +17,7 @@ Window {
 
         onGottedAllImagesAtFolder: (images) => {
            let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
-           let instance = component.createObject(null, {
+           let instance = component.createObject(root, {
                 "images": images,
                 "delayImages": parseInt(drawTimeInput.text)*1000,
                 "imagesCount": parseInt(countRefInput.text)
