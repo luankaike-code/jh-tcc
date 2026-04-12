@@ -46,7 +46,7 @@ void Timer::intervalTimeout() {
 void Timer::startRhythmIntervals(const int& delay, const int& count) {
     stop();
 
-    currentInterval = 0;
+    currentInterval = 1;
     intervalCount = count;
     intervalDelay = delay;
 
