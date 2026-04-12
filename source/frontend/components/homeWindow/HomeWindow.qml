@@ -25,7 +25,6 @@ Window {
 
             visible = false
             instance.finishSession.connect(() => {
-                console.log("oi")
                 visible = true
             })
         }
