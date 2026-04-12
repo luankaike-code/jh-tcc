@@ -58,6 +58,13 @@ Window {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+           Text {
+               text: qsTr("%1 / %2").arg(timer.currentInterval).arg(timer.intervalCount)
+           }
+        }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
                text: "pause"
                onClicked: {
