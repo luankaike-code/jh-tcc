@@ -22,6 +22,12 @@ Window {
                 "delayImages": parseInt(drawTimeInput.text)*1000,
                 "imagesCount": parseInt(countRefInput.text)
             })
+
+            visible = false
+            instance.finishSession.connect(() => {
+                console.log("oi")
+                visible = true
+            })
         }
     }
 

@@ -18,6 +18,8 @@ Window {
     required property int imagesCount
     property var flashDraw
 
+    signal finishSession()
+
 
     Component.onCompleted: {
         x = Screen.width/2-width/2
@@ -37,6 +39,10 @@ Window {
             if(flashDraw){
                 flashDraw.nextImage()
             }
+        }
+        onFinishAllIntervals: {
+            finishSession()
+            root.destroy()
         }
     }
 
