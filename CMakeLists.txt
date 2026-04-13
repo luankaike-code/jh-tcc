@@ -10,7 +10,7 @@ qt_standard_project_setup(REQUIRES 6.10)
 
 qt_add_executable(appflashdraws
     source/backend/utils/refGetter/getterfiles.cpp
-    source/backend/utils/Timer/timer.cpp
+    source/backend/utils/timer/timer.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -48,7 +48,7 @@ set_target_properties(appflashdraws PROPERTIES
 
 target_include_directories(appflashdraws PRIVATE
     source/backend/utils/refGetter
-    source/backend/utils/Timer
+    source/backend/utils/timer
 )
 
 target_link_libraries(appflashdraws
