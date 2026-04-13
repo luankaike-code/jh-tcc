@@ -141,10 +141,15 @@ Window {
                     inputToEmphasis.isEmphasisError = true
                 }
 
-                onClicked: {
+                function removeErrors() {
                     dirPathInput.isEmphasisError = false
                     drawTimeInput.isEmphasisError = false
                     countRefInput.isEmphasisError = false
+                    errorFeedback.text = ""
+                }
+
+                onClicked: {
+                    removeErrors()
 
                     if(!dirPathInput.text)
                         showError(qsTr("Insira um repositorio"), dirPathInput)
