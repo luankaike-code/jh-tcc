@@ -52,8 +52,17 @@ Window {
 
             TextField {
                 id: dirPathInput
+
+                property bool isEmphasisError: false
+
                 Layout.preferredWidth: 350
                 placeholderText: "adivinha"
+
+                background: Rectangle {
+                    color: "white"
+                    border.color: dirPathInput.isEmphasisError? "red" : "black"
+                    border.width: 1
+                }
             }
         }
 
@@ -69,8 +78,16 @@ Window {
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "qnt de refs"
 
+                    property bool isEmphasisError: false
+
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
+                    }
+
+                    background: Rectangle {
+                        color: "white"
+                        border.color: countRefInput.isEmphasisError? "red" : "black"
+                        border.width: 1
                     }
                 }
 
@@ -79,14 +96,29 @@ Window {
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "tempo em segundos"
 
+                    property bool isEmphasisError: false
+
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
+                    }
+
+                    background: Rectangle {
+                        color: "white"
+                        border.color: drawTimeInput.isEmphasisError? "red" : "black"
+                        border.width: 1
                     }
                 }
             }
         }
 
-        RowLayout {}
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+
+            Text {
+                id: errorFeedback
+                color: "red"
+            }
+        }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
@@ -134,8 +166,24 @@ Window {
                 height: 40
                 text: qsTr("Iniciar")
 
+                function showError(mensage, inputToEmphasis) {
+                    errorFeedback.text = mensage
+                    inputToEmphasis.isEmphasisError = true
+                }
+
                 onClicked: {
-                    getterFiles.getAllImagesAtFolder(dirPathInput.text)
+                    dirPathInput.isEmphasisError = false
+                    drawTimeInput.isEmphasisError = false
+                    countRefInput.isEmphasisError = false
+
+                    if(!dirPathInput.text)
+                        showError(qsTr("Insira um repositorio"), dirPathInput)
+                    else if(!drawTimeInput.text)
+                        showError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
+                    else if(!countRefInput.text)
+                        showError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
+                    else
+                        getterFiles.getAllImagesAtFolder(dirPathInput.text)
                 }
             }
         }
