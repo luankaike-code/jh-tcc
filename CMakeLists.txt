@@ -20,7 +20,7 @@ qt_add_qml_module(appflashdraws
     SOURCES
         source/backend/main.cpp
         source/backend/utils/refGetter/getterfiles.h source/backend/utils/refGetter/getterfiles.cpp
-        source/backend/utils/Timer/timer.h source/backend/utils/Timer/timer.cpp
+        source/backend/utils/timer/timer.h source/backend/utils/timer/timer.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/flashDrawWindow/FlashDrawWindow.qml
