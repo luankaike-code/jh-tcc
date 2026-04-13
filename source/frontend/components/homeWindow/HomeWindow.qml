@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 import QtQuick.Controls 6.11
 import QtQuick.Layouts 6.11
-import flashdraws 0.1
+import flashdraws 1.0
 
 import "../inputs"
 
