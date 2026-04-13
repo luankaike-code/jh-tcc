@@ -5,6 +5,7 @@ import QtQuick.Layouts 6.11
 import flashdraws 1.0
 
 import "../inputs"
+import "../magnitudeDisplay"
 
 Window {
     id: root
@@ -130,39 +131,63 @@ Window {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
-            Text {
-                id: sessionTimeText
-                text: {
+            MagnitudeDisplay {
+                value: {
                     let time = parseInt(drawTimeInput.text) || -1
                     let count = parseInt(countRefInput.text) || -1
 
-                    if (time < 0 || count < 0)
-                        return qsTr("")
-
-                    let sessionTime = time * count
-
-                    let magnitude_relation
-                    let magnitude_symbol
-
-                    if (sessionTime < 60) {
-                        magnitude_relation = 1
-                        magnitude_symbol = "seg"
-                    } else if (sessionTime < 3600) {
-                        magnitude_relation = 60
-                        magnitude_symbol = "min"
-                    } else if (sessionTime < 86400) {
-                        magnitude_relation = 3600
-                        magnitude_symbol = "h"
-                    } else {
-                        magnitude_relation = 86400
-                        magnitude_symbol = "dia"
-                    }
-
-                    sessionTime /= magnitude_relation
-
-                    return qsTr("Tempo da sessão: %1 %2").arg(sessionTime.toFixed(1)).arg(magnitude_symbol)
+                    return (time < 0 || count < 0)? 0 : time * count
                 }
+
+                magnitudes: [
+                    MagnitudeObj {
+                        value: 1
+                        symbol: "seg"
+                    },
+                    MagnitudeObj {
+                        value: 60
+                        symbol: "min"
+                    },
+                    MagnitudeObj {
+                        value: 60*60
+                        symbol: "horas"
+                    },
+                    MagnitudeObj {
+                        value: 60*60*24
+                        symbol: "dias"
+                    }
+                ]
             }
+
+            // Text {
+            //     id: sessionTimeText
+            //     text: {
+
+
+            //         let sessionTime = time * count
+
+            //         let magnitude_relation
+            //         let magnitude_symbol
+
+            //         if (sessionTime < 60) {
+            //             magnitude_relation = 1
+            //             magnitude_symbol = "seg"
+            //         } else if (sessionTime < 3600) {
+            //             magnitude_relation = 60
+            //             magnitude_symbol = "min"
+            //         } else if (sessionTime < 86400) {
+            //             magnitude_relation = 3600
+            //             magnitude_symbol = "h"
+            //         } else {
+            //             magnitude_relation = 86400
+            //             magnitude_symbol = "dia"
+            //         }
+
+            //         sessionTime /= magnitude_relation
+
+            //         return qsTr("Tempo da sessão: %1 %2").arg(sessionTime.toFixed(1)).arg(magnitude_symbol)
+            //     }
+            // }
         }
 
         RowLayout {
