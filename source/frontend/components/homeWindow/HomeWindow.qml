@@ -48,7 +48,6 @@ Window {
         }
 
         function createFlashDrawSession(images) {
-            console.log("test")
             let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
             let instance = component.createObject(root, {
                 "images": images,
