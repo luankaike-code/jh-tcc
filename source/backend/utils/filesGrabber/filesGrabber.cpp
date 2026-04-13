@@ -1,11 +1,11 @@
-#include "getterfiles.h"
+#include "filesGrabber.h"
 #include <filesystem>
 
 namespace fs = std::filesystem;
 
-GetterFiles::GetterFiles(QObject *parent) : QObject{parent} {}
+FilesGrabber::FilesGrabber(QObject *parent) : QObject{parent} {}
 
-void GetterFiles::getAllImagesAtFolder(const QString& folder) {
+void FilesGrabber::getAllImagesAtFolder(const QString& folder) {
     std::vector<QString> images;
 
     if(!fs::is_directory(folder.toStdString())) {

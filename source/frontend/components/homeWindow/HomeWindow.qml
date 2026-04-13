@@ -14,8 +14,8 @@ Window {
     visible: true
     title: qsTr("FlashDraws")
 
-    GetterFiles {
-        id: getterFiles
+    FilesGrabber {
+        id: filesGrabber
 
         onGottedAllImagesAtFolder: (images) => handler.createFlashDrawSession(images)
         onInvalidDirectoryPath: (path) => handler.invalidDirectoryPath(path)
@@ -51,7 +51,7 @@ Window {
             else if(!countRefInput.text)
                 showError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
             else
-                getterFiles.getAllImagesAtFolder(dirPathInput.text) // onGottedAllImagesAtFolder -> createFlashDrawSession
+                filesGrabber.getAllImagesAtFolder(dirPathInput.text) // onGottedAllImagesAtFolder -> createFlashDrawSession
         }
 
         function createFlashDrawSession(images) {

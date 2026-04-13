@@ -1,18 +1,18 @@
-#ifndef GETTERFILES_H
-#define GETTERFILES_H
+#ifndef FILESGRABBER_H
+#define FILESGRABBER_H
 
 #include <QObject>
 #include <QtQml/qqmlregistration.h>
 
 namespace fs = std::filesystem;
 
-class GetterFiles : public QObject
+class FilesGrabber : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
 
 public:
-    explicit GetterFiles(QObject *parent = nullptr);
+    explicit FilesGrabber(QObject *parent = nullptr);
 
     Q_INVOKABLE void getAllImagesAtFolder(const QString& folder);
 signals:
@@ -20,4 +20,4 @@ signals:
     void invalidDirectoryPath(QString path);
 };
 
-#endif // GETTERFILES_H
+#endif // FILESGRABBER_H
