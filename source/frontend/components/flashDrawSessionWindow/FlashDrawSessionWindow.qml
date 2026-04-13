@@ -18,7 +18,7 @@ Window {
     required property int imagesCount
     property var flashDraw
 
-    signal finishSession()
+    signal sessionFinished()
 
 
     Component.onCompleted: {
@@ -33,8 +33,8 @@ Window {
         timer.startRhythmIntervals(delayImages, imagesCount)
     }
 
-    function doFinishSession() {
-        finishSession()
+    function finishSession() {
+        sessionFinished()
         root.destroy()
     }
 
@@ -45,7 +45,7 @@ Window {
                 flashDraw.nextImage()
             }
         }
-        onFinishAllIntervals: root.doFinishSession()
+        onFinishAllIntervals: root.finishSession()
     }
 
     RowLayout {
@@ -111,7 +111,7 @@ Window {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
                text: "encerrar sessão"
-               onClicked: root.doFinishSession()
+               onClicked: root.finishSession()
            }
         }
     }

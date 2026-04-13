@@ -63,7 +63,7 @@ Window {
             })
 
             root.visible = false
-            instance.finishSession.connect(() => {
+            instance.sessionFinished.connect(() => {
                 root.visible = true
             })
         }
