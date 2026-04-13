@@ -4,6 +4,8 @@ import QtQuick.Controls 6.11
 import QtQuick.Layouts 6.11
 import flashdraws 0.1
 
+import "../inputs"
+
 Window {
     id: root
     width: 640
@@ -50,19 +52,11 @@ Window {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
-            TextField {
+            Input {
                 id: dirPathInput
-
-                property bool isEmphasisError: false
 
                 Layout.preferredWidth: 350
                 placeholderText: "adivinha"
-
-                background: Rectangle {
-                    color: "white"
-                    border.color: dirPathInput.isEmphasisError? "red" : "black"
-                    border.width: 1
-                }
             }
         }
 
@@ -72,40 +66,24 @@ Window {
             GridLayout {
                 columns: 3
 
-                TextField {
+                Input {
                     id: countRefInput
                     Layout.alignment: Qt.AlignRight
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "qnt de refs"
 
-                    property bool isEmphasisError: false
-
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
                     }
-
-                    background: Rectangle {
-                        color: "white"
-                        border.color: countRefInput.isEmphasisError? "red" : "black"
-                        border.width: 1
-                    }
                 }
 
-                TextField {
+                Input {
                     id: drawTimeInput
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "tempo em segundos"
 
-                    property bool isEmphasisError: false
-
                     validator: RegularExpressionValidator {
                         regularExpression: /[0-9]+/
-                    }
-
-                    background: Rectangle {
-                        color: "white"
-                        border.color: drawTimeInput.isEmphasisError? "red" : "black"
-                        border.width: 1
                     }
                 }
             }
