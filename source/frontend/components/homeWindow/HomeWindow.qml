@@ -18,14 +18,17 @@ Window {
         id: getterFiles
 
         onGottedAllImagesAtFolder: (images) => handler.createFlashDrawSession(images)
+        onInvalidDirectoryPath: (path) => handler.invalidDirectoryPath(path)
     }
 
     Item {
         id: handler
 
-        function showInputError(mensage, inputToEmphasis) {
+        function showError(mensage, inputToEmphasis=undefined) {
             errorFeedback.text = mensage
-            inputToEmphasis.isEmphasisError = true
+
+            if(inputToEmphasis)
+                inputToEmphasis.isEmphasisError = true
         }
 
         function removeAllErrors() {
@@ -35,14 +38,18 @@ Window {
             errorFeedback.text = ""
         }
 
+        function invalidDirectoryPath(path) {
+            showError(qsTr("Caminho inválido: %1").arg(path), dirPathInput)
+        }
+
         function tryStartFlashDrawSession() {
             removeAllErrors()
             if(!dirPathInput.text)
-                showInputError(qsTr("Insira um repositorio"), dirPathInput)
+                showError(qsTr("Insira um repositorio"), dirPathInput)
             else if(!drawTimeInput.text)
-                showInputError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
+                showError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
             else if(!countRefInput.text)
-                showInputError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
+                showError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
             else
                 getterFiles.getAllImagesAtFolder(dirPathInput.text) // onGottedAllImagesAtFolder -> createFlashDrawSession
         }
