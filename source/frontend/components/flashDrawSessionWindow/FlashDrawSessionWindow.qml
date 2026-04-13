@@ -33,6 +33,11 @@ Window {
         timer.startRhythmIntervals(delayImages, imagesCount)
     }
 
+    function doFinishSession() {
+        finishSession()
+        root.destroy()
+    }
+
     Timer {
         id: timer
         onFinishInterval: {
@@ -40,10 +45,7 @@ Window {
                 flashDraw.nextImage()
             }
         }
-        onFinishAllIntervals: {
-            finishSession()
-            root.destroy()
-        }
+        onFinishAllIntervals: root.doFinishSession()
     }
 
     RowLayout {
@@ -102,6 +104,14 @@ Window {
                    timer.play(true)
                    flashDraw.nextImage()
                }
+           }
+        }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+           Button {
+               text: "encerrar sessão"
+               onClicked: root.doFinishSession()
            }
         }
     }
