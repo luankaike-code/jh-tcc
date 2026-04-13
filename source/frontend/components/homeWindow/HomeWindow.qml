@@ -17,7 +17,38 @@ Window {
     GetterFiles {
         id: getterFiles
 
-        onGottedAllImagesAtFolder: (images) => {
+        onGottedAllImagesAtFolder: (images) => handler.createFlashDrawSession(images)
+    }
+
+    Item {
+        id: handler
+
+        function showInputError(mensage, inputToEmphasis) {
+            errorFeedback.text = mensage
+            inputToEmphasis.isEmphasisError = true
+        }
+
+        function removeAllErrors() {
+            dirPathInput.isEmphasisError = false
+            drawTimeInput.isEmphasisError = false
+            countRefInput.isEmphasisError = false
+            errorFeedback.text = ""
+        }
+
+        function tryStartFlashDrawSession() {
+            removeAllErrors()
+            if(!dirPathInput.text)
+                showInputError(qsTr("Insira um repositorio"), dirPathInput)
+            else if(!drawTimeInput.text)
+                showInputError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
+            else if(!countRefInput.text)
+                showInputError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
+            else
+                getterFiles.getAllImagesAtFolder(dirPathInput.text) // onGottedAllImagesAtFolder -> createFlashDrawSession
+        }
+
+        function createFlashDrawSession(images) {
+            console.log("test")
             let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
             let instance = component.createObject(root, {
                 "images": images,
@@ -25,9 +56,9 @@ Window {
                 "imagesCount": parseInt(countRefInput.text)
             })
 
-            visible = false
+            root.visible = false
             instance.finishSession.connect(() => {
-                visible = true
+                root.visible = true
             })
         }
     }
@@ -136,30 +167,7 @@ Window {
                 height: 40
                 text: qsTr("Iniciar")
 
-                function showError(mensage, inputToEmphasis) {
-                    errorFeedback.text = mensage
-                    inputToEmphasis.isEmphasisError = true
-                }
-
-                function removeErrors() {
-                    dirPathInput.isEmphasisError = false
-                    drawTimeInput.isEmphasisError = false
-                    countRefInput.isEmphasisError = false
-                    errorFeedback.text = ""
-                }
-
-                onClicked: {
-                    removeErrors()
-
-                    if(!dirPathInput.text)
-                        showError(qsTr("Insira um repositorio"), dirPathInput)
-                    else if(!drawTimeInput.text)
-                        showError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
-                    else if(!countRefInput.text)
-                        showError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
-                    else
-                        getterFiles.getAllImagesAtFolder(dirPathInput.text)
-                }
+                onClicked: handler.tryStartFlashDrawSession()
             }
         }
 
