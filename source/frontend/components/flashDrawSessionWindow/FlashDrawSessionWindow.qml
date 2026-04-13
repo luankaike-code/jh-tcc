@@ -86,10 +86,10 @@ Window {
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
-               text: "próximo"
+               text: "anterior"
                onClicked: {
                    timer.play(true)
-                   flashDraw.nextImage()
+                   flashDraw.preventImage()
                }
            }
         }
@@ -97,10 +97,10 @@ Window {
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
            Button {
-               text: "anterior"
+               text: "próximo"
                onClicked: {
                    timer.play(true)
-                   flashDraw.preventImage()
+                   flashDraw.nextImage()
                }
            }
         }
