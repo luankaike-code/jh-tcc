@@ -28,6 +28,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/flashDrawSessionWindow/FlashDrawSessionWindow.qml
         source/frontend/components/draggableArea/DraggableArea.qml
         source/frontend/components/inputs/Input.qml
+        QML_FILES source/frontend/components/inputs/InputNumber.qml
 )
 
 if(UNIX AND NOT APPLE)

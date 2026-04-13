@@ -66,25 +66,17 @@ Window {
             GridLayout {
                 columns: 3
 
-                Input {
+                InputNumber {
                     id: countRefInput
                     Layout.alignment: Qt.AlignRight
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "qnt de refs"
-
-                    validator: RegularExpressionValidator {
-                        regularExpression: /[0-9]+/
-                    }
                 }
 
-                Input {
+                InputNumber {
                     id: drawTimeInput
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "tempo em segundos"
-
-                    validator: RegularExpressionValidator {
-                        regularExpression: /[0-9]+/
-                    }
                 }
             }
         }
