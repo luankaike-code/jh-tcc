@@ -7,6 +7,7 @@ TextField {
 
     property bool isEmphasisError: false
 
+    color: "black"
     background: Rectangle {
         color: "white"
         border.color: root.isEmphasisError? "red" : "black"
