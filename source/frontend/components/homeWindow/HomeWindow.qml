@@ -158,36 +158,6 @@ Window {
                     }
                 ]
             }
-
-            // Text {
-            //     id: sessionTimeText
-            //     text: {
-
-
-            //         let sessionTime = time * count
-
-            //         let magnitude_relation
-            //         let magnitude_symbol
-
-            //         if (sessionTime < 60) {
-            //             magnitude_relation = 1
-            //             magnitude_symbol = "seg"
-            //         } else if (sessionTime < 3600) {
-            //             magnitude_relation = 60
-            //             magnitude_symbol = "min"
-            //         } else if (sessionTime < 86400) {
-            //             magnitude_relation = 3600
-            //             magnitude_symbol = "h"
-            //         } else {
-            //             magnitude_relation = 86400
-            //             magnitude_symbol = "dia"
-            //         }
-
-            //         sessionTime /= magnitude_relation
-
-            //         return qsTr("Tempo da sessão: %1 %2").arg(sessionTime.toFixed(1)).arg(magnitude_symbol)
-            //     }
-            // }
         }
 
         RowLayout {
