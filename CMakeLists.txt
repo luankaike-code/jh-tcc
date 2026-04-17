@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(flashdraws VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
@@ -31,6 +32,8 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/inputs/InputNumber.qml
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
+    RESOURCES
+        aplication.qrc
 )
 
 if(UNIX AND NOT APPLE)
