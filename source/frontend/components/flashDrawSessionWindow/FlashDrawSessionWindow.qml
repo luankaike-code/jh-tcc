@@ -13,7 +13,7 @@ Window {
     title: qsTr("FlashraDrawSession")
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    required property list<string> images
+    required property var images
     required property int delayImages
     required property int imagesCount
     property var flashDraw

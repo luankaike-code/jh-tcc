@@ -10,9 +10,9 @@ Window {
     title: qsTr("FlashDraws Ref")
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    required property list<string> images
-    property list<string> avaibleImages: []
-    property list<string> historycImages: []
+    required property var images
+    property var avaibleImages: []
+    property var historycImages: []
     property int currentIndex: 0
 
     Component.onCompleted: {
@@ -46,8 +46,9 @@ Window {
 
     function getRandomImage() {
 
-        if (avaibleImages.length == 0)
-            avaibleImages = images
+        if (avaibleImages.length == 0){
+            avaibleImages = images.slice() // copy images
+        }
 
         const randAvaibleImageIndex = Math.floor(Math.random() * avaibleImages.length)
         const selectImage = avaibleImages.splice(randAvaibleImageIndex, 1)[0]
