@@ -94,7 +94,7 @@ Window {
                 id: dirPathInput
 
                 Layout.preferredWidth: 350
-                placeholderText: "adivinha"
+                placeholderText: "Caminho para o repositorio de referência"
             }
         }
 
