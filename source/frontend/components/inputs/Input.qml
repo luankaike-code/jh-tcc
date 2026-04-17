@@ -6,13 +6,17 @@ TextField {
     id: root
 
     property bool isEmphasisError: false
-
-    color: "black"
-    placeholderTextColor: "gray"
-
-    background: Rectangle {
-        color: "white"
-        border.color: root.isEmphasisError? "red" : "black"
-        border.width: 1
+    onIsEmphasisErrorChanged: {
+        if(isEmphasisError)
+            focus = true
     }
+    onTextChanged: {
+        isEmphasisError = false
+    }
+
+    Material.accent: isEmphasisError? Material.Red : Material.Blue
+    Material.background: isEmphasisError? Material.Red : Material.Blue
+    Material.foreground: isEmphasisError? Material.Red : Material.BlueGrey
+
+    Material.containerStyle: Material.Outlined
 }
