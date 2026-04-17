@@ -14,12 +14,23 @@ Window {
     property var avaibleImages: []
     property var historycImages: []
     property int currentIndex: 0
+    property vector2d currentPos
 
     Component.onCompleted: {
-        x = Screen.width-width
-        y = 0
+        currentPos.x = Screen.width-width
+        updatePosition()
 
         nextImage()
+    }
+
+    onXChanged: updatePosition()
+    onYChanged: updatePosition()
+
+    function updatePosition() {
+        if(x !== currentPos.x)
+            x = currentPos.x
+        if(y !== currentPos.y)
+            y = currentPos.y
     }
 
     function nextImage() {
@@ -73,8 +84,9 @@ Window {
 
     DraggableArea {
         onUpdateRealativeDragPosition: (x, y) => {
-            root.x += x
-            root.y += y
+            currentPos.x += x
+            currentPos.y += y
+            root.updatePosition()
         }
     }
 }
