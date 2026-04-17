@@ -28,9 +28,9 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/flashDrawSessionWindow/FlashDrawSessionWindow.qml
         source/frontend/components/draggableArea/DraggableArea.qml
         source/frontend/components/inputs/Input.qml
-        QML_FILES source/frontend/components/inputs/InputNumber.qml
-        QML_FILES source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
-        QML_FILES source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
+        source/frontend/components/inputs/InputNumber.qml
+        source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
+        source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
 )
 
 if(UNIX AND NOT APPLE)
