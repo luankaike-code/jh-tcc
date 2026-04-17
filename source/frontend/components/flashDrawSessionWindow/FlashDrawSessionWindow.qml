@@ -4,7 +4,7 @@ import QtQuick.Controls 6.5
 import flashdraws 1.0
 import "../draggableArea"
 
-Window {
+ApplicationWindow {
     id: root
     width: 640
     height: 100
@@ -53,14 +53,14 @@ Window {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Text {
+           Label {
                text: timer.remainingTime
            }
         }
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Text {
+           Label {
                text: qsTr("%1 / %2").arg(timer.currentInterval).arg(timer.intervalCount)
            }
         }

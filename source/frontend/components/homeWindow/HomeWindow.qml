@@ -7,7 +7,7 @@ import flashdraws 1.0
 import "../inputs"
 import "../magnitudeDisplay"
 
-Window {
+ApplicationWindow {
     id: root
     width: 640
     height: 480
@@ -78,7 +78,7 @@ Window {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
-            Text {
+            Label {
                 text: "FlashDraws"
             }
         }
@@ -122,9 +122,9 @@ Window {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
-            Text {
+            Label {
                 id: errorFeedback
-                color: "red"
+                Material.foreground: Material.Red
             }
         }
 

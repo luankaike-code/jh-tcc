@@ -1,8 +1,9 @@
 import QtQuick 2.15
 
+import QtQuick.Controls 6.5
 import "./"
 
-Text {
+Label {
     required property list<MagnitudeObj> magnitudes
     property list<MagnitudeObj> magnitudesOrganized
 
