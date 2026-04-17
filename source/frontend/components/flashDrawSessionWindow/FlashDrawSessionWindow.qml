@@ -1,6 +1,6 @@
 import QtQuick 2.15
-import QtQuick.Layouts 6.11
-import QtQuick.Controls 6.11
+import QtQuick.Layouts 6.5
+import QtQuick.Controls 6.5
 import flashdraws 1.0
 import "../draggableArea"
 

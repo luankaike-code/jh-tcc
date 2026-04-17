@@ -1,6 +1,6 @@
 import QtQuick 2.15
 
-import QtQuick.Controls 6.11
+import QtQuick.Controls 6.5
 
 TextField {
     id: root
