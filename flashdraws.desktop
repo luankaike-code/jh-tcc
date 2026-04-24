@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=FlashDraws
+Comment=Flash draws to train your draws
+Exec=appflashdraws
+Terminal=false
+Categories=Graphic;Graphics

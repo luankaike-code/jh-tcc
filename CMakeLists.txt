@@ -94,6 +94,14 @@ elseif(UNIX AND NOT APPLE)
             WORLD_READ WORLD_EXECUTE
     )
 
+    install(FILES flashdraws.desktop
+        DESTINATION share/applications
+        PERMISSIONS
+            OWNER_READ OWNER_WRITE
+            GROUP_READ WORLD_READ
+            WORLD_READ WORLD_EXECUTE
+    )
+
     set(CPACK_PACKAGE_NAME "flashdraws")
     set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
     set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A app to make flash draws")
