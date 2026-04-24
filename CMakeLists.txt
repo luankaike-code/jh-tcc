@@ -83,6 +83,24 @@ if(WIN32)
                --verbose 1 --dir . --plugindir plugins --compiler-runtime
         )
     endif()
+elseif(UNIX AND NOT APPLE)
+    install(TARGETS appflashdraws
+        BUNDLE DESTINATION .
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        PERMISSIONS
+            OWNER_READ OWNER_WRITE OWNER_EXECUTE
+            GROUP_READ GROUP_EXECUTE
+            WORLD_READ WORLD_EXECUTE
+    )
+
+    set(CPACK_PACKAGE_NAME "flashdraws")
+    set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A app to make flash draws")
+
+    # RPM (FEDORA) CONFIGURATION
+    set(CPACK_RPM_PACKAGE_ARCHITECTURE "x86_64")
+        set(CPACK_RPM_PACKAGE_LICENSE "MIT")
 endif()
 
 include(CPack)
