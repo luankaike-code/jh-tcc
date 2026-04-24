@@ -1,4 +1,4 @@
-import QtQuick 6.5
+import QtQuick
 import "./components/homeWindow"
 
 HomeWindow {

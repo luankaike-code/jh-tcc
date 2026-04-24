@@ -1,8 +1,8 @@
-import QtQuick 2.15
+import QtQuick
 
-import QtQuick.Controls 6.5
-import QtQuick.Layouts 6.5
-import flashdraws 1.0
+import QtQuick.Controls
+import QtQuick.Layouts
+import flashdraws
 
 import "../inputs"
 import "../magnitudeDisplay"

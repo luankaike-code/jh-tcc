@@ -1,6 +1,6 @@
-import QtQuick 6.5
+import QtQuick
 
-import QtQuick.Controls 6.5
+import QtQuick.Controls
 import "../draggableArea"
 
 ApplicationWindow {
