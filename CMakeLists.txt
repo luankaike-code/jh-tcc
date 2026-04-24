@@ -65,3 +65,24 @@ install(TARGETS appflashdraws
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+## RELEASE CONFIGURATION
+
+if(WIN32)
+    set(CPACK_NSIS_DISPLAY_NAME "FlashDraws")
+    set(CPACK_NSIS_PACKAGE_NAME "FlashDraws")
+
+    # GET ALL DLL`S
+    if (CMAKE_BUILD_TYPE STREQUAL "Release")
+        ADD_CUSTOM_COMMAND(
+          TARGET appflashdraws
+          POST_BUILD
+          COMMAND
+            CD ${CMAKE_CURRENT_BINARY_DIR} &&
+            ${WINDEPLOYQT_EXECUTABLE} --pdb appflashdraws.exe
+               --verbose 1 --dir . --plugindir plugins --compiler-runtime
+        )
+    endif()
+endif()
+
+include(CPack)
