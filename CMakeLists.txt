@@ -72,17 +72,20 @@ if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "FlashDraws")
     set(CPACK_NSIS_PACKAGE_NAME "FlashDraws")
 
-    # GET ALL DLL`S
-    if (CMAKE_BUILD_TYPE STREQUAL "Release")
-        ADD_CUSTOM_COMMAND(
-          TARGET appflashdraws
-          POST_BUILD
-          COMMAND
-            CD ${CMAKE_CURRENT_BINARY_DIR} &&
-            ${WINDEPLOYQT_EXECUTABLE} --pdb appflashdraws.exe
-               --verbose 1 --dir . --plugindir plugins --compiler-runtime
+    # GET ALL DEPENDENCIES
+    install(CODE "
+        set(EXE_PATH \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/bin/appflashdraws.exe\")
+        set(QML_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")
+
+        execute_process(
+            COMMAND \"${WINDEPLOYQT_EXECUTABLE}\"
+                    --compiler-runtime
+                    --verbose 1
+                    --qmldir \"\${QML_DIR}\"
+                    \"\${EXE_PATH}\"
+            RESULT_VARIABLE deploy_result
         )
-    endif()
+    ")
 elseif(UNIX AND NOT APPLE)
     install(TARGETS appflashdraws
         BUNDLE DESTINATION .
