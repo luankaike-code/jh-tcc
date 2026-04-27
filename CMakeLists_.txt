@@ -32,9 +32,8 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/inputs/InputNumber.qml
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
-        source/frontend/components/toggleButton/ToggleButton.qml
     RESOURCES
-        qtquickstyle.conf
+        aplication.qrc
 )
 
 if(UNIX AND NOT APPLE)
@@ -73,20 +72,17 @@ if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "FlashDraws")
     set(CPACK_NSIS_PACKAGE_NAME "FlashDraws")
 
-    # GET ALL DEPENDENCIES
-    install(CODE "
-        set(EXE_PATH \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/bin/appflashdraws.exe\")
-        set(QML_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")
-
-        execute_process(
-            COMMAND \"${WINDEPLOYQT_EXECUTABLE}\"
-                    --compiler-runtime
-                    --verbose 1
-                    --qmldir \"\${QML_DIR}\"
-                    \"\${EXE_PATH}\"
-            RESULT_VARIABLE deploy_result
+    # GET ALL DLL`S
+    if (CMAKE_BUILD_TYPE STREQUAL "Release")
+        ADD_CUSTOM_COMMAND(
+          TARGET appflashdraws
+          POST_BUILD
+          COMMAND
+            CD ${CMAKE_CURRENT_BINARY_DIR} &&
+            ${WINDEPLOYQT_EXECUTABLE} --pdb appflashdraws.exe
+               --verbose 1 --dir . --plugindir plugins --compiler-runtime
         )
-    ")
+    endif()
 elseif(UNIX AND NOT APPLE)
     install(TARGETS appflashdraws
         BUNDLE DESTINATION .
