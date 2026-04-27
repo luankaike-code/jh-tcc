@@ -32,6 +32,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/inputs/InputNumber.qml
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
+        source/frontend/components/toggleButton/ToggleButton.qml
     RESOURCES
         qtquickstyle.conf
 )
