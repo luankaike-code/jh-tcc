@@ -14,8 +14,6 @@ Image {
     signal desactived
 
     source: root.checked? activedSource : desactivedSource
-    width: 100
-    height: 100
 
     sourceSize.width: width
     sourceSize.height: height
