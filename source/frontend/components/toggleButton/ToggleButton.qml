@@ -13,10 +13,6 @@ Image {
     signal actived
     signal desactived
 
-    Component.onCompleted: {
-        text = checked? activedText : desactivedText
-    }
-
     source: root.checked? activedSource : desactivedSource
     width: 100
     height: 100
