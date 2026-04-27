@@ -67,23 +67,17 @@ ApplicationWindow {
         }
 
         ColumnLayout {
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Button {
-               text: "pause"
-               onClicked: {
-                   timer.stop()
-               }
-           }
-        }
+            ToggleButton {
+                activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
+                desactivedSource: "qrc:/qt/qml/flashdraws/assets/play.svg"
 
-        ColumnLayout {
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Button {
-               text: "retorne"
-               onClicked: {
-                   timer.play()
-               }
-           }
+                onCheckedChanged: {
+                    checked? timer.play() : timer.stop()
+                }
+
+                height: 40
+                width: 40
+            }
         }
 
         ColumnLayout {
