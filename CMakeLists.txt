@@ -35,6 +35,8 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/toggleButton/ToggleButton.qml
     RESOURCES
         qtquickstyle.conf
+        assets/pause.svg
+        assets/play.svg
 )
 
 if(UNIX AND NOT APPLE)
