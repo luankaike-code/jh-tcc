@@ -33,7 +33,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
     RESOURCES
-        aplication.qrc
+        qtquickstyle.conf
 )
 
 if(UNIX AND NOT APPLE)

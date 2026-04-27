@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qtquickstyle.conf</file>
-    </qresource>
-</RCC>
