@@ -35,6 +35,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/toggleButton/ToggleButton.qml
         source/frontend/components/imageButton/ImageButton.qml
         source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml
+        source/frontend/components/flashDrawSessionWrapper/DialogConfirmFinishSession.qml
     RESOURCES
         application.qrc
         assets/pause.svg
