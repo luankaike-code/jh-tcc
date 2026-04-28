@@ -35,7 +35,7 @@ Label {
             realValue = realValue.toFixed(1)
         else if(!realValue)
             realValue = ""
-        console.log(realValue, "|", magnitudeSymbol, "|", qsTr("%1 %2").arg(realValue).arg(magnitudeSymbol))
+
         return qsTr("%1 %2").arg(realValue).arg(magnitudeSymbol)
     }
 
