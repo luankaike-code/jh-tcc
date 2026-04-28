@@ -16,22 +16,17 @@ ApplicationWindow {
     title: qsTr("FlashraDrawSession")
     flags: Qt.WindowStaysOnTopHint
 
-    required property var images
     required property int delayImages
     required property int imagesCount
-    property var flashDraw
 
     signal sessionFinished()
-
+    signal finishInterval()
+    signal nextImage()
+    signal preventImage()
 
     Component.onCompleted: {
         x = Screen.width/2-width/2
         y = Screen.height-height-40
-
-        let component = Qt.createComponent("../flashDrawWindow/FlashDrawWindow.qml")
-        flashDraw = component.createObject(root, {
-            "images": images
-        })
 
         timer.startRhythmIntervals(delayImages, imagesCount)
     }
@@ -43,11 +38,7 @@ ApplicationWindow {
 
     Timer {
         id: timer
-        onFinishInterval: {
-            if(flashDraw){
-                flashDraw.nextImage()
-            }
-        }
+        onFinishInterval: root.finishInterval()
         onFinishAllIntervals: root.finishSession()
     }
 
@@ -96,7 +87,7 @@ ApplicationWindow {
 
                 onClicked: {
                     timer.play(true)
-                    flashDraw.preventImage()
+                    root.preventImage()
                 }
 
                 mirror: true
@@ -112,7 +103,7 @@ ApplicationWindow {
 
                 onClicked: {
                     timer.play(true)
-                    flashDraw.nextImage()
+                    root.nextImage()
                 }
 
                 height: 40

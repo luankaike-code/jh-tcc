@@ -57,7 +57,7 @@ ApplicationWindow {
         }
 
         function createFlashDrawSession(images) {
-            let component = Qt.createComponent("../flashDrawSessionWindow/FlashDrawSessionWindow.qml")
+            let component = Qt.createComponent("../flashDrawSessionWrapper/FlashDrawSessionWrapper.qml")
             let instance = component.createObject(root, {
                 "images": images,
                 "delayImages": parseInt(drawTimeInput.text)*1000,
