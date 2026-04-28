@@ -114,10 +114,14 @@ ApplicationWindow {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Button {
-               text: "encerrar sessão"
-               onClicked: root.finishSession()
-           }
+            ImageButton {
+                source: "qrc:/qt/qml/flashdraws/assets/exit.svg"
+
+                onClicked: root.finishSession()
+
+                height: 40
+                width: 40
+            }
         }
     }
 
