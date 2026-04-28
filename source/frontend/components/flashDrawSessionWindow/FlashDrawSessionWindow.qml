@@ -4,6 +4,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import flashdraws
 import "../draggableArea"
+import "../imageButton"
 
 ApplicationWindow {
     id: root
@@ -82,23 +83,32 @@ ApplicationWindow {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Button {
-               text: "anterior"
-               onClicked: {
-                   timer.play(true)
-                   flashDraw.preventImage()
-               }
-           }
+            ImageButton {
+                source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
+
+                onClicked: {
+                    timer.play(true)
+                    flashDraw.preventImage()
+                }
+
+                mirror: true
+                height: 40
+                width: 40
+            }
         }
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Button {
-               text: "próximo"
-               onClicked: {
+            ImageButton {
+                source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
+
+                onClicked: {
                    timer.play(true)
                    flashDraw.nextImage()
-               }
+                }
+
+                height: 40
+                width: 40
            }
         }
 
