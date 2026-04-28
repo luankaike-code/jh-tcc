@@ -55,16 +55,16 @@ ApplicationWindow {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Label {
-               text: timer.remainingTime
-           }
+            Label {
+                text: timer.remainingTime
+            }
         }
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-           Label {
-               text: qsTr("%1 / %2").arg(timer.currentInterval).arg(timer.intervalCount)
-           }
+            Label {
+                text: qsTr("%1 / %2").arg(timer.currentInterval).arg(timer.intervalCount)
+            }
         }
 
         ColumnLayout {
@@ -103,8 +103,8 @@ ApplicationWindow {
                 source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
 
                 onClicked: {
-                   timer.play(true)
-                   flashDraw.nextImage()
+                    timer.play(true)
+                    flashDraw.nextImage()
                 }
 
                 height: 40
