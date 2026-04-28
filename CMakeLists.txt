@@ -35,7 +35,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/toggleButton/ToggleButton.qml
         source/frontend/components/imageButton/ImageButton.qml
     RESOURCES
-        qtquickstyle.conf
+        application.qrc
         assets/pause.svg
         assets/play.svg
         assets/double_arrow.svg
