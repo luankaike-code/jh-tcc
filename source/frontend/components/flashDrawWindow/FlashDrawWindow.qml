@@ -10,29 +10,18 @@ ApplicationWindow {
 
     visible: true
     title: qsTr("FlashDraws Ref")
-    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    flags: Qt.WindowStaysOnTopHint
 
     required property var images
     property var avaibleImages: []
     property var historycImages: []
     property int currentIndex: 0
-    property vector2d currentPos
 
     Component.onCompleted: {
-        currentPos.x = Screen.width-width
-        updatePosition()
+        x = Screen.width-width+30
+        y = 30
 
         nextImage()
-    }
-
-    onXChanged: updatePosition()
-    onYChanged: updatePosition()
-
-    function updatePosition() {
-        if(x !== currentPos.x)
-            x = currentPos.x
-        if(y !== currentPos.y)
-            y = currentPos.y
     }
 
     function nextImage() {
@@ -82,13 +71,5 @@ ApplicationWindow {
 
     Text {
         text: refImg.status === Image.Ready ? 'Loaded' : 'Not loaded'
-    }
-
-    DraggableArea {
-        onUpdateRealativeDragPosition: (x, y) => {
-            currentPos.x += x
-            currentPos.y += y
-            root.updatePosition()
-        }
     }
 }
