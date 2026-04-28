@@ -24,9 +24,10 @@ Label {
             magnitudeValue = magnitude.value
         }
 
-        if(!caughtMagnitudeData)
+        if(!caughtMagnitudeData) {
             magnitudeSymbol = magnitudesOrganized[0].symbol
             magnitudeValue = magnitudesOrganized[0].value
+        }
 
         let realValue = value / magnitudeValue
 
