@@ -38,6 +38,7 @@ qt_add_qml_module(appflashdraws
         qtquickstyle.conf
         assets/pause.svg
         assets/play.svg
+        assets/double_arrow.svg
 )
 
 if(UNIX AND NOT APPLE)
