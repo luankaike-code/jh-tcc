@@ -5,8 +5,8 @@ import "../draggableArea"
 
 ApplicationWindow {
     id: root
-    width: 350
-    height: 350
+    minimumWidth: 350
+    minimumHeight: 350
 
     visible: true
     title: qsTr("FlashDraws Ref")
