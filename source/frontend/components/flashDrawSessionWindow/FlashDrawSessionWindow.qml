@@ -23,6 +23,7 @@ ApplicationWindow {
     signal finishInterval()
     signal nextImage()
     signal preventImage()
+    signal finishSessionBtnClicked()
 
     Component.onCompleted: {
         x = Screen.width/2-width/2
@@ -34,6 +35,14 @@ ApplicationWindow {
     function finishSession() {
         sessionFinished()
         root.destroy()
+    }
+
+    function pauseTimer() {
+        timer.stop()
+    }
+
+    function playTimer() {
+        timer.play()
     }
 
     Timer {
@@ -72,7 +81,7 @@ ApplicationWindow {
                 desactivedSource: "qrc:/qt/qml/flashdraws/assets/play.svg"
 
                 onCheckedChanged: {
-                    checked? timer.play() : timer.stop()
+                    checked? playTimer() : pauseTimer()
                 }
 
                 height: 40
@@ -116,7 +125,7 @@ ApplicationWindow {
             ImageButton {
                 source: "qrc:/qt/qml/flashdraws/assets/exit.svg"
 
-                onClicked: root.finishSession()
+                onClicked: root.finishSessionBtnClicked()
 
                 height: 40
                 width: 40
