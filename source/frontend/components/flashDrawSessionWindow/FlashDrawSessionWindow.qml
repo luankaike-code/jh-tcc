@@ -14,7 +14,7 @@ ApplicationWindow {
     minimumWidth: 400
     visible: true
     title: qsTr("FlashraDrawSession")
-    flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    flags: Qt.WindowStaysOnTopHint
 
     required property var images
     required property int delayImages
@@ -130,13 +130,6 @@ ApplicationWindow {
                 height: 40
                 width: 40
             }
-        }
-    }
-
-    DraggableArea {
-        onUpdateRealativeDragPosition: (x, y) => {
-            root.x += x
-            root.y += y
         }
     }
 }
