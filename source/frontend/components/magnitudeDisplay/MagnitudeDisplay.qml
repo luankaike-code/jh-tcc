@@ -12,14 +12,21 @@ Label {
     function getTextContent() {
         let magnitude_symbol = ""
         let magnitude_value = 0
+        let caught_magnitude_data = false
 
         for(let magnitude of magnitudesOrganized) {
-            if(value < magnitude.value)
+            if(value < magnitude.value) {
+                caught_magnitude_data = true
                 break
+            }
 
             magnitude_symbol = magnitude.symbol
             magnitude_value = magnitude.value
         }
+
+        if(!caught_magnitude_data)
+            magnitude_symbol = magnitudesOrganized[0].symbol
+            magnitude_value = magnitudesOrganized[0].value
 
         let real_value = value / magnitude_value
 
@@ -27,7 +34,7 @@ Label {
             real_value = real_value.toFixed(1)
         else if(!real_value)
             real_value = ""
-
+        console.log(real_value, "|", magnitude_symbol, "|", qsTr("%1 %2").arg(real_value).arg(magnitude_symbol))
         return qsTr("%1 %2").arg(real_value).arg(magnitude_symbol)
     }
 
