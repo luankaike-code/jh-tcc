@@ -7,17 +7,30 @@ TextField {
     id: root
 
     property bool isEmphasisError: false
+
+    Material.containerStyle: Material.Outlined
+
     onIsEmphasisErrorChanged: {
         if(isEmphasisError)
             focus = true
     }
+
     onTextChanged: {
         isEmphasisError = false
     }
 
-    Material.accent: isEmphasisError? Material.Red : Material.accentColor
-    Material.background: isEmphasisError? Material.Red : Material.backgroundColor
-    Material.foreground: isEmphasisError? Material.Red : Material.foregroundColor
+    states: [
+        State {
+            name: "error"
+            when: isEmphasisError
+            PropertyChanges {
+                target: root
+                Material.accent: Material.Red
+                Material.background: Material.Red
+                Material.foreground: Material.Red
+                focus: true
+            }
+        }
 
-    Material.containerStyle: Material.Outlined
+    ]
 }
