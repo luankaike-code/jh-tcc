@@ -15,9 +15,9 @@ TextField {
         isEmphasisError = false
     }
 
-    Material.accent: isEmphasisError? Material.Red : Material.Blue
-    Material.background: isEmphasisError? Material.Red : Material.Blue
-    Material.foreground: isEmphasisError? Material.Red : Material.BlueGrey
+    Material.accent: isEmphasisError? Material.Red : Material.accentColor
+    Material.background: isEmphasisError? Material.Red : Material.backgroundColor
+    Material.foreground: isEmphasisError? Material.Red : Material.foregroundColor
 
     Material.containerStyle: Material.Outlined
 }
