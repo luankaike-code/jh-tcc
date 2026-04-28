@@ -5,6 +5,7 @@ import QtQuick.Controls.Material
 import flashdraws
 import "../draggableArea"
 import "../imageButton"
+import "../magnitudeDisplay"
 
 ApplicationWindow {
     id: root
@@ -55,8 +56,15 @@ ApplicationWindow {
 
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Label {
-                text: timer.remainingTime
+            MagnitudeDisplay {
+                value: timer.remainingTime
+
+                magnitudes: [
+                    MagnitudeObj {
+                        value: 1000
+                        symbol: "seg"
+                    }
+                ]
             }
         }
 
