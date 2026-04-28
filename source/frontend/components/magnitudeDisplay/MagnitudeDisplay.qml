@@ -15,11 +15,10 @@ Label {
         let caughtMagnitudeData = false
 
         for(let magnitude of magnitudesOrganized) {
-            if(value < magnitude.value) {
-                caughtMagnitudeData = true
+            if(value < magnitude.value)
                 break
-            }
 
+            caughtMagnitudeData = true
             magnitudeSymbol = magnitude.symbol
             magnitudeValue = magnitude.value
         }
