@@ -24,9 +24,8 @@ qt_add_qml_module(appflashdraws
         source/backend/utils/timer/timer.h source/backend/utils/timer/timer.cpp
     QML_FILES
         source/frontend/Main.qml
-        source/frontend/components/flashDrawWindow/FlashDrawWindow.qml
         source/frontend/components/homeWindow/HomeWindow.qml
-        source/frontend/components/flashDrawSessionWindow/FlashDrawSessionWindow.qml
+
         source/frontend/components/draggableArea/DraggableArea.qml
         source/frontend/components/inputs/Input.qml
         source/frontend/components/inputs/InputNumber.qml
@@ -34,8 +33,11 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
         source/frontend/components/toggleButton/ToggleButton.qml
         source/frontend/components/imageButton/ImageButton.qml
+
         source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml
-        source/frontend/components/flashDrawSessionWrapper/DialogConfirmFinishSession.qml
+        source/frontend/components/flashDrawSessionWrapper/components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml
+        source/frontend/components/flashDrawSessionWrapper/components/flashDrawSessionWindow/FlashDrawSessionWindow.qml
+        source/frontend/components/flashDrawSessionWrapper/components/flashDrawWindow/FlashDrawWindow.qml
     RESOURCES
         application.qrc
         assets/pause.svg

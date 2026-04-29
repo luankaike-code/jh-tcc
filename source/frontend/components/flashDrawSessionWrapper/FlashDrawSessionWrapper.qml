@@ -1,7 +1,7 @@
 import QtQuick 2.15
 
-import "../flashDrawSessionWindow"
-import "../flashDrawWindow"
+import "./components/flashDrawSessionWindow"
+import "./components/flashDrawWindow"
 
 Item {
     id: root
@@ -28,7 +28,7 @@ Item {
         windowsVisibility(false)
         flashDrawSessionWindow.pauseTimer()
 
-        let component = Qt.createComponent("../flashDrawSessionWrapper/DialogConfirmFinishSession.qml")
+        let component = Qt.createComponent("./components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml")
         let instance = component.createObject(root)
 
         instance.confirm.connect(() => {

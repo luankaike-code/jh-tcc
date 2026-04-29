@@ -3,9 +3,9 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import flashdraws
-import "../draggableArea"
-import "../imageButton"
-import "../magnitudeDisplay"
+import "../../../draggableArea"
+import "../../../imageButton"
+import "../../../magnitudeDisplay"
 
 ApplicationWindow {
     id: root
