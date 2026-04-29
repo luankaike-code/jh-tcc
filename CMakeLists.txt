@@ -36,7 +36,7 @@ qt_add_qml_module(appflashdraws
 
         source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml
         source/frontend/components/flashDrawSessionWrapper/components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml
-        source/frontend/components/flashDrawSessionWrapper/components/flashDrawSessionWindow/FlashDrawSessionWindow.qml
+        source/frontend/components/flashDrawSessionWrapper/components/flashDrawSessionControlWindow/FlashDrawSessionControlWindow.qml
         source/frontend/components/flashDrawSessionWrapper/components/imagesWindow/ImagesWindow.qml
     RESOURCES
         application.qrc

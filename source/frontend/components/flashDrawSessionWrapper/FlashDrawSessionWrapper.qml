@@ -1,6 +1,6 @@
 import QtQuick
 
-import "./components/flashDrawSessionWindow"
+import "./components/flashDrawSessionControlWindow"
 import "./components/imagesWindow"
 
 Item {
@@ -20,13 +20,13 @@ Item {
         imagesWindow.visible = are_visible
         imagesWindow.visibility = are_visible? Window.Windowed : Window.Hidden
 
-        flashDrawSessionWindow.visible = are_visible
-        flashDrawSessionWindow.visibility = are_visible? Window.Windowed : Window.Hidden
+        flashDrawSessionControlWindow.visible = are_visible
+        flashDrawSessionControlWindow.visibility = are_visible? Window.Windowed : Window.Hidden
     }
 
     function confirmSessionEnd() {
         windowsVisibility(false)
-        flashDrawSessionWindow.pauseTimer()
+        flashDrawSessionControlWindow.pauseTimer()
 
         let component = Qt.createComponent("./components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml")
         let instance = component.createObject(root)
@@ -38,7 +38,7 @@ Item {
 
         instance.cancel.connect(() => {
             windowsVisibility(true)
-            flashDrawSessionWindow.playTimer()
+            flashDrawSessionControlWindow.playTimer()
         })
     }
 
@@ -49,8 +49,8 @@ Item {
         onClosing: root.confirmSessionEnd()
     }
 
-    FlashDrawSessionWindow {
-        id: flashDrawSessionWindow
+    FlashDrawSessionControlWindow {
+        id: flashDrawSessionControlWindow
         delayImages: root.delayImages
         imagesCount: root.imagesCount
 
