@@ -122,13 +122,9 @@ elseif(UNIX AND NOT APPLE)
     # RPM (FEDORA) CONFIGURATION
     set(CPACK_RPM_PACKAGE_ARCHITECTURE "x86_64")
     set(CPACK_RPM_PACKAGE_REQUIRES
-        "qml6-module-qtquick"
-        "qml6-module-qtquick-controls"
-        "qml6-module-qtquick-layouts"
-        "qml6-module-qtquick-templates"
-        "qt6-image-formats-plugins"
-        "qt6-qpa-plugins"
+        "qt6-qtdeclarative, qt6-qtbase-gui, qt6-qtimageformats"
     )
+    set(CPACK_RPM_PACKAGE_AUTOREQ ON)
     set(CPACK_RPM_PACKAGE_LICENSE "MIT")
 
     # DEB (DEBIAN) CONFIGURATION
