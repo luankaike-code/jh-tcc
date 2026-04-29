@@ -1,7 +1,7 @@
 import QtQuick
 
 import "./components/flashDrawSessionWindow"
-import "./components/flashDrawWindow"
+import "./components/imagesWindow"
 
 Item {
     id: root
@@ -17,8 +17,8 @@ Item {
     }
 
     function windowsVisibility(are_visible) {
-        flashDrawWindow.visible = are_visible
-        flashDrawWindow.visibility = are_visible? Window.Windowed : Window.Hidden
+        imagesWindow.visible = are_visible
+        imagesWindow.visibility = are_visible? Window.Windowed : Window.Hidden
 
         flashDrawSessionWindow.visible = are_visible
         flashDrawSessionWindow.visibility = are_visible? Window.Windowed : Window.Hidden
@@ -42,8 +42,8 @@ Item {
         })
     }
 
-    FlashDrawWindow {
-        id: flashDrawWindow
+    ImagesWindow {
+        id: imagesWindow
         images: root.images
 
         onClosing: root.confirmSessionEnd()
@@ -54,9 +54,9 @@ Item {
         delayImages: root.delayImages
         imagesCount: root.imagesCount
 
-        onFinishInterval: flashDrawWindow.nextImage()
-        onNextImage: flashDrawWindow.nextImage()
-        onPreventImage: flashDrawWindow.preventImage()
+        onFinishInterval: imagesWindow.nextImage()
+        onNextImage: imagesWindow.nextImage()
+        onPreventImage: imagesWindow.preventImage()
         onSessionFinished: root.finishSession()
         onFinishSessionBtnClicked: root.confirmSessionEnd()
 
