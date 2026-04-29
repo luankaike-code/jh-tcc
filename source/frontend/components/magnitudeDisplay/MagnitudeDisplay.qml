@@ -23,7 +23,7 @@ Label {
             magnitudeValue = magnitude.value
         }
 
-        if(!caughtMagnitudeData) {
+        if(!caughtMagnitudeData && value) {
             magnitudeSymbol = magnitudesOrganized[0].symbol
             magnitudeValue = magnitudesOrganized[0].value
         }
