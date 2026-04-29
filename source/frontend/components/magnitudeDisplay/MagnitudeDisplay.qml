@@ -10,6 +10,9 @@ Label {
     property real value: 0
 
     function getTextContent() {
+        if(!value)
+            return ""
+
         let magnitudeSymbol = ""
         let magnitudeValue = 0
         let caughtMagnitudeData = false
@@ -23,7 +26,7 @@ Label {
             magnitudeValue = magnitude.value
         }
 
-        if(!caughtMagnitudeData && value) {
+        if(!caughtMagnitudeData) {
             magnitudeSymbol = magnitudesOrganized[0].symbol
             magnitudeValue = magnitudesOrganized[0].value
         }
