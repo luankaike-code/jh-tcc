@@ -134,6 +134,7 @@ elseif(UNIX AND NOT APPLE)
         "qml6-module-qtquick-controls"
         "qml6-module-qtquick-layouts"
         "qml6-module-qtquick-templates"
+        "qml6-module-qtquick-effects"
         "qt6-image-formats-plugins"
         "qt6-qpa-plugins"
     )
