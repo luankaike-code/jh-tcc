@@ -5,7 +5,6 @@ import QtQuick.Controls
 
 ApplicationWindow {
     id: root
-    visible: true
     minimumWidth: 300
     minimumHeight: 100
     title: qsTr("Encerrar a sessão atual?")
@@ -18,9 +17,6 @@ ApplicationWindow {
     Component.onCompleted: {
         x = Screen.width/2-width/2
         y = Screen.height/2-height/2
-
-        visible = true
-        visibility = Window.Windowed
     }
 
     ColumnLayout {
@@ -41,7 +37,6 @@ ApplicationWindow {
                 Button {
                     text: qsTr("Confimar")
                     onClicked: {
-                        root.destroy()
                         confirm()
                     }
                 }
@@ -52,7 +47,6 @@ ApplicationWindow {
                 Button {
                     text: qsTr("Cancelar")
                     onClicked: {
-                        root.destroy()
                         cancel()
                     }
                 }
