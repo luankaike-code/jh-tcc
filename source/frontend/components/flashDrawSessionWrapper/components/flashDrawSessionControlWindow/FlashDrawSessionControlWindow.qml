@@ -49,6 +49,10 @@ ApplicationWindow {
         id: timer
         onFinishInterval: root.finishInterval()
         onFinishAllIntervals: root.finishSession()
+
+        onIsRunningChanged: {
+            runTimeButton.checked = timer.isRunning
+        }
     }
 
     RowLayout {
@@ -77,10 +81,13 @@ ApplicationWindow {
 
         ColumnLayout {
             ToggleButton {
+                id: runTimeButton
                 activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
                 desactivedSource: "qrc:/qt/qml/flashdraws/assets/play.svg"
 
-                onCheckedChanged: {
+                checked: timer.isRunning
+
+                onCheckedUpdate: {
                     checked? playTimer() : pauseTimer()
                 }
 
