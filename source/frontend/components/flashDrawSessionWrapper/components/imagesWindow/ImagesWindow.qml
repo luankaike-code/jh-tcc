@@ -69,8 +69,4 @@ ApplicationWindow {
             source = "file:///"+image
         }
     }
-
-    Text {
-        text: refImg.status === Image.Ready ? 'Loaded' : 'Not loaded'
-    }
 }
