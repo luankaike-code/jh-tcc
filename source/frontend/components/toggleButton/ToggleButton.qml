@@ -9,6 +9,8 @@ ImageButton {
     required property string desactivedSource
     property bool checked: true
 
+    signal checkedUpdate
+
     source: root.checked? activedSource : desactivedSource
 
     sourceSize.width: width
@@ -16,5 +18,6 @@ ImageButton {
 
     onClicked: {
         checked = !checked
+        checkedUpdate()
     }
 }
