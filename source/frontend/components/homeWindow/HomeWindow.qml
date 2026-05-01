@@ -81,6 +81,8 @@ ApplicationWindow {
 
             Label {
                 text: "FlashDraws"
+                font.pixelSize: 22
+                font.bold: true
             }
         }
 

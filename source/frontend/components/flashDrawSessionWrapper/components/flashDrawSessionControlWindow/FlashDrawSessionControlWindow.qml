@@ -62,6 +62,8 @@ ApplicationWindow {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             MagnitudeDisplay {
                 value: timer.remainingTime
+                font.pixelSize: 22
+                font.bold: true
 
                 magnitudes: [
                     MagnitudeObj {
