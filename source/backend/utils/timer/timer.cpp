@@ -19,11 +19,13 @@ void Timer::play(bool resetTimer) {
     qTimerElapsed.start();
 
     qTimer.start(resetTimer? intervalDelay : m_remainingTime);
+    emit isRunningChanged();
 }
 
 void Timer::stop() {
     qTimer.stop();
     qTimerElapsed.stop();
+    emit isRunningChanged();
 }
 
 void Timer::intervalTimeout() {
@@ -78,4 +80,8 @@ const int Timer::getCurrentInterval() {
 
 const int Timer::getRemainingTime() {
     return m_remainingTime;
+}
+
+const bool Timer::getIsRunning() {
+    return qTimer.isActive();
 }
