@@ -24,6 +24,8 @@ qt_add_qml_module(appflashdraws
         source/backend/utils/timer/timer.h source/backend/utils/timer/timer.cpp
     QML_FILES
         source/frontend/Main.qml
+        source/frontend/components/defaultWindow/DefaultWindow.qml
+
         source/frontend/components/homeWindow/HomeWindow.qml
 
         source/frontend/components/draggableArea/DraggableArea.qml
