@@ -4,7 +4,9 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
 
-ApplicationWindow {
+import "../../../defaultWindow"
+
+DefaultWindow {
     id: root
     minimumWidth: 300
     minimumHeight: 100

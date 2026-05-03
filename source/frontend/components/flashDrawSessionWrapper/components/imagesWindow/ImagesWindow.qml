@@ -3,8 +3,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import "../../../draggableArea"
+import "../../../defaultWindow"
 
-ApplicationWindow {
+DefaultWindow {
     id: root
     minimumWidth: 350
     minimumHeight: 350

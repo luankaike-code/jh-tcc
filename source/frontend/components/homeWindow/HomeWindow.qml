@@ -7,8 +7,9 @@ import flashdraws
 
 import "../inputs"
 import "../magnitudeDisplay"
+import "../defaultWindow"
 
-ApplicationWindow {
+DefaultWindow {
     id: root
     width: 640
     height: 480

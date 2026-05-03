@@ -6,8 +6,9 @@ import flashdraws
 import "../../../draggableArea"
 import "../../../imageButton"
 import "../../../magnitudeDisplay"
+import "../../../defaultWindow"
 
-ApplicationWindow {
+DefaultWindow {
     id: root
     width: 640
     height: 100
