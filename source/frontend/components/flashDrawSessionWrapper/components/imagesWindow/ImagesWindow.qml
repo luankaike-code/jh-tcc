@@ -60,6 +60,10 @@ DefaultWindow {
         return selectImage
     }
 
+    function setImageOpacity(opacity) {
+        refImg.opacity = opacity
+    }
+
     Image {
         id: refImg
         width: root.width
