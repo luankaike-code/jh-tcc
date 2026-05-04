@@ -10,8 +10,8 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appflashdraws
-    source/backend/utils/filesGrabber/filesGrabber.cpp
-    source/backend/utils/timer/timer.cpp
+    source/backend/componentsQml/filesGrabber/filesGrabber.cpp
+    source/backend/componentsQml/timer/timer.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -20,8 +20,8 @@ qt_add_qml_module(appflashdraws
 
     SOURCES
         source/backend/main.cpp
-        source/backend/utils/filesGrabber/filesGrabber.h source/backend/utils/filesGrabber/filesGrabber.cpp
-        source/backend/utils/timer/timer.h source/backend/utils/timer/timer.cpp
+        source/backend/componentsQml/filesGrabber/filesGrabber.h source/backend/componentsQml/filesGrabber/filesGrabber.cpp
+        source/backend/componentsQml/timer/timer.h source/backend/componentsQml/timer/timer.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -64,8 +64,8 @@ set_target_properties(appflashdraws PROPERTIES
 )
 
 target_include_directories(appflashdraws PRIVATE
-    source/backend/utils/filesGrabber
-    source/backend/utils/timer
+    source/backend/componentsQml/filesGrabber
+    source/backend/componentsQml/timer
 )
 
 target_link_libraries(appflashdraws
