@@ -38,6 +38,20 @@ Item {
         windowsVisibility(false)
     }
 
+    function updateImageOpacity() {
+        const remainingTime = flashDrawSessionControlWindow.timerRemainingTime
+        const delayImages = flashDrawSessionControlWindow.delayImages
+        const transitionFactor = 0.30
+
+        let timeToStartTransition = delayImages*transitionFactor
+        timeToStartTransition = timeToStartTransition > 10*1000? 10*1000 : timeToStartTransition
+
+        if(remainingTime < timeToStartTransition)
+            imagesWindow.setImageOpacity(remainingTime / timeToStartTransition)
+        else
+            imagesWindow.setImageOpacity(1)
+    }
+
     DialogConfirmFinishSession {
         id: dialogConfirmFinishSession
 
@@ -69,6 +83,7 @@ Item {
         onPreventImage: imagesWindow.preventImage()
         onSessionFinished: root.finishSession()
         onFinishSessionBtnClicked: root.confirmSessionEnd()
+        onTimerRemainingTimeChanged: root.updateImageOpacity()
 
         onClosing: root.confirmSessionEnd()
     }
