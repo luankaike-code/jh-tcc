@@ -9,8 +9,9 @@ Nosso objetivo será atender a carêcia do mercado por um aplicativo open source
 Planejamos esse escopo para desenvolvermos o nosso TCC
 
 - **Tipo de Aplicativo**: Desktop Multiplataforma
-- **Engine**: [Qt](https://www.qt.io/)
-- **Linguagem de programação**: [C++](https://pt.wikipedia.org/wiki/C%2B%2B)
+- **Engine**: [Qt Creator](https://www.qt.io/development/tools/qt-creator-ide)
+- **Linguagens de programação**: [C++](https://pt.wikipedia.org/wiki/C%2B%2B), [JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- **Linguagem de marcação**: [QML](https://pt.wikipedia.org/wiki/QML)
 - **Categorias em que o aplicatiivo se encaixa**:
   - Open Source
   - Educacional
