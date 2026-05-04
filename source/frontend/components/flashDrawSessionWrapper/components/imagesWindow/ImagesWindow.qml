@@ -12,7 +12,7 @@ DefaultWindow {
 
     visible: true
     title: qsTr("FlashDraws Ref")
-    flags: Qt.WindowStaysOnTopHint
+    flags: Qt.WindowStaysOnTopHint | Qt.Window | Qt.WindowTitleHint
 
     required property var images
     property var avaibleImages: []

@@ -15,7 +15,7 @@ DefaultWindow {
     minimumWidth: 400
     visible: true
     title: qsTr("FlashraDrawSession")
-    flags: Qt.WindowStaysOnTopHint
+    flags: Qt.WindowStaysOnTopHint | Qt.Window | Qt.WindowTitleHint
 
     required property int delayImages
     required property int imagesCount
