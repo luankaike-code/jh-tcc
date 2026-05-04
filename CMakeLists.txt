@@ -12,6 +12,7 @@ qt_standard_project_setup(REQUIRES 6.5)
 qt_add_executable(appflashdraws
     source/backend/componentsQml/filesGrabber/filesGrabber.cpp
     source/backend/componentsQml/timer/timer.cpp
+    source/backend/componentsQml/clipboard/clipboard.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -22,6 +23,7 @@ qt_add_qml_module(appflashdraws
         source/backend/main.cpp
         source/backend/componentsQml/filesGrabber/filesGrabber.h source/backend/componentsQml/filesGrabber/filesGrabber.cpp
         source/backend/componentsQml/timer/timer.h source/backend/componentsQml/timer/timer.cpp
+        source/backend/componentsQml/clipboard/clipboard.h source/backend/componentsQml/clipboard/clipboard.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -66,6 +68,7 @@ set_target_properties(appflashdraws PROPERTIES
 target_include_directories(appflashdraws PRIVATE
     source/backend/componentsQml/filesGrabber
     source/backend/componentsQml/timer
+    source/backend/componentsQml/clipboard
 )
 
 target_link_libraries(appflashdraws
