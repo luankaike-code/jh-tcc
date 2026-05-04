@@ -2,6 +2,7 @@ import QtQuick
 
 import QtQuick.Controls
 import QtQuick.Controls.Material
+import flashdraws
 import "../../../draggableArea"
 import "../../../defaultWindow"
 
@@ -62,6 +63,53 @@ DefaultWindow {
 
     function setImageOpacity(opacity) {
         refImg.opacity = opacity
+    }
+
+    function removeDataImage(path) {
+        const isPathEqual = (x) => x === path
+
+        let index = images.findIndex(isPathEqual)
+        images.splice(index, 1)
+
+        index = historycImages.findIndex(isPathEqual)
+        historycImages.splice(index, 1)
+
+        index = avaibleImages.findIndex(isPathEqual)
+        avaibleImages.splice(index, 1)
+
+        if(path === refImg.source.toString().replace("file:///", ""))
+            nextImage()
+    }
+
+    Clipboard {
+        id: clipboard
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        onTapped: {
+            contextMenu.popup()
+        }
+    }
+
+    Menu {
+        id: contextMenu
+        property bool hasMoreThatOneImage: root.images.length > 2
+        onOpened: hasMoreThatOneImage = root.images.length > 2
+
+        MenuItem {
+            text: qsTr("Copiar")
+            onTriggered: {
+                clipboard.text = refImg.source.toString().replace("file:///", "")
+                clipboard.copyText()
+            }
+        }
+        MenuSeparator {}
+        MenuItem {
+            enabled: contextMenu.hasMoreThatOneImage
+            text: qsTr("Remover")
+            onTriggered: removeDataImage(refImg.source.toString().replace("file:///", ""))
+        }
     }
 
     Image {
