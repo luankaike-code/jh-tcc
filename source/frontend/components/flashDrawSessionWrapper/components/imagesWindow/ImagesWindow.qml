@@ -67,15 +67,13 @@ DefaultWindow {
 
     function removeDataImage(path) {
         const isPathEqual = (x) => x === path
+        const datas = [images, historycImages, avaibleImages]
 
-        let index = images.findIndex(isPathEqual)
-        images.splice(index, 1)
-
-        index = historycImages.findIndex(isPathEqual)
-        historycImages.splice(index, 1)
-
-        index = avaibleImages.findIndex(isPathEqual)
-        avaibleImages.splice(index, 1)
+        for(let dataIndex in datas) {
+            let data = datas[dataIndex]
+            let index = data.findIndex(isPathEqual)
+            data.splice(index, 1)
+        }
 
         if(path === refImg.sourcePath)
             nextImage()
