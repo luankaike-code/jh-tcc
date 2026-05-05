@@ -32,11 +32,11 @@ DefaultWindow {
             currentIndex++
 
         if(currentIndex < historycImages.length) {
-            refImg.setSrc(historycImages[currentIndex])
+            refImg.sourcePath = historycImages[currentIndex]
             return
         }
 
-        refImg.setSrc(getRandomImage())
+        refImg.sourcePath = getRandomImage()
     }
 
     function preventImage() {
@@ -46,7 +46,7 @@ DefaultWindow {
         if(currentIndex > 0)
             currentIndex--
 
-        refImg.setSrc(historycImages[currentIndex])
+        refImg.sourcePath = historycImages[currentIndex]
     }
 
     function getRandomImage() {
@@ -77,7 +77,7 @@ DefaultWindow {
         index = avaibleImages.findIndex(isPathEqual)
         avaibleImages.splice(index, 1)
 
-        if(path === refImg.source.toString().replace("file:///", ""))
+        if(path === refImg.sourcePath)
             nextImage()
     }
 
@@ -100,7 +100,7 @@ DefaultWindow {
         MenuItem {
             text: qsTr("Copiar")
             onTriggered: {
-                clipboard.text = refImg.source.toString().replace("file:///", "")
+                clipboard.text = refImg.sourcePath
                 clipboard.copyText()
             }
         }
@@ -108,7 +108,7 @@ DefaultWindow {
         MenuItem {
             enabled: contextMenu.hasMoreThatOneImage
             text: qsTr("Remover")
-            onTriggered: removeDataImage(refImg.source.toString().replace("file:///", ""))
+            onTriggered: removeDataImage(refImg.sourcePath)
         }
     }
 
@@ -118,8 +118,8 @@ DefaultWindow {
         height: root.height
         fillMode: Image.PreserveAspectFit
 
-        function setSrc(image) {
-            source = "file:///"+image
-        }
+        property string sourcePath
+
+        source: "file:///"+sourcePath
     }
 }
