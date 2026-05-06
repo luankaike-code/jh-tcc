@@ -17,59 +17,32 @@ DefaultWindow {
     visible: true
     title: qsTr("FlashDraws")
 
-    FilesGrabber {
-        id: filesGrabber
-
-        onGottedAllImagesAtFolder: (images) => handler.createFlashDrawSession(images)
-        onInvalidDirectoryPath: (path) => handler.invalidDirectoryPath(path)
+    function removeAllErrors() {
+        dirPathInput.isEmphasisError = false
+        drawTimeInput.isEmphasisError = false
+        countRefInput.isEmphasisError = false
+        errorFeedback.text = ""
     }
 
-    Item {
-        id: handler
+    function showError(mensage, inputToEmphasis=undefined) {
+        errorFeedback.text = mensage
 
-        function showError(mensage, inputToEmphasis=undefined) {
-            errorFeedback.text = mensage
+        if(inputToEmphasis)
+            inputToEmphasis.isEmphasisError = true
+    }
 
-            if(inputToEmphasis)
-                inputToEmphasis.isEmphasisError = true
-        }
+    HomeWindowBackend {
+        id: backend
+        repositoryPath: dirPathInput.text
+        imageDelay: { return parseInt(drawTimeInput.text) * 1000 }
+        imageCount: { return parseInt(countRefInput.text) }
 
-        function removeAllErrors() {
-            dirPathInput.isEmphasisError = false
-            drawTimeInput.isEmphasisError = false
-            countRefInput.isEmphasisError = false
-            errorFeedback.text = ""
-        }
+        onSessionStarted: root.hide()
+        onSessionFinished: root.show()
 
-        function invalidDirectoryPath(path) {
-            showError(qsTr("Caminho inválido: %1").arg(path), dirPathInput)
-        }
-
-        function tryStartFlashDrawSession() {
-            removeAllErrors()
-            if(!dirPathInput.text)
-                showError(qsTr("Insira um repositorio"), dirPathInput)
-            else if(!drawTimeInput.text)
-                showError(qsTr("Preencha o tempo de cada FlashDraw"), drawTimeInput)
-            else if(!countRefInput.text)
-                showError(qsTr("Preencha a quantidade de FlashDraw"), countRefInput)
-            else
-                filesGrabber.getAllImagesAtFolder(dirPathInput.text) // onGottedAllImagesAtFolder -> createFlashDrawSession
-        }
-
-        function createFlashDrawSession(images) {
-            let component = Qt.createComponent("../flashDrawSessionWrapper/FlashDrawSessionWrapper.qml")
-            let instance = component.createObject(root, {
-                "images": images,
-                "delayImages": parseInt(drawTimeInput.text)*1000,
-                "imagesCount": parseInt(countRefInput.text)
-            })
-
-            root.visible = false
-            instance.sessionFinished.connect(() => {
-                root.visible = true
-            })
-        }
+        onErrorEmptyRepositoryPath: showError(qsTr("Insira o repositório"), dirPathInput)
+        onErrorEmptyImageCount: showError(qsTr("Insira a quantidade de referência"), countRefInput)
+        onErrorEmptyImageDelay: showError(qsTr("Insira o tempo de cada referência"), drawTimeInput)
     }
 
     ColumnLayout {
@@ -172,7 +145,10 @@ DefaultWindow {
                 height: 40
                 text: qsTr("Iniciar")
 
-                onClicked: handler.tryStartFlashDrawSession()
+                onClicked: {
+                    removeAllErrors()
+                    backend.startSession()
+                }
             }
         }
 

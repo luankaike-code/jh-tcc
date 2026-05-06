@@ -5,10 +5,10 @@
 
 namespace fs = std::filesystem;
 
-FilesGrabber::FilesGrabber(QObject *parent) : QObject{parent} {}
+FilesGrabber::FilesGrabber() {}
 
-void FilesGrabber::getAllImagesAtFolder(const QString& folder) {
-    std::vector<QString> images;
+QStringList FilesGrabber::getAllImagesAtFolder(const QString& folder) {
+    QStringList images;
 
     std::vector<std::string> supportedImageFormats;
     for (auto const& i : QImageReader::supportedImageFormats()) {
@@ -16,8 +16,8 @@ void FilesGrabber::getAllImagesAtFolder(const QString& folder) {
     }
 
     if(!fs::is_directory(folder.toStdString())) {
-        emit invalidDirectoryPath(folder);
-        return;
+        // emit invalidDirectoryPath(folder);
+        // return;
     }
 
     for (auto const& dir_entry : fs::directory_iterator(folder.toStdString())) {
@@ -31,5 +31,5 @@ void FilesGrabber::getAllImagesAtFolder(const QString& folder) {
             images.push_back(QString::fromStdString(filePath.string()));
     }
 
-    emit gottedAllImagesAtFolder(images);
+    return images;
 }
