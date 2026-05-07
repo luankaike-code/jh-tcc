@@ -2,8 +2,13 @@
 #include <iostream>
 #include <qqmlcomponent.h>
 #include <QQuickItem>
+#include <filesystem>
+#include <system_error>
+#include <stdexcept>
 #include "../applicationBackend/applicationBackend.hpp"
 #include "../utils/filesGrabber/filesGrabber.h"
+
+namespace fs = std::filesystem;
 
 HomeWindowBackend::HomeWindowBackend(QObject *parent) : QObject{parent} {}
 
@@ -34,6 +39,23 @@ bool HomeWindowBackend::propertysValueAreValids() {
 
 void HomeWindowBackend::openSessionWindow() {
 
+    QStringList images;
+
+    try {
+        images = FilesGrabber::getAllImagesAtFolder(m_repositoryPath);
+    } catch (const fs::filesystem_error& e) {
+        switch (static_cast<std::errc>(e.code().value())) {
+        case std::errc::no_such_file_or_directory:
+            emit errorInvalidRepositoryPath();
+            break;
+        default:
+            std::cerr << "code: " << e.code() << " | " << "what: " << e.what() << std::endl;
+            throw std::invalid_argument("Error not handler");
+        }
+
+        return;
+    }
+
     ApplicationBackend* applicationBackend = ApplicationBackend::getInstance();
     QQmlApplicationEngine* engine = applicationBackend->getEngine();
     QQmlComponent component(applicationBackend->getEngine(), QUrl("qrc:/qt/qml/flashdraws/source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml"));
@@ -46,7 +68,6 @@ void HomeWindowBackend::openSessionWindow() {
         engine->setObjectOwnership(object, QQmlEngine::JavaScriptOwnership);
 
         QQuickItem *item = qobject_cast<QQuickItem*>(object);
-        QStringList images = FilesGrabber::getAllImagesAtFolder(m_repositoryPath);
 
         item->setParent(this);
         item->setParentItem(visualParent);

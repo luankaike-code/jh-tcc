@@ -40,6 +40,8 @@ DefaultWindow {
         onSessionStarted: root.hide()
         onSessionFinished: root.show()
 
+        onErrorInvalidRepositoryPath: showError(qsTr("Repositório inválido"), dirPathInput)
+
         onErrorEmptyRepositoryPath: showError(qsTr("Insira o repositório"), dirPathInput)
         onErrorEmptyImageCount: showError(qsTr("Insira a quantidade de referência"), countRefInput)
         onErrorEmptyImageDelay: showError(qsTr("Insira o tempo de cada referência"), drawTimeInput)
