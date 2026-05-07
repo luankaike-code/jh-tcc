@@ -13,7 +13,7 @@ Item {
     signal sessionFinished
 
     Component.onCompleted: {
-        dialogConfirmFinishSession.visibility = Window.Hidden
+        dialogConfirmFinishSession.hide()
     }
 
     function finishSession() {
