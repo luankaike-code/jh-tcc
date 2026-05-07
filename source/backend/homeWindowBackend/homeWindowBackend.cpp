@@ -3,7 +3,7 @@
 #include <qqmlcomponent.h>
 #include <QQuickItem>
 #include "../applicationBackend/applicationBackend.hpp"
-#include "../componentsQml/filesGrabber/filesGrabber.h"
+#include "../utils/filesGrabber/filesGrabber.h"
 
 HomeWindowBackend::HomeWindowBackend(QObject *parent) : QObject{parent} {}
 
