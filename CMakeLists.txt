@@ -14,9 +14,9 @@ qt_add_executable(appflashdraws
     source/backend/utils/filesGrabber/filesGrabber.cpp
     source/backend/componentsQml/timer/timer.cpp
     source/backend/componentsQml/clipboard/clipboard.cpp
-    source/backend/homeWindowBackend/homeWindowBackend.cpp
+    source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationbackend.cpp
-    source/backend/imagesWindowBackend/imageswindowbackend.cpp
+    source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -31,9 +31,9 @@ qt_add_qml_module(appflashdraws
 
         source/backend/applicationBackend/applicationBackend.hpp source/backend/applicationBackend/applicationbackend.cpp
 
-        source/backend/homeWindowBackend/homeWindowBackend.h source/backend/homeWindowBackend/homeWindowBackend.cpp
+        source/backend/componentsQml/homeWindowBackend/homeWindowBackend.h source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
 
-        source/backend/imagesWindowBackend/imageswindowbackend.h source/backend/imagesWindowBackend/imageswindowbackend.cpp
+        source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.h source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -79,9 +79,9 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/utils/filesGrabber
     source/backend/componentsQml/timer
     source/backend/componentsQml/clipboard
-    source/backend/homeWindowBackend
+    source/backend/componentsQml/homeWindowBackend
     source/backend/applicationBackend/
-    source/backend/imagesWindowBackend/
+    source/backend/componentsQml/imagesWindowBackend/
 )
 
 target_link_libraries(appflashdraws
