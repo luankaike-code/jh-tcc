@@ -70,6 +70,9 @@ Item {
         id: imagesWindow
         images: root.images
 
+        onContextPopupOpened: flashDrawSessionControlWindow.pauseTimer()
+        onContextPopupClosed: flashDrawSessionControlWindow.playTimer()
+
         onClosing: root.confirmSessionEnd()
     }
 
