@@ -82,10 +82,10 @@ Item {
         imagesCount: root.imagesCount
 
         onFinishInterval: imagesWindow.nextImage()
-        onNextImage: imagesWindow.nextImage()
-        onPreventImage: imagesWindow.preventImage()
+        onNextImageButtonClicked: imagesWindow.nextImage()
+        onPreventImageButtonClicked: imagesWindow.preventImage()
         onSessionFinished: root.finishSession()
-        onFinishSessionBtnClicked: root.confirmSessionEnd()
+        onFinishSessionButtonClicked: root.confirmSessionEnd()
         onTimerRemainingTimeChanged: root.updateImageOpacity()
 
         onClosing: root.confirmSessionEnd()

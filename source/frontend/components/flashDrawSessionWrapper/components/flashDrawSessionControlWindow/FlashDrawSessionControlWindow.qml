@@ -23,9 +23,9 @@ DefaultWindow {
 
     signal sessionFinished()
     signal finishInterval()
-    signal nextImage()
-    signal preventImage()
-    signal finishSessionBtnClicked()
+    signal nextImageButtonClicked()
+    signal preventImageButtonClicked()
+    signal finishSessionButtonClicked()
 
     Component.onCompleted: {
         x = Screen.width/2-width/2
@@ -107,7 +107,7 @@ DefaultWindow {
 
                 onClicked: {
                     timer.play(true)
-                    root.preventImage()
+                    root.preventImageButtonClicked()
                 }
 
                 mirror: true
@@ -123,7 +123,7 @@ DefaultWindow {
 
                 onClicked: {
                     timer.play(true)
-                    root.nextImage()
+                    root.nextImageButtonClicked()
                 }
 
                 height: 40
@@ -136,7 +136,7 @@ DefaultWindow {
             ImageButton {
                 source: "qrc:/qt/qml/flashdraws/assets/exit.svg"
 
-                onClicked: root.finishSessionBtnClicked()
+                onClicked: root.finishSessionButtonClicked()
 
                 height: 40
                 width: 40
