@@ -63,10 +63,7 @@ DefaultWindow {
         MenuItem {
             enabled: contextMenu.hasMoreThatOneImage
             text: qsTr("Remover")
-            onTriggered: {
-                imagesWindowBackend.removeImageFromAllDatas(imagesWindowBackend.currentImage)
-                nextImage();
-            }
+            onTriggered: imagesWindowBackend.removeCurrentImage()
         }
     }
 

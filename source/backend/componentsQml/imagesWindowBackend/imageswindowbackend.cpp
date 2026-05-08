@@ -89,6 +89,11 @@ void ImagesWindowBackend::copyCurrentImageToClipboard() {
     Clipboard::getInstance()->copyText(m_currentImage);
 }
 
+void ImagesWindowBackend::removeCurrentImage() {
+    removeImageFromAllDatas(m_currentImage);
+    nextImage();
+}
+
 int ImagesWindowBackend::getCurrentIndex() const {
     return m_currentIndex;
 }

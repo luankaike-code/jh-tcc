@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE void preventImage();
 
     Q_INVOKABLE void copyCurrentImageToClipboard();
+    Q_INVOKABLE void removeCurrentImage();
 
     int getCurrentIndex() const;
 
