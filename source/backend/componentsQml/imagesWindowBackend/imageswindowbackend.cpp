@@ -1,4 +1,5 @@
 #include "imageswindowbackend.h"
+#include "../utils/clipboard/clipboard.h"
 #include <iostream>
 #include <random>
 
@@ -82,6 +83,10 @@ void ImagesWindowBackend::preventImage() {
     setCurrentIndex(m_currentIndex-1);
 
     setCurrentImage(imagesHistorical[m_currentIndex]);
+}
+
+void ImagesWindowBackend::copyCurrentImageToClipboard() {
+    Clipboard::getInstance()->copyText(m_currentImage);
 }
 
 int ImagesWindowBackend::getCurrentIndex() const {

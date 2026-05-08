@@ -38,6 +38,8 @@ public:
     Q_INVOKABLE void nextImage();
     Q_INVOKABLE void preventImage();
 
+    Q_INVOKABLE void copyCurrentImageToClipboard();
+
     int getCurrentIndex() const;
 
     QString getCurrentImage() const;

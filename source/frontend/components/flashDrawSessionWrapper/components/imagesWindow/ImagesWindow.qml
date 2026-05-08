@@ -43,10 +43,6 @@ DefaultWindow {
         images: root.images
     }
 
-    Clipboard {
-        id: clipboard
-    }
-
     TapHandler {
         acceptedButtons: Qt.RightButton
         onTapped: {
@@ -61,10 +57,7 @@ DefaultWindow {
 
         MenuItem {
             text: qsTr("Copiar")
-            onTriggered: {
-                clipboard.text = imagesWindowBackend.currentImage
-                clipboard.copyText()
-            }
+            onTriggered: imagesWindowBackend.copyCurrentImageToClipboard()
         }
         MenuSeparator {}
         MenuItem {
