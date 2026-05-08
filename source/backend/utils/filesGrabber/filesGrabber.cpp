@@ -10,14 +10,9 @@ FilesGrabber::FilesGrabber() {}
 QStringList FilesGrabber::getAllImagesAtFolder(const QString& folder) {
     QStringList images;
 
-    std::vector<std::string> supportedImageFormats;
+    QStringList supportedImageFormats;
     for (auto const& i : QImageReader::supportedImageFormats()) {
-        supportedImageFormats.push_back("."+i.toStdString());
-    }
-
-    if(!fs::is_directory(folder.toStdString())) {
-        // emit invalidDirectoryPath(folder);
-        // return;
+        supportedImageFormats.push_back("."+i);
     }
 
     for (auto const& dir_entry : fs::directory_iterator(folder.toStdString())) {
@@ -25,7 +20,8 @@ QStringList FilesGrabber::getAllImagesAtFolder(const QString& folder) {
             continue;
 
         fs::path filePath = dir_entry.path();
-        bool isSupportedImage = std::find(supportedImageFormats.begin(), supportedImageFormats.end(), filePath.extension().string()) != supportedImageFormats.end();
+        QString qfilePath = QString::fromStdString(dir_entry.path().extension().string());
+        bool isSupportedImage = std::find(supportedImageFormats.begin(), supportedImageFormats.end(), qfilePath) != supportedImageFormats.end();
 
         if(isSupportedImage)
             images.push_back(QString::fromStdString(filePath.string()));
