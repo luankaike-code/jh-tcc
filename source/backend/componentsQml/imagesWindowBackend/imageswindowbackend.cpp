@@ -44,6 +44,10 @@ void ImagesWindowBackend::setCurrentImage(QString image) {
 }
 
 QString ImagesWindowBackend::getRandomImageFromImagesAvailable() const {
+    if(imagesAvailable.isEmpty()) {
+        std::cerr << "imagesAvailable is empty" << std::endl;
+        return "";
+    }
     std::random_device rd;
 
     std::mt19937 gen(rd());
