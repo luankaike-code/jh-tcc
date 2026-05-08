@@ -16,67 +16,31 @@ DefaultWindow {
     flags: Qt.WindowStaysOnTopHint | Qt.Window | Qt.WindowTitleHint
 
     required property var images
-    property var avaibleImages: []
-    property var historycImages: []
-    property int currentIndex: 0
-
-    Component.onCompleted: {
-        x = Screen.width-width+30
-        y = 30
-
-        nextImage()
-    }
-
-    function nextImage() {
-        if(historycImages.length > 0)
-            currentIndex++
-
-        if(currentIndex < historycImages.length) {
-            refImg.sourcePath = historycImages[currentIndex]
-            return
-        }
-
-        refImg.sourcePath = getRandomImage()
-    }
-
-    function preventImage() {
-        if(currentIndex < 0)
-            return
-
-        if(currentIndex > 0)
-            currentIndex--
-
-        refImg.sourcePath = historycImages[currentIndex]
-    }
-
-    function getRandomImage() {
-
-        if (avaibleImages.length == 0){
-            avaibleImages = images.slice() // copy images
-        }
-
-        const randAvaibleImageIndex = Math.floor(Math.random() * avaibleImages.length)
-        const selectImage = avaibleImages.splice(randAvaibleImageIndex, 1)[0]
-        historycImages.push(selectImage)
-        return selectImage
-    }
+    property int currentIndex: imagesWindowBackend.currentIndex
 
     function setImageOpacity(opacity) {
         refImg.opacity = opacity
     }
 
-    function removeDataImage(path) {
-        const isPathEqual = (x) => x === path
-        const datas = [images, historycImages, avaibleImages]
+    function nextImage() {
+        imagesWindowBackend.nextImage();
+    }
 
-        for(let dataIndex in datas) {
-            let data = datas[dataIndex]
-            let index = data.findIndex(isPathEqual)
-            data.splice(index, 1)
-        }
+    function preventImage() {
+        imagesWindowBackend.preventImage();
+    }
 
-        if(path === refImg.sourcePath)
-            nextImage()
+    Component.onCompleted: {
+        x = Screen.width-width+30
+        y = 30
+
+        imagesWindowBackend.nextImage();
+    }
+
+    ImagesWindowBackend {
+        id: imagesWindowBackend
+
+        images: root.images
     }
 
     Clipboard {
@@ -98,7 +62,7 @@ DefaultWindow {
         MenuItem {
             text: qsTr("Copiar")
             onTriggered: {
-                clipboard.text = refImg.sourcePath
+                clipboard.text = imagesWindowBackend.currentImage
                 clipboard.copyText()
             }
         }
@@ -106,7 +70,10 @@ DefaultWindow {
         MenuItem {
             enabled: contextMenu.hasMoreThatOneImage
             text: qsTr("Remover")
-            onTriggered: removeDataImage(refImg.sourcePath)
+            onTriggered: {
+                imagesWindowBackend.removeImageFromAllDatas(imagesWindowBackend.currentImage)
+                nextImage();
+            }
         }
     }
 
@@ -116,8 +83,8 @@ DefaultWindow {
         height: root.height
         fillMode: Image.PreserveAspectFit
 
-        property string sourcePath
-
-        source: "file:///"+sourcePath
+        source: {
+            return imagesWindowBackend.currentImage? "file:///"+imagesWindowBackend.currentImage : ""
+        }
     }
 }

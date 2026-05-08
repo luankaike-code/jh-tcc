@@ -16,9 +16,6 @@ void HomeWindowBackend::startSession() {
     if(!propertysValueAreValids())
         return;
 
-    std::cout << m_repositoryPath.toStdString() << std::endl;
-    std::cout << m_imageDelay << std::endl;
-    std::cout << m_imageCount << std::endl;
     openSessionWindow();
 }
 

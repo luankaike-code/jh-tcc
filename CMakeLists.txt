@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -15,6 +16,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/clipboard/clipboard.cpp
     source/backend/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationbackend.cpp
+    source/backend/imagesWindowBackend/imageswindowbackend.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -30,6 +32,8 @@ qt_add_qml_module(appflashdraws
         source/backend/applicationBackend/applicationBackend.hpp source/backend/applicationBackend/applicationbackend.cpp
 
         source/backend/homeWindowBackend/homeWindowBackend.h source/backend/homeWindowBackend/homeWindowBackend.cpp
+
+        source/backend/imagesWindowBackend/imageswindowbackend.h source/backend/imagesWindowBackend/imageswindowbackend.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -77,11 +81,13 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/componentsQml/clipboard
     source/backend/homeWindowBackend
     source/backend/applicationBackend/
+    source/backend/imagesWindowBackend/
 )
 
 target_link_libraries(appflashdraws
     PRIVATE Qt6::Quick
 )
+target_link_libraries(appflashdraws PRIVATE Qt6::Widgets)
 
 install(TARGETS appflashdraws
     BUNDLE DESTINATION .
