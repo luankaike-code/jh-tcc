@@ -18,6 +18,9 @@ DefaultWindow {
     required property var images
     property int currentIndex: imagesWindowBackend.currentIndex
 
+    signal contextPopupOpened()
+    signal contextPopupClosed()
+
     function setImageOpacity(opacity) {
         refImg.opacity = opacity
     }
@@ -53,7 +56,12 @@ DefaultWindow {
     Menu {
         id: contextMenu
         property bool hasMoreThatTwoImage: imagesWindowBackend.images.length > 2
-        onOpened: hasMoreThatTwoImage = imagesWindowBackend.images.length > 2
+        onOpened: {
+            root.contextPopupOpened()
+            hasMoreThatTwoImage = imagesWindowBackend.images.length > 2
+        }
+
+        onClosed: root.contextPopupClosed()
 
         MenuItem {
             text: qsTr("Copiar")
