@@ -15,8 +15,8 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/timer/timer.cpp
     source/backend/utils/clipboard/clipboard.cpp
     source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
-    source/backend/applicationBackend/applicationbackend.cpp
-    source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.cpp
+    source/backend/applicationBackend/applicationBackend.cpp
+    source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -29,11 +29,11 @@ qt_add_qml_module(appflashdraws
         source/backend/componentsQml/timer/timer.h source/backend/componentsQml/timer/timer.cpp
         source/backend/utils/clipboard/clipboard.h source/backend/utils/clipboard/clipboard.cpp
 
-        source/backend/applicationBackend/applicationBackend.hpp source/backend/applicationBackend/applicationbackend.cpp
+        source/backend/applicationBackend/applicationBackend.hpp source/backend/applicationBackend/applicationBackend.cpp
 
         source/backend/componentsQml/homeWindowBackend/homeWindowBackend.h source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
 
-        source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.h source/backend/componentsQml/imagesWindowBackend/imageswindowbackend.cpp
+        source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.h source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
