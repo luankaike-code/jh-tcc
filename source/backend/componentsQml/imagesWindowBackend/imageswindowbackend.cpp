@@ -80,7 +80,6 @@ void ImagesWindowBackend::preventImage() {
     if(m_currentIndex <= 0)
         return;
     setCurrentIndex(m_currentIndex-1);
-    std::cout << "tchau " << imagesHistorical[m_currentIndex].toStdString() << std::endl;
 
     setCurrentImage(imagesHistorical[m_currentIndex]);
 }

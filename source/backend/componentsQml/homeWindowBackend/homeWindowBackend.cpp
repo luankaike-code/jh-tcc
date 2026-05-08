@@ -20,8 +20,6 @@ void HomeWindowBackend::startSession() {
 }
 
 bool HomeWindowBackend::propertysValueAreValids() {
-    std::cout << m_repositoryPath.toStdString() << std::endl;
-    std::cout << m_repositoryPath.isEmpty() << std::endl;
     if(m_repositoryPath.isEmpty())
         emit errorEmptyRepositoryPath();
     else if(m_imageDelay < 1)
