@@ -52,8 +52,8 @@ DefaultWindow {
 
     Menu {
         id: contextMenu
-        property bool hasMoreThatOneImage: root.images.length > 2
-        onOpened: hasMoreThatOneImage = root.images.length > 2
+        property bool hasMoreThatTwoImage: imagesWindowBackend.images.length > 2
+        onOpened: hasMoreThatTwoImage = imagesWindowBackend.images.length > 2
 
         MenuItem {
             text: qsTr("Copiar")
@@ -61,7 +61,7 @@ DefaultWindow {
         }
         MenuSeparator {}
         MenuItem {
-            enabled: contextMenu.hasMoreThatOneImage
+            enabled: contextMenu.hasMoreThatTwoImage
             text: qsTr("Remover")
             onTriggered: imagesWindowBackend.removeCurrentImage()
         }
