@@ -98,6 +98,42 @@ DefaultWindow {
             }
         }
 
+        RowLayout {}
+
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+
+            ColumnLayout {
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
+
+                    Label {
+                        text: "Modo da Sessão"
+                    }
+                }
+
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
+
+                    ComboBox {
+                        id: comboBoxSessionModes
+                        model: [
+                            { value: SessionModes.Normal, text: qsTr("Normal") },
+                            { value: SessionModes.Classroom, text: qsTr("Aula") },
+                            { value: SessionModes.InfinityTime, text: qsTr("Tempo Infinito") },
+                            { value: SessionModes.InfinityImages, text: qsTr("Referências Infinitas") },
+                            { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
+                        ]
+
+                        Layout.preferredWidth: dirPathInput.width/2
+
+                        textRole: "text"
+                        valueRole: "value"
+                    }
+                }
+            }
+        }
+
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
