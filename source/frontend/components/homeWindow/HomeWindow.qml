@@ -31,6 +31,12 @@ DefaultWindow {
             inputToEmphasis.isEmphasisError = true
     }
 
+    QtObject {
+        id: rootVariables
+        property int mainControlSize: 350
+        property int secondControlSize: mainControlSize/2
+    }
+
     HomeWindowBackend {
         id: backend
         repositoryPath: dirPathInput.text
@@ -72,7 +78,7 @@ DefaultWindow {
             Input {
                 id: dirPathInput
 
-                Layout.preferredWidth: 350
+                Layout.preferredWidth: rootVariables.mainControlSize
                 placeholderText: "Caminho para o repositorio de referência"
             }
         }
@@ -125,7 +131,7 @@ DefaultWindow {
                             { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
                         ]
 
-                        Layout.preferredWidth: dirPathInput.width/2
+                        Layout.preferredWidth: rootVariables.secondControlSize
 
                         textRole: "text"
                         valueRole: "value"
