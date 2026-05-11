@@ -43,6 +43,7 @@ DefaultWindow {
         repositoryPath: dirPathInput.text
         imageDelay: { return parseInt(drawTimeInput.text) * 1000 }
         imageCount: { return parseInt(countRefInput.text) }
+        sessionMode: comboBoxSessionModes.currentValue
 
         onSessionStarted: root.hide()
         onSessionFinished: root.show()
@@ -133,7 +134,6 @@ DefaultWindow {
                         ]
 
                         Layout.preferredWidth: rootVariables.secondControlSize
-                        onActivated: console.log(currentValue)
 
                         textRole: "text"
                         valueRole: "value"
