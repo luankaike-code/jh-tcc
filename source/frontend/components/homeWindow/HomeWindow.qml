@@ -4,6 +4,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 import flashdraws
+import flashdraws.enums
 
 import "../inputs"
 import "../magnitudeDisplay"

@@ -6,21 +6,12 @@
 #include <QTimer>
 #include <qobjectdefs.h>
 
-class SessionModes : public QObject {
-    Q_OBJECT
-    QML_ELEMENT
-
-public:
-
-    enum Modes {
-        Normal,
-        Classroom,
-        InfinityTime,
-        InfinityImages,
-        Sandbox
-    };
-
-    Q_ENUM(Modes)
+enum SessionModes {
+    Normal,
+    Classroom,
+    InfinityTime,
+    InfinityImages,
+    Sandbox
 };
 
 #endif // SESSIONMODES_H
