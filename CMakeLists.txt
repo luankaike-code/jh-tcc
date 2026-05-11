@@ -17,7 +17,6 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationBackend.cpp
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
-    source/backend/enums/sessionModes.h
 )
 
 qt_add_qml_module(appflashdraws
@@ -57,6 +56,7 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/flashDrawSessionWrapper/components/imagesWindow/ImagesWindow.qml
     RESOURCES
         application.qrc
+
         assets/pause.svg
         assets/play.svg
         assets/double_arrow.svg
@@ -85,7 +85,7 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/componentsQml/homeWindowBackend
     source/backend/applicationBackend/
     source/backend/componentsQml/imagesWindowBackend/
-    SOURCES source/backend/enums/
+    source/backend/enums/
 )
 
 target_link_libraries(appflashdraws

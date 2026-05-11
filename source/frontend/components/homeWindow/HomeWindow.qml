@@ -4,7 +4,6 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 import flashdraws
-import flashdraws.enums
 
 import "../inputs"
 import "../magnitudeDisplay"
@@ -34,6 +33,7 @@ DefaultWindow {
 
     QtObject {
         id: rootVariables
+
         property int mainControlSize: 350
         property int secondControlSize: mainControlSize/2
     }
@@ -133,6 +133,7 @@ DefaultWindow {
                         ]
 
                         Layout.preferredWidth: rootVariables.secondControlSize
+                        onActivated: console.log(currentValue)
 
                         textRole: "text"
                         valueRole: "value"

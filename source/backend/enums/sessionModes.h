@@ -2,16 +2,20 @@
 #define SESSIONMODES_H
 
 #include <QObject>
-#include <QQmlEngine>
-#include <QTimer>
-#include <qobjectdefs.h>
+#include <qqmlintegration.h>
 
-enum SessionModes {
-    Normal,
-    Classroom,
-    InfinityTime,
-    InfinityImages,
-    Sandbox
-};
+namespace SessionModes {
+    Q_NAMESPACE
+    QML_ELEMENT
+
+    enum Enum {
+        Normal,
+        Classroom,
+        InfinityTime,
+        InfinityImages,
+        Sandbox
+    };
+    Q_ENUM_NS(Enum)
+}
 
 #endif // SESSIONMODES_H
