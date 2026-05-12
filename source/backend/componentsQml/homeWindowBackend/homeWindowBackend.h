@@ -12,7 +12,7 @@ class HomeWindowBackend : public QObject {
     Q_PROPERTY(QString repositoryPath READ getRepositoryPath WRITE setRepositoryPath REQUIRED)
     Q_PROPERTY(int imageCount READ getImageCount WRITE setImageCount REQUIRED)
     Q_PROPERTY(int imageDelay READ getImageDelay WRITE setImageDelay REQUIRED)
-    Q_PROPERTY(SessionModes::Enum sessionMode READ getSessionMode WRITE setSessionMode)
+    Q_PROPERTY(SessionModes::Enum sessionMode READ getSessionMode WRITE setSessionMode REQUIRED)
 
     QString m_repositoryPath;
     int m_imageCount;
