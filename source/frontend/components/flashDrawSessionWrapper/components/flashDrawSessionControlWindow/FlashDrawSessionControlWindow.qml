@@ -50,11 +50,18 @@ DefaultWindow {
     }
 
     function pauseTimer() {
-        timer.stop()
+        if(rootVariables.hasTimerLimit)
+            timer.stop()
     }
 
     function playTimer() {
-        timer.play()
+        if(rootVariables.hasTimerLimit)
+            timer.play()
+    }
+
+    function resetTimer() {
+        if(rootVariables.hasTimerLimit)
+            timer.play(true)
     }
 
     Timer {
@@ -122,7 +129,7 @@ DefaultWindow {
                 source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
 
                 onClicked: {
-                    timer.play(true)
+                    root.playTimer()
                     root.preventImageButtonClicked()
                 }
 
@@ -138,7 +145,7 @@ DefaultWindow {
                 source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
 
                 onClicked: {
-                    timer.play(true)
+                    root.resetTimer()
                     root.nextImageButtonClicked()
                 }
 
