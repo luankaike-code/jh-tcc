@@ -57,7 +57,7 @@ void HomeWindowBackend::openSessionWindow() {
 
     ApplicationBackend* applicationBackend = ApplicationBackend::getInstance();
     QQmlApplicationEngine* engine = applicationBackend->getEngine();
-    QQmlComponent component(applicationBackend->getEngine(), QUrl("qrc:/qt/qml/flashdraws/source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml"));
+    QQmlComponent component(applicationBackend->getEngine(), QUrl("qrc:/qt/qml/flashdraws/source/frontend/components/sessionWrapper/SessionWrapper.qml"));
 
     QQuickItem* visualParent = qobject_cast<QQuickItem*>(parent());
 

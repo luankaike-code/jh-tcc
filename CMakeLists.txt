@@ -53,10 +53,10 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/toggleButton/ToggleButton.qml
         source/frontend/components/imageButton/ImageButton.qml
 
-        source/frontend/components/flashDrawSessionWrapper/FlashDrawSessionWrapper.qml
-        source/frontend/components/flashDrawSessionWrapper/components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml
-        source/frontend/components/flashDrawSessionWrapper/components/flashDrawSessionControlWindow/FlashDrawSessionControlWindow.qml
-        source/frontend/components/flashDrawSessionWrapper/components/imagesWindow/ImagesWindow.qml
+        source/frontend/components/sessionWrapper/SessionWrapper.qml
+        source/frontend/components/sessionWrapper/components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml
+        source/frontend/components/sessionWrapper/components/sessionControlWindow/SessionControlWindow.qml
+        source/frontend/components/sessionWrapper/components/imagesWindow/ImagesWindow.qml
     RESOURCES
         application.qrc
 

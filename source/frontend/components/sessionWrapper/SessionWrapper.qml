@@ -1,7 +1,7 @@
 import QtQuick
 import flashdraws
 
-import "./components/flashDrawSessionControlWindow"
+import "./components/sessionControlWindow"
 import "./components/imagesWindow"
 import "./components/dialogConfirmFinishSession"
 
@@ -27,22 +27,22 @@ Item {
         if(are_visible){
             dialogConfirmFinishSession.hide()
             imagesWindow.show()
-            flashDrawSessionControlWindow.show()
+            sessionControlWindow.show()
         }else {
             dialogConfirmFinishSession.show()
             imagesWindow.hide()
-            flashDrawSessionControlWindow.hide()
+            sessionControlWindow.hide()
         }
     }
 
     function confirmSessionEnd() {
-        flashDrawSessionControlWindow.pauseTimer()
+        sessionControlWindow.pauseTimer()
         windowsVisibility(false)
     }
 
     function updateImageOpacity() {
-        const remainingTime = flashDrawSessionControlWindow.timerRemainingTime
-        const delayImages = flashDrawSessionControlWindow.delayImages
+        const remainingTime = sessionControlWindow.timerRemainingTime
+        const delayImages = sessionControlWindow.delayImages
         const transitionFactor = 0.30
 
         let timeToStartTransition = delayImages*transitionFactor
@@ -64,7 +64,7 @@ Item {
 
         onCancel: {
             root.windowsVisibility(true)
-            flashDrawSessionControlWindow.playTimer()
+            sessionControlWindow.playTimer()
         }
     }
 
@@ -72,14 +72,14 @@ Item {
         id: imagesWindow
         images: root.images
 
-        onContextPopupOpened: flashDrawSessionControlWindow.pauseTimer()
-        onContextPopupClosed: flashDrawSessionControlWindow.playTimer()
+        onContextPopupOpened: sessionControlWindow.pauseTimer()
+        onContextPopupClosed: sessionControlWindow.playTimer()
 
         onClosing: root.confirmSessionEnd()
     }
 
-    FlashDrawSessionControlWindow {
-        id: flashDrawSessionControlWindow
+    SessionControlWindow {
+        id: sessionControlWindow
         delayImages: root.delayImages
         imagesCount: root.imagesCount
         sessionMode: root.sessionMode
