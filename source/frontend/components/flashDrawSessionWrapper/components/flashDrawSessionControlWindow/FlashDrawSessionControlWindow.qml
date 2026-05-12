@@ -148,11 +148,13 @@ DefaultWindow {
 
                 onClicked: {
                     root.resetTimer()
-
                     if(!rootVariables.hasTimerLimit)
                         rootVariables.currentImageIndex++
 
-                    root.nextImageButtonClicked()
+                    if(!rootVariables.hasTimerLimit && rootVariables.currentImageIndex > root.imagesCount)
+                        finishSession()
+                    else
+                        root.nextImageButtonClicked()
                 }
 
                 height: 40
