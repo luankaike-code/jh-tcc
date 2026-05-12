@@ -93,6 +93,11 @@ DefaultWindow {
 
                 InputNumber {
                     id: countRefInput
+
+                    visible: {
+                        return SessionModeReader.hasImagesLimit(backend.sessionMode)
+                    }
+
                     Layout.alignment: Qt.AlignRight
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "qnt de refs"
@@ -100,6 +105,11 @@ DefaultWindow {
 
                 InputNumber {
                     id: drawTimeInput
+
+                    visible: {
+                        return SessionModeReader.hasTimerLimit(backend.sessionMode)
+                    }
+
                     Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                     placeholderText: "tempo em segundos"
                 }
@@ -153,6 +163,9 @@ DefaultWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
+            visible: {
+                return backend.sessionMode === SessionModes.Normal
+            }
 
             MagnitudeDisplay {
                 value: {
