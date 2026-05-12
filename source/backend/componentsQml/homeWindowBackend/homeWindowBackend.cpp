@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include "../applicationBackend/applicationBackend.hpp"
 #include "../utils/filesGrabber/filesGrabber.h"
+#include "../../helpers/sessionModeReader.h"
 
 namespace fs = std::filesystem;
 
@@ -20,11 +21,14 @@ void HomeWindowBackend::startSession() {
 }
 
 bool HomeWindowBackend::propertysValueAreValids() {
+    bool hasTimerLimit = SessionModeReader::hasTimerLimit(m_sessionMode);
+    bool hasImagesLimit = SessionModeReader::hasImagesLimit(m_sessionMode);
+
     if(m_repositoryPath.isEmpty())
         emit errorEmptyRepositoryPath();
-    else if(m_imageDelay < 1)
+    else if(hasTimerLimit && m_imageDelay < 1)
         emit errorEmptyImageDelay();
-    else if(m_imageCount < 1)
+    else if(hasImagesLimit && m_imageCount < 1)
         emit errorEmptyImageCount();
     else
         return true;
