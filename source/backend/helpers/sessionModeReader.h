@@ -12,8 +12,8 @@ class SessionModeReader : public QObject {
 public:
     SessionModeReader(QObject* parent = nullptr);
 
-    Q_INVOKABLE bool hasTimerLimit(const SessionModes::Enum& sessionModeValue) const;
-    Q_INVOKABLE bool hasImagesLimit(const SessionModes::Enum& sessionModeValue) const;
+    Q_INVOKABLE static bool hasTimerLimit(const SessionModes::Enum& sessionModeValue);
+    Q_INVOKABLE static bool hasImagesLimit(const SessionModes::Enum& sessionModeValue);
 };
 
 #endif // SESSIONMODEREADER_H
