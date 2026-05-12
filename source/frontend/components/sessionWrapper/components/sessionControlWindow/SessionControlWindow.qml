@@ -36,12 +36,10 @@ DefaultWindow {
             timer.startRhythmIntervals(delayImages, imagesCount)
     }
 
-    QtObject {
-        id: rootVariables
-
-        readonly property bool hasTimerLimit: SessionModeReader.hasTimerLimit(root.sessionMode)
-        readonly property bool hasImagesLimit: SessionModeReader.hasImagesLimit(root.sessionMode)
-        property int currentImageIndex: 1
+    SessionControlWindowBackend {
+        id: backend
+        sessionModes: root.sessionMode
+        imagesCount: root.imagesCount
     }
 
     function finishSession() {
@@ -50,24 +48,24 @@ DefaultWindow {
     }
 
     function pauseTimer() {
-        if(rootVariables.hasTimerLimit)
+        if(backend.hasTimerLimit)
             timer.stop()
     }
 
     function playTimer() {
-        if(rootVariables.hasTimerLimit)
+        if(backend.hasTimerLimit)
             timer.play()
     }
 
     function resetTimer() {
-        if(rootVariables.hasTimerLimit)
+        if(backend.hasTimerLimit)
             timer.play(true)
     }
 
     Timer {
         id: timer
         onFinishInterval: {
-            rootVariables.currentImageIndex++
+            backend.currentImageIndex++
             root.finishInterval()
         }
         onFinishAllIntervals: root.finishSession()
@@ -81,7 +79,7 @@ DefaultWindow {
         anchors.fill: parent
 
         ColumnLayout {
-            visible: rootVariables.hasTimerLimit
+            visible: backend.hasTimerLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             MagnitudeDisplay {
                 value: timer.remainingTime
@@ -98,15 +96,15 @@ DefaultWindow {
         }
 
         ColumnLayout {
-            visible: rootVariables.hasImagesLimit
+            visible: backend.hasImagesLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Label {
-                text: qsTr("%1 / %2").arg(rootVariables.currentImageIndex).arg(root.imagesCount)
+                text: qsTr("%1 / %2").arg(backend.currentImageIndex).arg(root.imagesCount)
             }
         }
 
         ColumnLayout {
-            visible: rootVariables.hasTimerLimit
+            visible: backend.hasTimerLimit
             ToggleButton {
                 id: runTimeButton
                 activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
@@ -130,8 +128,8 @@ DefaultWindow {
 
                 onClicked: {
                     root.playTimer()
-                    if(!rootVariables.hasTimerLimit && rootVariables.currentImageIndex > 1)
-                        rootVariables.currentImageIndex--
+                    if(!backend.hasTimerLimit && backend.currentImageIndex > 1)
+                        backend.currentImageIndex--
                     root.preventImageButtonClicked()
                 }
 
@@ -148,10 +146,10 @@ DefaultWindow {
 
                 onClicked: {
                     root.resetTimer()
-                    if(!rootVariables.hasTimerLimit)
-                        rootVariables.currentImageIndex++
+                    if(!backend.hasTimerLimit)
+                        backend.currentImageIndex++
 
-                    if(!rootVariables.hasTimerLimit && rootVariables.currentImageIndex > root.imagesCount)
+                    if(!backend.hasTimerLimit && backend.currentImageIndex > root.imagesCount)
                         finishSession()
                     else
                         root.nextImageButtonClicked()
