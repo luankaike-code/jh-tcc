@@ -19,6 +19,7 @@ DefaultWindow {
 
     required property int delayImages
     required property int imagesCount
+    required property int sessionMode
     readonly property int timerRemainingTime: timer.remainingTime
 
     signal sessionFinished()

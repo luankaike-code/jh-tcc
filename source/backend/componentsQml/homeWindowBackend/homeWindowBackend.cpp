@@ -70,6 +70,7 @@ void HomeWindowBackend::openSessionWindow() {
         item->setProperty("images", QVariant::fromValue(images));
         item->setProperty("delayImages", QVariant::fromValue(m_imageDelay));
         item->setProperty("imagesCount", QVariant::fromValue(m_imageCount));
+        item->setProperty("sessionMode", QVariant::fromValue(m_sessionMode));
 
         component.completeCreate();
         emit sessionStarted();

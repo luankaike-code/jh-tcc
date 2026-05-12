@@ -1,4 +1,5 @@
 import QtQuick
+import flashdraws
 
 import "./components/flashDrawSessionControlWindow"
 import "./components/imagesWindow"
@@ -9,6 +10,7 @@ Item {
     required property var images
     required property int delayImages
     required property int imagesCount
+    required property int sessionMode
 
     signal sessionFinished
 
@@ -80,6 +82,7 @@ Item {
         id: flashDrawSessionControlWindow
         delayImages: root.delayImages
         imagesCount: root.imagesCount
+        sessionMode: root.sessionMode
 
         onFinishInterval: imagesWindow.nextImage()
         onNextImageButtonClicked: imagesWindow.nextImage()
