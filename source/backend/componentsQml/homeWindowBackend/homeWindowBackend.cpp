@@ -113,4 +113,5 @@ void HomeWindowBackend::setImageDelay(int imageDelay) {
 
 void HomeWindowBackend::setSessionMode(SessionModes::Enum sessionMode) {
     m_sessionMode = sessionMode;
+    sessionModeChanged();
 }
