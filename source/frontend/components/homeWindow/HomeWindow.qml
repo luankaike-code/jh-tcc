@@ -58,9 +58,12 @@ DefaultWindow {
     ColumnLayout {
         anchors.fill: parent
 
-        RowLayout {}
+        RowLayout {
+            Layout.minimumHeight: 45
+        }
 
         RowLayout {
+            Layout.minimumHeight: 45
             Layout.alignment: Qt.AlignHCenter
 
             Label {
@@ -70,83 +73,90 @@ DefaultWindow {
             }
         }
 
-        RowLayout {}
-        RowLayout {}
-
-
         RowLayout {
-            Layout.alignment: Qt.AlignHCenter
-
-            Input {
-                id: dirPathInput
-
-                Layout.preferredWidth: rootVariables.mainControlSize
-                placeholderText: "Caminho para o repositorio de referência"
-            }
+            Layout.minimumHeight: 45
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
-
-            GridLayout {
-                columns: 3
-
-                InputNumber {
-                    id: countRefInput
-
-                    visible: {
-                        return SessionModeReader.hasImagesLimit(backend.sessionMode)
-                    }
-
-                    Layout.alignment: Qt.AlignRight
-                    Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                    placeholderText: "qnt de refs"
-                }
-
-                InputNumber {
-                    id: drawTimeInput
-
-                    visible: {
-                        return SessionModeReader.hasTimerLimit(backend.sessionMode)
-                    }
-
-                    Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                    placeholderText: "tempo em segundos"
-                }
-            }
-        }
-
-        RowLayout {}
-
-        RowLayout {
-            Layout.alignment: Qt.AlignHCenter
+            Layout.minimumHeight: 45
 
             ColumnLayout {
+                Layout.alignment: Qt.AlignHCenter
                 RowLayout {
                     Layout.alignment: Qt.AlignHCenter
+                    Layout.minimumHeight: 45
 
-                    Label {
-                        text: "Modo da Sessão"
+                    Input {
+                        id: dirPathInput
+
+                        Layout.preferredWidth: rootVariables.mainControlSize
+                        placeholderText: "Caminho para o repositorio de referência"
                     }
                 }
 
                 RowLayout {
                     Layout.alignment: Qt.AlignHCenter
 
-                    ComboBox {
-                        id: comboBoxSessionModes
-                        model: [
-                            { value: SessionModes.Normal, text: qsTr("Normal") },
-                            { value: SessionModes.Classroom, text: qsTr("Aula") },
-                            { value: SessionModes.InfinityTime, text: qsTr("Tempo Infinito") },
-                            { value: SessionModes.InfinityImages, text: qsTr("Referências Infinitas") },
-                            { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
-                        ]
+                    GridLayout {
+                        columns: 3
 
-                        Layout.preferredWidth: rootVariables.secondControlSize
+                        InputNumber {
+                            id: countRefInput
 
-                        textRole: "text"
-                        valueRole: "value"
+                            visible: {
+                                return SessionModeReader.hasImagesLimit(backend.sessionMode)
+                            }
+
+                            Layout.alignment: Qt.AlignRight
+                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
+                            placeholderText: "qnt de refs"
+                        }
+
+                        InputNumber {
+                            id: drawTimeInput
+
+                            visible: {
+                                return SessionModeReader.hasTimerLimit(backend.sessionMode)
+                            }
+
+                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
+                            placeholderText: "tempo em segundos"
+                        }
+                    }
+                }
+
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
+
+                    ColumnLayout {
+                        RowLayout {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            Label {
+                                text: "Modo da Sessão"
+                            }
+                        }
+
+                        RowLayout {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            ComboBox {
+                                id: comboBoxSessionModes
+                                model: [
+                                    { value: SessionModes.Normal, text: qsTr("Normal") },
+                                    { value: SessionModes.Classroom, text: qsTr("Aula") },
+                                    { value: SessionModes.InfinityTime, text: qsTr("Tempo Infinito") },
+                                    { value: SessionModes.InfinityImages, text: qsTr("Referências Infinitas") },
+                                    { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
+                                ]
+
+                                Layout.preferredWidth: rootVariables.secondControlSize
+
+                                textRole: "text"
+                                valueRole: "value"
+                            }
+                        }
                     }
                 }
             }
@@ -154,6 +164,7 @@ DefaultWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
+            Layout.minimumHeight: 45
 
             Label {
                 id: errorFeedback
@@ -163,11 +174,13 @@ DefaultWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
-            visible: {
-                return backend.sessionMode === SessionModes.Normal
-            }
+            Layout.minimumHeight: 20
 
             MagnitudeDisplay {
+                visible: {
+                    return backend.sessionMode === SessionModes.Normal
+                }
+
                 value: {
                     let time = parseInt(drawTimeInput.text) || -1
                     let count = parseInt(countRefInput.text) || -1
@@ -198,6 +211,7 @@ DefaultWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
+            Layout.minimumHeight: 45
 
             Button {
                 width: 200
@@ -211,6 +225,8 @@ DefaultWindow {
             }
         }
 
-        RowLayout {}
+        RowLayout {
+            Layout.minimumHeight: 45
+        }
     }
 }
