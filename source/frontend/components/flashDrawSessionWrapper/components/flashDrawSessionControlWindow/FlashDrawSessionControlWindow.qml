@@ -32,7 +32,16 @@ DefaultWindow {
         x = Screen.width/2-width/2
         y = Screen.height-height-40
 
-        timer.startRhythmIntervals(delayImages, imagesCount)
+        if(SessionModeReader.hasTimerLimit(root.sessionMode))
+            timer.startRhythmIntervals(delayImages, imagesCount)
+    }
+
+    QtObject {
+        id: rootVariables
+
+        readonly property bool hasTimerLimit: SessionModeReader.hasTimerLimit(root.sessionMode)
+        readonly property bool hasImagesLimit: SessionModeReader.hasImagesLimit(root.sessionMode)
+        property int currentImageIndex: 1
     }
 
     function finishSession() {
@@ -50,7 +59,10 @@ DefaultWindow {
 
     Timer {
         id: timer
-        onFinishInterval: root.finishInterval()
+        onFinishInterval: {
+            rootVariables.currentImageIndex++
+            root.finishInterval()
+        }
         onFinishAllIntervals: root.finishSession()
 
         onIsRunningChanged: {
@@ -62,6 +74,7 @@ DefaultWindow {
         anchors.fill: parent
 
         ColumnLayout {
+            visible: rootVariables.hasTimerLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             MagnitudeDisplay {
                 value: timer.remainingTime
@@ -78,13 +91,15 @@ DefaultWindow {
         }
 
         ColumnLayout {
+            visible: rootVariables.hasImagesLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Label {
-                text: qsTr("%1 / %2").arg(timer.currentInterval).arg(timer.intervalCount)
+                text: qsTr("%1 / %2").arg(rootVariables.currentImageIndex).arg(root.imagesCount)
             }
         }
 
         ColumnLayout {
+            visible: rootVariables.hasTimerLimit
             ToggleButton {
                 id: runTimeButton
                 activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
