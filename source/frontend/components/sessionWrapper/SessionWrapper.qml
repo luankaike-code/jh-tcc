@@ -41,6 +41,9 @@ Item {
     }
 
     function updateImageOpacity() {
+        if(!SessionModeReader.hasTimerLimit(sessionMode))
+            return;
+
         const remainingTime = sessionControlWindow.timerRemainingTime
         const delayImages = sessionControlWindow.delayImages
         const transitionFactor = 0.30
