@@ -17,6 +17,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationBackend.cpp
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
+    source/backend/helpers/sessionModeReader.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -36,6 +37,8 @@ qt_add_qml_module(appflashdraws
         source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.h source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
 
         source/backend/enums/sessionModes.h
+
+        source/backend/helpers/sessionModeReader.h source/backend/helpers/sessionModeReader.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -86,6 +89,7 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/applicationBackend/
     source/backend/componentsQml/imagesWindowBackend/
     source/backend/enums/
+    source/backend/helpers/
 )
 
 target_link_libraries(appflashdraws
