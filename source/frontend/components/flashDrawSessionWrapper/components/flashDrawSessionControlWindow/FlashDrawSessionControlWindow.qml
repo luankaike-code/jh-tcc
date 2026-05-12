@@ -130,6 +130,8 @@ DefaultWindow {
 
                 onClicked: {
                     root.playTimer()
+                    if(!rootVariables.hasTimerLimit && rootVariables.currentImageIndex > 1)
+                        rootVariables.currentImageIndex--
                     root.preventImageButtonClicked()
                 }
 
@@ -146,6 +148,10 @@ DefaultWindow {
 
                 onClicked: {
                     root.resetTimer()
+
+                    if(!rootVariables.hasTimerLimit)
+                        rootVariables.currentImageIndex++
+
                     root.nextImageButtonClicked()
                 }
 
