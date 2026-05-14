@@ -19,6 +19,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
     source/backend/helpers/sessionModeReader.cpp
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
+    source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -40,6 +41,12 @@ qt_add_qml_module(appflashdraws
         source/backend/enums/sessionModes.h
 
         source/backend/helpers/sessionModeReader.h source/backend/helpers/sessionModeReader.cpp
+
+        source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.h source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml

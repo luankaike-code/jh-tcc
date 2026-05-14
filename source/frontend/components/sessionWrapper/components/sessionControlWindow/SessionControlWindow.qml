@@ -20,7 +20,7 @@ DefaultWindow {
     required property int delayImages
     required property int imagesCount
     required property int sessionMode
-    readonly property int timerRemainingTime: timer.remainingTime
+    readonly property int timerRemainingTime: backend.remainingTime
 
     signal sessionFinished()
     signal finishInterval()
@@ -31,15 +31,17 @@ DefaultWindow {
     Component.onCompleted: {
         x = Screen.width/2-width/2
         y = Screen.height-height-40
-
-        if(SessionModeReader.hasTimerLimit(root.sessionMode))
-            timer.startRhythmIntervals(delayImages, imagesCount)
     }
 
     SessionControlWindowBackend {
         id: backend
         sessionModes: root.sessionMode
         imagesCount: root.imagesCount
+        delayImage: root.delayImages
+
+        onGoToNextImage: root.nextImageButtonClicked()
+        onGoToPreventImage: root.preventImageButtonClicked()
+        onSessionFinish: root.finishSession()
     }
 
     function finishSession() {
@@ -48,31 +50,15 @@ DefaultWindow {
     }
 
     function pauseTimer() {
-        if(backend.hasTimerLimit)
-            timer.stop()
+        backend.pauseTimer()
     }
 
     function playTimer() {
-        if(backend.hasTimerLimit)
-            timer.play()
+        backend.playTimer()
     }
 
     function resetTimer() {
-        if(backend.hasTimerLimit)
-            timer.play(true)
-    }
-
-    Timer {
-        id: timer
-        onFinishInterval: {
-            backend.currentImageIndex++
-            root.finishInterval()
-        }
-        onFinishAllIntervals: root.finishSession()
-
-        onIsRunningChanged: {
-            runTimeButton.checked = timer.isRunning
-        }
+        backend.resetTimer();
     }
 
     RowLayout {
@@ -82,7 +68,7 @@ DefaultWindow {
             visible: backend.hasTimerLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             MagnitudeDisplay {
-                value: timer.remainingTime
+                value: backend.remainingTime
                 font.pixelSize: 22
                 font.bold: true
 
@@ -99,7 +85,7 @@ DefaultWindow {
             visible: backend.hasImagesLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Label {
-                text: qsTr("%1 / %2").arg(backend.currentImageIndex).arg(root.imagesCount)
+                text: qsTr("%1 / %2").arg(backend.currentImageIndex).arg(backend.imagesCount)
             }
         }
 
@@ -110,7 +96,7 @@ DefaultWindow {
                 activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
                 desactivedSource: "qrc:/qt/qml/flashdraws/assets/play.svg"
 
-                checked: timer.isRunning
+                checked: backend.timerIsRunnig
 
                 onCheckedUpdate: {
                     checked? playTimer() : pauseTimer()
@@ -126,12 +112,7 @@ DefaultWindow {
             ImageButton {
                 source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
 
-                onClicked: {
-                    root.playTimer()
-                    if(!backend.hasTimerLimit && backend.currentImageIndex > 1)
-                        backend.currentImageIndex--
-                    root.preventImageButtonClicked()
-                }
+                onClicked: backend.preventButtonPressed()
 
                 mirror: true
                 height: 40
@@ -144,16 +125,7 @@ DefaultWindow {
             ImageButton {
                 source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
 
-                onClicked: {
-                    root.resetTimer()
-                    if(!backend.hasTimerLimit)
-                        backend.currentImageIndex++
-
-                    if(!backend.hasTimerLimit && backend.currentImageIndex > root.imagesCount)
-                        finishSession()
-                    else
-                        root.nextImageButtonClicked()
-                }
+                onClicked: backend.nextButtonPressed()
 
                 height: 40
                 width: 40

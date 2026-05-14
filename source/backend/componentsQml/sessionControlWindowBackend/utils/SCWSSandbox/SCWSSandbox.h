@@ -1,0 +1,16 @@
+#ifndef SCWSSANDBOX_H
+#define SCWSSANDBOX_H
+
+#include "../sessionControlWindowState/sessionControlWindowState.h"
+
+class SCWSSandbox : public SessionControlWindowState {
+public:
+    SCWSSandbox();
+
+    void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
+    void preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
+    bool isSessionFinished(const int& currentImageIndex, const int& countImage) override;
+    void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
+};
+
+#endif // SCWSSANDBOX_H
