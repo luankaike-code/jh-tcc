@@ -12,8 +12,6 @@ class Timer : public QObject
     QML_ELEMENT
 
     Q_PROPERTY(const int remainingTime READ getRemainingTime NOTIFY timeElapsed)
-    Q_PROPERTY(const int intervalCount READ getIntervalCount NOTIFY intervalCountChanged)
-    Q_PROPERTY(const int currentInterval READ getCurrentInterval NOTIFY currentIntervalChanged)
     Q_PROPERTY(const bool isRunning READ getIsRunning NOTIFY isRunningChanged)
 
     QTimer qTimer;
@@ -26,29 +24,19 @@ class Timer : public QObject
     int intervalDelay;
 
     int m_remainingTime;
-    int m_intervalCount;
-    int m_currentInterval;
 public:
     explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
 
-    void setIntervalCount(int value);
-    void setCurrentInterval(int value);
-
     const int getRemainingTime();
-    const int getIntervalCount();
-    const int getCurrentInterval();
     const bool getIsRunning();
 
-    Q_INVOKABLE void startRhythmIntervals(const int& delay, const int& count);
+    Q_INVOKABLE void startInfinityIntervals(const int& delay);
     Q_INVOKABLE void play(bool resetTimer=false);
     Q_INVOKABLE void stop();
 signals:
     void finishInterval();
-    void finishAllIntervals();
 
     void timeElapsed();
-    void intervalCountChanged();
-    void currentIntervalChanged();
     void isRunningChanged();
 };
 

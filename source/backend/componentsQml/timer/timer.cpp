@@ -29,17 +29,6 @@ void Timer::stop() {
 }
 
 void Timer::intervalTimeout() {
-    setCurrentInterval(m_currentInterval+1);
-
-    bool is_finished_all_intervals = (m_currentInterval > m_intervalCount);
-
-    if(is_finished_all_intervals){
-        stop();
-        emitTimeElapsed(0);
-        emit finishAllIntervals();
-        return;
-    }
-
     if(qTimer.interval() != intervalDelay)
         qTimer.start(intervalDelay);
 
@@ -47,35 +36,13 @@ void Timer::intervalTimeout() {
     emit finishInterval();
 }
 
-void Timer::startRhythmIntervals(const int& delay, const int& count) {
+void Timer::startInfinityIntervals(const int& delay) {
     stop();
-
-    setCurrentInterval(1);
-    setIntervalCount(count);
     intervalDelay = delay;
 
     qTimer.setInterval(intervalDelay);
 
     play(true);
-}
-
-void Timer::setIntervalCount(int value) {
-    m_intervalCount = value;
-    emit intervalCountChanged();
-}
-
-void Timer::setCurrentInterval(int value) {
-    m_currentInterval = value;
-    emit currentIntervalChanged();
-}
-
-
-const int Timer::getIntervalCount() {
-    return m_intervalCount;
-}
-
-const int Timer::getCurrentInterval() {
-    return m_currentInterval;
 }
 
 const int Timer::getRemainingTime() {

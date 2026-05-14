@@ -67,8 +67,8 @@ SessionModes::Enum SessionControlWindowBackend::getSessionModes() const {
 }
 
 void SessionControlWindowBackend::startTimer() {
-    if(m_imagesDelay > 0 && m_imagesCount > 0)
-        timer.startRhythmIntervals(m_imagesDelay, m_imagesCount-m_currentImageIndex+2);
+    if(m_imagesDelay > 0)
+        timer.startInfinityIntervals(m_imagesDelay);
 }
 
 bool SessionControlWindowBackend::getHasTimerLimit() const {
