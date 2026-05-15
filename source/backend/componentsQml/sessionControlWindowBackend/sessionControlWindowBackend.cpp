@@ -5,6 +5,7 @@
 #include "utils/SCWSInfinityTime/SCWSInfinityTime.h"
 #include "utils/SCWSNormal/SCWSNormal.h"
 #include "utils/SCWSSandbox/SCWSSandbox.h"
+#include "utils/SCWSClassroom/SCWSClassroom.h"
 #include <iostream>
 
 SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
@@ -114,7 +115,7 @@ void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionMode
     currentState = nullptr;
     switch (sessionModes) {
         case SessionModes::Enum::Classroom:
-            currentState = new SCWSNormal(this);
+            currentState = new SCWSClassroom(this);
             break;
         case SessionModes::Enum::InfinityImages:
             currentState = new SCWSInfinityImages(this);

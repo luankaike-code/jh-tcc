@@ -20,6 +20,9 @@ qt_add_executable(appflashdraws
     source/backend/helpers/sessionModeReader/sessionModeReader.cpp
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
     source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
+    source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
+    source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
+    source/backend/helpers/timeConvertion/timeConvertion.cpp
 )
 
 qt_add_qml_module(appflashdraws
@@ -47,6 +50,11 @@ qt_add_qml_module(appflashdraws
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.cpp
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.cpp
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSClassroom/SCWSClassroom.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSClassroom/SCWSClassroom.cpp
+
+        source/backend/helpers/classroomSessionHelper/classroomSessionHelper.h source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
+        source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
+        source/backend/helpers/timeConvertion/timeConvertion.h source/backend/helpers/timeConvertion/timeConvertion.cpp
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
@@ -98,7 +106,10 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/componentsQml/imagesWindowBackend/
     source/backend/enums/
     source/backend/helpers/sessionModeReader/
+    source/backend/helpers/classroomSessionHelper/
     source/backend/componentsQml/sessionControlWindowBackend/
+    source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/
+    source/backend/helpers/timeConvertion/
 )
 
 target_link_libraries(appflashdraws
