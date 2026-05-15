@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include "../applicationBackend/applicationBackend.hpp"
 #include "../utils/filesGrabber/filesGrabber.h"
-#include "../../helpers/sessionModeReader.h"
+#include "../../helpers/sessionModeReader/sessionModeReader.h"
 
 namespace fs = std::filesystem;
 

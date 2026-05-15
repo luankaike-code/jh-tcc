@@ -17,7 +17,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationBackend.cpp
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
-    source/backend/helpers/sessionModeReader.cpp
+    source/backend/helpers/sessionModeReader/sessionModeReader.cpp
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
     source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
 )
@@ -40,7 +40,7 @@ qt_add_qml_module(appflashdraws
 
         source/backend/enums/sessionModes.h
 
-        source/backend/helpers/sessionModeReader.h source/backend/helpers/sessionModeReader.cpp
+        source/backend/helpers/sessionModeReader/sessionModeReader.h source/backend/helpers/sessionModeReader/sessionModeReader.cpp
 
         source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.h source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.cpp
@@ -97,7 +97,7 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/applicationBackend/
     source/backend/componentsQml/imagesWindowBackend/
     source/backend/enums/
-    source/backend/helpers/
+    source/backend/helpers/sessionModeReader/
     source/backend/componentsQml/sessionControlWindowBackend/
 )
 

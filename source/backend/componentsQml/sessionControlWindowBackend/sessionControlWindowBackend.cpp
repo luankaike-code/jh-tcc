@@ -1,5 +1,5 @@
 #include "sessionControlWindowBackend.h"
-#include "../../helpers/sessionModeReader.h"
+#include "../../helpers/sessionModeReader/sessionModeReader.h"
 
 #include "utils/SCWSInfinityImages/SCWSInfinityImages.h"
 #include "utils/SCWSInfinityTime/SCWSInfinityTime.h"
