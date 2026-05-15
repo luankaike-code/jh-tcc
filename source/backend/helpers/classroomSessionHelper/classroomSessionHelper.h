@@ -5,6 +5,8 @@
 #include "./utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h"
 
 class ClassroomSessionHelper {
+protected:
+    static ClassroomSessionRoadmapStep roadMapData[19];
 public:
     ClassroomSessionHelper();
 
