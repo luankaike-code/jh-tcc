@@ -20,6 +20,7 @@ DefaultWindow {
     required property int delayImages
     required property int imagesCount
     required property int sessionMode
+    required property int roadmapDuration
     readonly property int timerRemainingTime: backend.remainingTime
 
     signal sessionFinished()
@@ -37,6 +38,7 @@ DefaultWindow {
         id: backend
         sessionModes: root.sessionMode
         imagesCount: root.imagesCount
+        roadmapDuration: root.roadmapDuration
         delayImage: root.delayImages
 
         onGoToNextImage: root.nextImageButtonClicked()
@@ -60,6 +62,7 @@ DefaultWindow {
     function resetTimer() {
         backend.resetTimer();
     }
+
 
     RowLayout {
         anchors.fill: parent

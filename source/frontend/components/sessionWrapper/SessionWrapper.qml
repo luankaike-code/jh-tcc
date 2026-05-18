@@ -11,6 +11,7 @@ Item {
     required property int delayImages
     required property int imagesCount
     required property int sessionMode
+    required property int roadmapDuration
 
     signal sessionFinished
 
@@ -86,6 +87,7 @@ Item {
         delayImages: root.delayImages
         imagesCount: root.imagesCount
         sessionMode: root.sessionMode
+        roadmapDuration: root.roadmapDuration
 
         onFinishInterval: imagesWindow.nextImage()
         onNextImageButtonClicked: imagesWindow.nextImage()
