@@ -107,6 +107,9 @@ int SessionControlWindowBackend::getCurrentImageIndex() const {
 }
 
 void SessionControlWindowBackend::setDelayImage(int delayImage) {
+    if(m_imagesDelay == delayImage)
+        return;
+
     m_imagesDelay = delayImage;
     delayImageChanged();
 }
@@ -153,6 +156,9 @@ void SessionControlWindowBackend::setHasImagesLimit(bool hasImagesLimit) {
 }
 
 void SessionControlWindowBackend::setImagesCount(int imagesCount) {
+    if(m_imagesCount == imagesCount)
+        return;
+
     m_imagesCount = imagesCount;
     imagesCountChanged();
 }
