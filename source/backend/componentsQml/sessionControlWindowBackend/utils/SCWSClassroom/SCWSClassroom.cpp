@@ -1,14 +1,14 @@
 #include "SCWSClassroom.h"
 
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
-#include "../../helpers/classroomSessionHelper/classroomSessionHelper.h"
 #include "../../helpers/timeConvertion/timeConvertion.h"
 #include <iostream>
 
-SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend) {
+SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
+    currrentRoadMapStepIndex(0), currentStepRepetionIndex(0), roadmap(ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450)))
+{
     sessionControlWindowBackend->startTimer();
-    std::vector<ClassroomSessionRoadmapStep> oi = ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450));
-    for(ClassroomSessionRoadmapStep& o : oi) {
+    for(ClassroomSessionRoadmapStep& o : roadmap) {
         int time = TimeConvertion::milisecondsToMinutes(o.durationMiliseconds);
         std::cout << time << " minutes x " << o.repetions << ". is pause: " << o.isRestStep << std::endl;
     }

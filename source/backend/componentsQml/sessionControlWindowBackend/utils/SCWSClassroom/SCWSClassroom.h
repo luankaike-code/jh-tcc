@@ -2,8 +2,12 @@
 #define SCWSCLASSROOM_H
 
 #include "../sessionControlWindowState/sessionControlWindowState.h"
+#include "../../helpers/classroomSessionHelper/classroomSessionHelper.h"
 
 class SCWSClassroom : public SessionControlWindowState {
+    std::vector<ClassroomSessionRoadmapStep> roadmap;
+    int currrentRoadMapStepIndex;
+    int currentStepRepetionIndex;
 public:
     SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
