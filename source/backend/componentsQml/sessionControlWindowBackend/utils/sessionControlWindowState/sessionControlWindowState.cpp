@@ -9,12 +9,20 @@ bool SessionControlWindowState::isSessionFinished(const int& currentImageIndex, 
     return currentImageIndex > countImage;
 }
 
+void SessionControlWindowState::timerUpdated(SessionControlWindowBackend* sessionControlWindowBackend) {}
+
+void SessionControlWindowState::makeConnectionToAutoUpdateTimer(SessionControlWindowBackend* sessionControlWindowBackend) {
+    connect(sessionControlWindowBackend, &SessionControlWindowBackend::delayImageChanged, this, [this, sessionControlWindowBackend](){
+        sessionControlWindowBackend->startTimer();
+        this->timerUpdated(sessionControlWindowBackend);
+    });
+}
+
 void SessionControlWindowState::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     std::cout << "teste" << std::endl;
     sessionControlWindowBackend->resetTimer();
     sessionControlWindowBackend->goToNextImage();
 }
-
 
 void SessionControlWindowState::preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->resetTimer();
