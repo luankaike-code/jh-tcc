@@ -51,16 +51,22 @@ void SessionControlWindowBackend::preventButtonPressed() {
 void SessionControlWindowBackend::pauseTimer() {
     if(m_hasTimerLimit)
         timer.stop();
+    else
+        std::cerr << "SessionControlWindowBackend::pauseTimer: It session not should manipulate timer" << std::endl;
 }
 
 void SessionControlWindowBackend::playTimer() {
     if(m_hasTimerLimit)
         timer.play();
+    else
+        std::cerr << "SessionControlWindowBackend::playTimer: It session not should manipulate timer" << std::endl;
 }
 
 void SessionControlWindowBackend::resetTimer() {
     if(m_hasTimerLimit)
         timer.play(true);
+    else
+        std::cerr << "SessionControlWindowBackend::resetTimer: It session not should manipulate timer" << std::endl;
 }
 
 SessionModes::Enum SessionControlWindowBackend::getSessionModes() const {
