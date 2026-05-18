@@ -2,7 +2,7 @@
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
 #include <iostream>
 
-SCWSInfinityTime::SCWSInfinityTime() {}
+SCWSInfinityTime::SCWSInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {}
 
 void SCWSInfinityTime::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);

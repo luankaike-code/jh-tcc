@@ -2,6 +2,6 @@
 
 #include "../../sessionControlWindowBackend.h"
 
-SCWSNormal::SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend) {
+SCWSNormal::SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {
     sessionControlWindowBackend->startTimer();
 }

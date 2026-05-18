@@ -5,6 +5,7 @@
 #include <iostream>
 
 SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
+    SessionControlWindowState(sessionControlWindowBackend),
     currrentRoadMapStepIndex(0), currentStepRepetionIndex(0), roadmap(ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450)))
 {
     sessionControlWindowBackend->startTimer();

@@ -5,7 +5,7 @@
 
 class SCWSSandbox : public SessionControlWindowState {
 public:
-    SCWSSandbox();
+    SCWSSandbox(SessionControlWindowBackend* sessionControlWindowBackend);
 
     void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;

@@ -3,7 +3,7 @@
 #include "../../sessionControlWindowBackend.h"
 #include <iostream>
 
-SCWSSandbox::SCWSSandbox() {}
+SCWSSandbox::SCWSSandbox(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {}
 
 void SCWSSandbox::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);

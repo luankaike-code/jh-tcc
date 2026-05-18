@@ -124,10 +124,10 @@ void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionMode
             currentState = new SCWSNormal(this);
             break;
         case SessionModes::Enum::InfinityTime:
-            currentState = new SCWSInfinityTime();
+            currentState = new SCWSInfinityTime(this);
             break;
         case SessionModes::Enum::Sandbox:
-            currentState = new SCWSSandbox();
+            currentState = new SCWSSandbox(this);
             break;
         default:
             std::cerr << sessionModes << " isnt a valid SessionModes::Enum" << std::endl;

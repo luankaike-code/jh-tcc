@@ -2,7 +2,7 @@
 
 #include "../../sessionControlWindowBackend.h"
 
-SCWSInfinityImages::SCWSInfinityImages(SessionControlWindowBackend* sessionControlWindowBackend) {
+SCWSInfinityImages::SCWSInfinityImages(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {
     sessionControlWindowBackend->startTimer();
 }
 

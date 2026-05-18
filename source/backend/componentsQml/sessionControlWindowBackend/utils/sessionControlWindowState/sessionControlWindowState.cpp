@@ -3,7 +3,7 @@
 #include "../../sessionControlWindowBackend.h"
 #include <iostream>
 
-SessionControlWindowState::SessionControlWindowState() {}
+SessionControlWindowState::SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend) : QObject{sessionControlWindowBackend} {}
 
 bool SessionControlWindowState::isSessionFinished(const int& currentImageIndex, const int& countImage) {
     return currentImageIndex > countImage;

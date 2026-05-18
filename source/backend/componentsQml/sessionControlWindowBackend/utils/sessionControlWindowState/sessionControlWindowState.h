@@ -1,11 +1,14 @@
 #ifndef SESSIONCONTROLWINDOWSTATE_H
 #define SESSIONCONTROLWINDOWSTATE_H
 
+#include <QObject>
+
 class SessionControlWindowBackend;
 
-class SessionControlWindowState {
+class SessionControlWindowState : public QObject {
+    Q_OBJECT
 public:
-    SessionControlWindowState();
+    SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend = nullptr);
     virtual ~SessionControlWindowState() = default;
 
     virtual void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend);
