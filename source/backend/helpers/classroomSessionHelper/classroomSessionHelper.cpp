@@ -1,6 +1,7 @@
 #include "classroomSessionHelper.h"
 
 #include "../timeConvertion/timeConvertion.h"
+#include <iostream>
 
 ClassroomSessionRoadmapStep ClassroomSessionHelper::roadMapData[19] = {
     ClassroomSessionRoadmapStep(TimeConvertion::minutesToMiliseconds(0.5), 10, false),
@@ -25,6 +26,13 @@ ClassroomSessionRoadmapStep ClassroomSessionHelper::roadMapData[19] = {
 };
 
 ClassroomSessionHelper::ClassroomSessionHelper() {}
+
+void ClassroomSessionHelper::printRoadmap(const std::vector<ClassroomSessionRoadmapStep>& roadmap) {
+    for(const ClassroomSessionRoadmapStep& o : roadmap) {
+        int time = TimeConvertion::milisecondsToMinutes(o.durationMiliseconds);
+        std::cout << time << " minutes x " << o.repetions << ". is pause: " << o.isRestStep << std::endl;
+    }
+}
 
 std::vector<ClassroomSessionRoadmapStep> ClassroomSessionHelper::createSessionRoadmap(const int& durationMiliseconds) {
     std::vector<ClassroomSessionRoadmapStep> sessionRoadmap;

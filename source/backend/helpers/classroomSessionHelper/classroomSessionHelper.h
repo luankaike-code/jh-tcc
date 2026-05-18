@@ -10,6 +10,7 @@ protected:
 public:
     ClassroomSessionHelper();
 
+    static void printRoadmap(const std::vector<ClassroomSessionRoadmapStep>& roadmap);
     static std::vector<ClassroomSessionRoadmapStep> createSessionRoadmap(const int& durationMiliseconds);
 };
 
