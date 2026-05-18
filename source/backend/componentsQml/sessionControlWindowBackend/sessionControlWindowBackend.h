@@ -19,6 +19,7 @@ class SessionControlWindowBackend : public QObject {
 
     Q_PROPERTY(int delayImage READ getDelayImage WRITE setDelayImage NOTIFY delayImageChanged REQUIRED)
     Q_PROPERTY(int imagesCount READ getImagesCount WRITE setImagesCount NOTIFY imagesCountChanged REQUIRED)
+    Q_PROPERTY(int roadmapDuration READ getRoadmapDuration WRITE setRoadmapDuration NOTIFY roadmapDurationChanged REQUIRED)
     Q_PROPERTY(int currentImageIndex READ getCurrentImageIndex WRITE setCurrentImageIndex NOTIFY currentImageIndexChanged)
     Q_PROPERTY(int remainingTime READ getRemainingTime NOTIFY remainingTimeChanged)
 
@@ -30,6 +31,7 @@ class SessionControlWindowBackend : public QObject {
     bool m_hasRoadmap;
     int m_imagesDelay;
     int m_imagesCount;
+    int m_roadmapDuration;
     int m_currentImageIndex;
 
 public:
@@ -54,6 +56,7 @@ public:
     int getImagesCount() const;
     int getCurrentImageIndex() const;
     int getRemainingTime();
+    int getRoadmapDuration() const;
 
     void setDelayImage(int delayImage);
     void setSessionModes(SessionModes::Enum sessionModes);
@@ -62,6 +65,7 @@ public:
     void setHasRoadmap(bool hasRoadmap);
     void setImagesCount(int ImagesCount);
     void setCurrentImageIndex(int currentImageIndex);
+    void setRoadmapDuration(int roadmapDuration);
 
 signals:
     void goToNextImage();
@@ -76,6 +80,7 @@ signals:
     void imagesCountChanged();
     void currentImageIndexChanged();
     void remainingTimeChanged();
+    void roadmapDurationChanged();
     void delayImageChanged();
     void timerIsRunnigChanged();
 };

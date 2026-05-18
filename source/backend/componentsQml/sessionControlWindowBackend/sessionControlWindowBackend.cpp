@@ -110,6 +110,10 @@ int SessionControlWindowBackend::getCurrentImageIndex() const {
     return m_currentImageIndex;
 }
 
+int SessionControlWindowBackend::getRoadmapDuration() const {
+    return m_roadmapDuration;
+}
+
 void SessionControlWindowBackend::setDelayImage(int delayImage) {
     if(m_imagesDelay == delayImage)
         return;
@@ -153,6 +157,11 @@ void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionMode
 void SessionControlWindowBackend::setHasTimerLimit(bool hasTimerLimit) {
     m_hasTimerLimit = hasTimerLimit;
     hasTimerLimitChanged();
+}
+
+void SessionControlWindowBackend::setRoadmapDuration(int roadmapDuration) {
+    m_roadmapDuration = roadmapDuration;
+    roadmapDurationChanged();
 }
 
 void SessionControlWindowBackend::setHasImagesLimit(bool hasImagesLimit) {
