@@ -14,6 +14,7 @@ public:
 
     Q_INVOKABLE static bool hasTimerLimit(const SessionModes::Enum& sessionModeValue);
     Q_INVOKABLE static bool hasImagesLimit(const SessionModes::Enum& sessionModeValue);
+    Q_INVOKABLE static bool hasRoadmap(const SessionModes::Enum& sessionModeValue);
 };
 
 #endif // SESSIONMODEREADER_H
