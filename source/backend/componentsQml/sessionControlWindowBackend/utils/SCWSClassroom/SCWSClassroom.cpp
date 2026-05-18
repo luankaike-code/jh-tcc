@@ -8,7 +8,7 @@ SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBa
     SessionControlWindowState(sessionControlWindowBackend),
     currrentRoadMapStepIndex(0), currentStepRepetionIndex(0), roadmap(ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450)))
 {
-    sessionControlWindowBackend->startTimer();
+    makeConnectionToAutoUpdateTimer(sessionControlWindowBackend);
     for(ClassroomSessionRoadmapStep& o : roadmap) {
         int time = TimeConvertion::milisecondsToMinutes(o.durationMiliseconds);
         std::cout << time << " minutes x " << o.repetions << ". is pause: " << o.isRestStep << std::endl;

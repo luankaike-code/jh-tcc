@@ -3,7 +3,7 @@
 #include "../../sessionControlWindowBackend.h"
 
 SCWSInfinityImages::SCWSInfinityImages(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {
-    sessionControlWindowBackend->startTimer();
+    makeConnectionToAutoUpdateTimer(sessionControlWindowBackend);
 }
 
 bool SCWSInfinityImages::isSessionFinished(const int& currentImageIndex, const int& countImage) {
