@@ -86,6 +86,10 @@ bool SessionControlWindowBackend::getHasImagesLimit() const {
     return m_hasImagesLimit;
 }
 
+bool SessionControlWindowBackend::getHasRoadmap() const {
+    return m_hasRoadmap;
+}
+
 const bool SessionControlWindowBackend::getTimerIsRunnig() {
     return timer.getIsRunning();
 }
@@ -117,6 +121,7 @@ void SessionControlWindowBackend::setDelayImage(int delayImage) {
 void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionModes) {
     setHasTimerLimit(SessionModeReader::hasTimerLimit(sessionModes));
     setHasImagesLimit(SessionModeReader::hasImagesLimit(sessionModes));
+    setHasRoadmap(SessionModeReader::hasRoadmap(sessionModes));
 
     delete currentState;
     currentState = nullptr;
@@ -153,6 +158,11 @@ void SessionControlWindowBackend::setHasTimerLimit(bool hasTimerLimit) {
 void SessionControlWindowBackend::setHasImagesLimit(bool hasImagesLimit) {
     m_hasImagesLimit = hasImagesLimit;
     hasImagesLimitChanged();
+}
+
+void SessionControlWindowBackend::setHasRoadmap(bool hasRoadmap) {
+    m_hasRoadmap = hasRoadmap;
+    hasRoadmapChanged();
 }
 
 void SessionControlWindowBackend::setImagesCount(int imagesCount) {
