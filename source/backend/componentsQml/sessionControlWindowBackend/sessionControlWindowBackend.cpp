@@ -109,8 +109,6 @@ int SessionControlWindowBackend::getCurrentImageIndex() const {
 void SessionControlWindowBackend::setDelayImage(int delayImage) {
     m_imagesDelay = delayImage;
     delayImageChanged();
-    if(m_hasTimerLimit)
-        startTimer();
 }
 
 void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionModes) {
@@ -157,8 +155,6 @@ void SessionControlWindowBackend::setHasImagesLimit(bool hasImagesLimit) {
 void SessionControlWindowBackend::setImagesCount(int imagesCount) {
     m_imagesCount = imagesCount;
     imagesCountChanged();
-    if(m_hasTimerLimit)
-        startTimer();
 }
 
 void SessionControlWindowBackend::setCurrentImageIndex(int currentImageIndex) {
