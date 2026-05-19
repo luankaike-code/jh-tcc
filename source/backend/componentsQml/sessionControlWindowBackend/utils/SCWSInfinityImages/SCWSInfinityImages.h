@@ -9,6 +9,7 @@ class SCWSInfinityImages : public SessionControlWindowState {
 public:
     SCWSInfinityImages(SessionControlWindowBackend* sessionControlWindowBackend);
 
+    void delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) override;
     bool isSessionFinished(const int& currentImageIndex, const int& countImage) override;
 };
 

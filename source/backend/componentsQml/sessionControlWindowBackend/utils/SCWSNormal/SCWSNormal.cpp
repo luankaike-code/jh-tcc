@@ -2,6 +2,8 @@
 
 #include "../../sessionControlWindowBackend.h"
 
-SCWSNormal::SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {
-    makeConnectionToAutoUpdateTimer(sessionControlWindowBackend);
+SCWSNormal::SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {}
+
+void SCWSNormal::delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) {
+    sessionControlWindowBackend->startTimer();
 }

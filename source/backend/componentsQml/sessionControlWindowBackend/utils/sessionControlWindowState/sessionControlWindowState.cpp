@@ -3,20 +3,23 @@
 #include "../../sessionControlWindowBackend.h"
 #include <iostream>
 
-SessionControlWindowState::SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend) : QObject{sessionControlWindowBackend} {}
+SessionControlWindowState::SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend) : QObject{sessionControlWindowBackend} {
+    connect(sessionControlWindowBackend, &SessionControlWindowBackend::delayImageChanged, this, [this, sessionControlWindowBackend](){
+        this->delayImageChanged(sessionControlWindowBackend);
+    });
+
+    connect(sessionControlWindowBackend, &SessionControlWindowBackend::roadmapDurationChanged, this, [this, sessionControlWindowBackend](){
+        this->roadmapDurationChanged(sessionControlWindowBackend);
+    });
+}
 
 bool SessionControlWindowState::isSessionFinished(const int& currentImageIndex, const int& countImage) {
     return currentImageIndex > countImage;
 }
 
-void SessionControlWindowState::timerUpdated(SessionControlWindowBackend* sessionControlWindowBackend) {}
+void SessionControlWindowState::delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) {}
 
-void SessionControlWindowState::makeConnectionToAutoUpdateTimer(SessionControlWindowBackend* sessionControlWindowBackend) {
-    connect(sessionControlWindowBackend, &SessionControlWindowBackend::delayImageChanged, this, [this, sessionControlWindowBackend](){
-        sessionControlWindowBackend->startTimer();
-        this->timerUpdated(sessionControlWindowBackend);
-    });
-}
+void SessionControlWindowState::roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend) {}
 
 void SessionControlWindowState::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->resetTimer();
@@ -29,8 +32,10 @@ void SessionControlWindowState::preventButtonPressed(SessionControlWindowBackend
 }
 
 void SessionControlWindowState::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
+    sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
+
     if(isSessionFinished(sessionControlWindowBackend->getCurrentImageIndex(), sessionControlWindowBackend->getImagesCount()))
         sessionControlWindowBackend->sessionFinish();
-    sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
+
     sessionControlWindowBackend->goToNextImage();
 }

@@ -8,6 +8,8 @@ class SessionControlWindowBackend;
 class SCWSNormal : public SessionControlWindowState {
 public:
     SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend);
+
+    void delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 
 #endif // SCWSNORMAL_H
