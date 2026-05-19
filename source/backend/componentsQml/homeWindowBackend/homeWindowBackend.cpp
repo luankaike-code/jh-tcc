@@ -27,9 +27,9 @@ bool HomeWindowBackend::propertysValueAreValids() {
 
     if(m_repositoryPath.isEmpty())
         emit errorEmptyRepositoryPath();
-    else if(hasTimerLimit && m_imageDelay < 1)
+    else if(!hasRoadmap && hasTimerLimit && m_imageDelay < 1)
         emit errorEmptyImageDelay();
-    else if(hasImagesLimit && m_imageCount < 1)
+    else if(!hasRoadmap && hasImagesLimit && m_imageCount < 1)
         emit errorEmptyImageCount();
     else if(hasRoadmap && m_roadmapDuration < 1)
         emit errorEmptyRoadmapDuration();
