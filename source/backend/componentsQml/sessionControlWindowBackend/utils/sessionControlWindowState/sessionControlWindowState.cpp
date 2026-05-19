@@ -19,7 +19,6 @@ void SessionControlWindowState::makeConnectionToAutoUpdateTimer(SessionControlWi
 }
 
 void SessionControlWindowState::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
-    std::cout << "teste" << std::endl;
     sessionControlWindowBackend->resetTimer();
     sessionControlWindowBackend->goToNextImage();
 }
