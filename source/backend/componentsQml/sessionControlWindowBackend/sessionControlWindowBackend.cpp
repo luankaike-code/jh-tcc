@@ -185,7 +185,4 @@ void SessionControlWindowBackend::setImagesCount(int imagesCount) {
 void SessionControlWindowBackend::setCurrentImageIndex(int currentImageIndex) {
     m_currentImageIndex = currentImageIndex;
     currentImageIndexChanged();
-
-    if(currentState && currentState->isSessionFinished(m_currentImageIndex, m_imagesCount))
-        sessionFinish();
 }
