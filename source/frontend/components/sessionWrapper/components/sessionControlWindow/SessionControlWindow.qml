@@ -68,7 +68,7 @@ DefaultWindow {
         anchors.fill: parent
 
         ColumnLayout {
-            visible: backend.hasTimerLimit
+            visible: backend.hasTimerLimit || backend.hasRoadmap
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             MagnitudeDisplay {
                 value: backend.remainingTime
