@@ -108,7 +108,7 @@ DefaultWindow {
                             id: countRefInput
 
                             visible: {
-                                return SessionModeReader.hasImagesLimit(backend.sessionMode)
+                                return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
                             }
 
                             Layout.alignment: Qt.AlignRight
@@ -120,7 +120,7 @@ DefaultWindow {
                             id: drawTimeInput
 
                             visible: {
-                                return SessionModeReader.hasTimerLimit(backend.sessionMode)
+                                return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
                             }
 
                             Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
