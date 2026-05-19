@@ -6,7 +6,7 @@
 
 SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
     SessionControlWindowState(sessionControlWindowBackend),
-    currrentRoadMapStepIndex(0), currentStepRepetionIndex(0), roadmap(ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450)))
+    currentRoadmapStepIndex(0), currentStepRepetionIndex(0), roadmap(ClassroomSessionHelper::createSessionRoadmap(TimeConvertion::minutesToMiliseconds(450)))
 {
     makeConnectionToAutoUpdateTimer(sessionControlWindowBackend);
     for(ClassroomSessionRoadmapStep& o : roadmap) {

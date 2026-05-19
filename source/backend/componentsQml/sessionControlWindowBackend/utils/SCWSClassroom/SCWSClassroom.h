@@ -6,7 +6,7 @@
 
 class SCWSClassroom : public SessionControlWindowState {
     std::vector<ClassroomSessionRoadmapStep> roadmap;
-    int currrentRoadMapStepIndex;
+    int currentRoadmapStepIndex;
     int currentStepRepetionIndex;
 public:
     SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
