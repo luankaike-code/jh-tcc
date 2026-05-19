@@ -23,6 +23,7 @@ void HomeWindowBackend::startSession() {
 bool HomeWindowBackend::propertysValueAreValids() {
     bool hasTimerLimit = SessionModeReader::hasTimerLimit(m_sessionMode);
     bool hasImagesLimit = SessionModeReader::hasImagesLimit(m_sessionMode);
+    bool hasRoadmap = SessionModeReader::hasRoadmap(m_sessionMode);
 
     if(m_repositoryPath.isEmpty())
         emit errorEmptyRepositoryPath();
@@ -30,6 +31,8 @@ bool HomeWindowBackend::propertysValueAreValids() {
         emit errorEmptyImageDelay();
     else if(hasImagesLimit && m_imageCount < 1)
         emit errorEmptyImageCount();
+    else if(hasRoadmap && m_roadmapDuration < 1)
+        emit errorEmptyRoadmapDuration();
     else
         return true;
 
@@ -75,6 +78,7 @@ void HomeWindowBackend::openSessionWindow() {
         item->setProperty("delayImages", m_imageDelay);
         item->setProperty("imagesCount", m_imageCount);
         item->setProperty("sessionMode", m_sessionMode);
+        item->setProperty("roadmapDuration", m_roadmapDuration);
 
         component.completeCreate();
         emit sessionStarted();
@@ -101,6 +105,14 @@ int HomeWindowBackend::getImageDelay() const {
 
 SessionModes::Enum HomeWindowBackend::getSessionMode() const {
     return m_sessionMode;
+}
+
+int HomeWindowBackend::getRoadmapDuration() const {
+    return m_roadmapDuration;
+}
+
+void HomeWindowBackend::setRoadmapDuration(int roadmapDuration) {
+    m_roadmapDuration = roadmapDuration;
 }
 
 void HomeWindowBackend::setRepositoryPath(QString repositoryPath) {

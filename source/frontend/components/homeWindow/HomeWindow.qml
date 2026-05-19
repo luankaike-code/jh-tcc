@@ -44,6 +44,8 @@ DefaultWindow {
         imageDelay: { return parseInt(drawTimeInput.text) * 1000 }
         imageCount: { return parseInt(countRefInput.text) }
         sessionMode: comboBoxSessionModes.currentValue
+        roadmapDuration: { return parseInt(sessionDurationInput.text) * 1000 * 60 }
+
 
         onSessionStarted: root.hide()
         onSessionFinished: root.show()
@@ -53,6 +55,7 @@ DefaultWindow {
         onErrorEmptyRepositoryPath: showError(qsTr("Insira o repositório"), dirPathInput)
         onErrorEmptyImageCount: showError(qsTr("Insira a quantidade de referência"), countRefInput)
         onErrorEmptyImageDelay: showError(qsTr("Insira o tempo de cada referência"), drawTimeInput)
+        onErrorEmptyRoadmapDuration: showError(qsTr("Insira a duração total da sessão de aula"), sessionDurationInput)
     }
 
     ColumnLayout {
@@ -122,6 +125,17 @@ DefaultWindow {
 
                             Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                             placeholderText: "tempo em segundos"
+                        }
+
+                        InputNumber {
+                            id: sessionDurationInput
+
+                            visible: {
+                                return SessionModeReader.hasRoadmap(backend.sessionMode)
+                            }
+
+                            Layout.preferredWidth: dirPathInput.width / 1.5
+                            placeholderText: "tempo da sessão de aula em minutos"
                         }
                     }
                 }
