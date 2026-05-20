@@ -16,6 +16,7 @@ class SessionControlWindowBackend : public QObject {
     Q_PROPERTY(bool hasImagesLimit READ getHasImagesLimit WRITE setHasImagesLimit NOTIFY hasImagesLimitChanged)
     Q_PROPERTY(bool hasRoadmap READ getHasRoadmap WRITE setHasRoadmap NOTIFY hasRoadmapChanged)
     Q_PROPERTY(bool timerIsRunnig READ getTimerIsRunnig NOTIFY timerIsRunnigChanged)
+    Q_PROPERTY(bool isRestPause READ getIsRestPause WRITE setIsRestPause NOTIFY isRestPauseChanged)
 
     Q_PROPERTY(int delayImage READ getDelayImage WRITE setDelayImage NOTIFY delayImageChanged REQUIRED)
     Q_PROPERTY(int imagesCount READ getImagesCount WRITE setImagesCount NOTIFY imagesCountChanged REQUIRED)
@@ -29,6 +30,7 @@ class SessionControlWindowBackend : public QObject {
     bool m_hasTimerLimit;
     bool m_hasImagesLimit;
     bool m_hasRoadmap;
+    bool m_isRestPause;
     int m_imagesDelay;
     int m_imagesCount;
     int m_roadmapDuration;
@@ -57,7 +59,9 @@ public:
     int getCurrentImageIndex() const;
     int getRemainingTime();
     int getRoadmapDuration() const;
+    bool getIsRestPause() const;
 
+    void setIsRestPause(bool isRestPause);
     void setDelayImage(int delayImage);
     void setSessionModes(SessionModes::Enum sessionModes);
     void setHasTimerLimit(bool hasTimerLimit);
@@ -73,6 +77,7 @@ signals:
 
     void sessionFinish();
 
+    void isRestPauseChanged();
     void sessionModesChanged();
     void hasTimerLimitChanged();
     void hasRoadmapChanged();

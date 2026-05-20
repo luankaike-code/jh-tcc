@@ -114,6 +114,15 @@ int SessionControlWindowBackend::getRoadmapDuration() const {
     return m_roadmapDuration;
 }
 
+bool SessionControlWindowBackend::getIsRestPause() const {
+    return m_isRestPause;
+}
+
+void SessionControlWindowBackend::setIsRestPause(bool isRestPause) {
+    m_isRestPause = isRestPause;
+    isRestPauseChanged();
+}
+
 void SessionControlWindowBackend::setDelayImage(int delayImage) {
     if(m_imagesDelay == delayImage)
         return;
