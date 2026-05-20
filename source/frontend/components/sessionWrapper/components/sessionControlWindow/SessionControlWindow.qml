@@ -22,6 +22,7 @@ DefaultWindow {
     required property int sessionMode
     required property int roadmapDuration
     readonly property int timerRemainingTime: backend.remainingTime
+    readonly property bool isRestPause: backend.isRestPause
 
     signal sessionFinished()
     signal finishInterval()
@@ -63,9 +64,40 @@ DefaultWindow {
         backend.resetTimer();
     }
 
+    ColumnLayout {
+        anchors.fill: parent
+        visible: backend.isRestPause
+
+        RowLayout {
+            visible: backend.hasTimerLimit || backend.hasRoadmap
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            Label {
+                text: qsTr("Dê uma pausa. Relaxe")
+            }
+        }
+
+        RowLayout {
+            visible: backend.hasTimerLimit || backend.hasRoadmap
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            MagnitudeDisplay {
+                value: backend.remainingTime
+                font.pixelSize: 22
+                font.bold: true
+
+                magnitudes: [
+                    MagnitudeObj {
+                        value: 1000
+                        symbol: "seg"
+                    }
+                ]
+            }
+        }
+    }
 
     RowLayout {
         anchors.fill: parent
+        visible: !backend.isRestPause
 
         ColumnLayout {
             visible: backend.hasTimerLimit || backend.hasRoadmap
