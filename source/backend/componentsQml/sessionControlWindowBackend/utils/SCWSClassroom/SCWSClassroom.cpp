@@ -16,6 +16,7 @@ void SCWSClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* ses
     ClassroomSessionHelper::printRoadmap(roadmap);
 
     sessionControlWindowBackend->setCurrentImageIndex(1);
+    sessionControlWindowBackend->setIsRestPause(currentStep.isRestStep);
     sessionControlWindowBackend->setDelayImage(currentStep.durationMiliseconds);
     sessionControlWindowBackend->setImagesCount(currentStep.repetions);
     sessionControlWindowBackend->startTimer();
@@ -34,7 +35,8 @@ bool SCWSClassroom::isCurrentRoadmapStepFinished(SessionControlWindowBackend* se
 
 void SCWSClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
-    sessionControlWindowBackend->goToNextImage();
+    if(!sessionControlWindowBackend->getIsRestPause())
+        sessionControlWindowBackend->goToNextImage();
 
     if(isCurrentRoadmapStepFinished(sessionControlWindowBackend)) {
         currentRoadmapStepIndex++;
