@@ -36,6 +36,13 @@ Item {
         }
     }
 
+    function imagesWindowVisibility(visible) {
+        if(visible)
+            imagesWindow.show()
+        else
+            imagesWindow.hide()
+    }
+
     function confirmSessionEnd() {
         sessionControlWindow.pauseTimer()
         windowsVisibility(false)
@@ -95,6 +102,7 @@ Item {
         onSessionFinished: root.finishSession()
         onFinishSessionButtonClicked: root.confirmSessionEnd()
         onTimerRemainingTimeChanged: root.updateImageOpacity()
+        onIsRestPauseChanged: root.imagesWindowVisibility(!sessionControlWindow.isRestPause)
 
         onClosing: root.confirmSessionEnd()
     }
