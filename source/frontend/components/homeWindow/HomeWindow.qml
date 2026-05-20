@@ -94,7 +94,7 @@ DefaultWindow {
                         id: dirPathInput
 
                         Layout.preferredWidth: rootVariables.mainControlSize
-                        placeholderText: "Caminho para o repositorio de referência"
+                        placeholderText: qsTr("Caminho para o repositorio de referência")
                     }
                 }
 
@@ -113,7 +113,7 @@ DefaultWindow {
 
                             Layout.alignment: Qt.AlignRight
                             Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                            placeholderText: "qnt de refs"
+                            placeholderText: qsTr("qnt de refs")
                         }
 
                         InputNumber {
@@ -124,7 +124,7 @@ DefaultWindow {
                             }
 
                             Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                            placeholderText: "tempo em segundos"
+                            placeholderText: qsTr("tempo em segundos")
                         }
 
                         InputNumber {
@@ -135,7 +135,7 @@ DefaultWindow {
                             }
 
                             Layout.preferredWidth: dirPathInput.width / 1.5
-                            placeholderText: "tempo da sessão de aula em minutos"
+                            placeholderText: qsTr("tempo da sessão de aula em minutos")
                         }
                     }
                 }
@@ -148,7 +148,7 @@ DefaultWindow {
                             Layout.alignment: Qt.AlignHCenter
 
                             Label {
-                                text: "Modo da Sessão"
+                                text: qsTr("Modo da Sessão")
                             }
                         }
 
