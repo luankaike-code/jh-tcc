@@ -44,7 +44,8 @@ Item {
     }
 
     function confirmSessionEnd() {
-        sessionControlWindow.pauseTimer()
+        if(SessionModeReader.hasTimerLimit(root.sessionMode))
+            sessionControlWindow.pauseTimer()
         windowsVisibility(false)
     }
 
