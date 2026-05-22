@@ -105,6 +105,17 @@ DefaultWindow {
                         columns: 3
 
                         InputNumber {
+                            id: drawTimeInput
+
+                            visible: {
+                                return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                            }
+
+                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
+                            placeholderText: qsTr("tempo em segundos")
+                        }
+
+                        InputNumber {
                             id: countRefInput
 
                             visible: {
@@ -114,17 +125,6 @@ DefaultWindow {
                             Layout.alignment: Qt.AlignRight
                             Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
                             placeholderText: qsTr("qnt de refs")
-                        }
-
-                        InputNumber {
-                            id: drawTimeInput
-
-                            visible: {
-                                return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
-                            }
-
-                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                            placeholderText: qsTr("tempo em segundos")
                         }
 
                         InputNumber {
