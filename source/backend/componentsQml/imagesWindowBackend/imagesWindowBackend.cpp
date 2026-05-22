@@ -64,7 +64,8 @@ void ImagesWindowBackend::updateImagesAvailable() {
 }
 
 void ImagesWindowBackend::nextImage() {
-    setCurrentIndex(m_currentIndex+1);
+    if(!imagesHistorical.empty())
+        setCurrentIndex(m_currentIndex+1);
 
     updateImagesAvailable();
 
@@ -84,6 +85,7 @@ void ImagesWindowBackend::nextImage() {
 void ImagesWindowBackend::preventImage() {
     if(m_currentIndex <= 0)
         return;
+
     else if(imagesHistorical.isEmpty()) {
         std::cerr << "imagesHistorical is empty" << std::endl;
         return;
