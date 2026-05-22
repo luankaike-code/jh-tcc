@@ -14,6 +14,7 @@ DefaultWindow {
     width: 640
     height: 480
     minimumWidth: 400
+    minimumHeight: 420
     visible: true
     title: qsTr("FlashDraws")
 
