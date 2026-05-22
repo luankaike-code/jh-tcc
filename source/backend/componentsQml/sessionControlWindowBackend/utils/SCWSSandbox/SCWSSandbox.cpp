@@ -15,7 +15,7 @@ void SCWSSandbox::preventButtonPressed(SessionControlWindowBackend* sessionContr
     sessionControlWindowBackend->goToPreventImage();
 }
 
-bool SCWSSandbox::isSessionFinished(const int& currentImageIndex, const int& countImage) {
+const bool SCWSSandbox::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
     return false;
 }
 

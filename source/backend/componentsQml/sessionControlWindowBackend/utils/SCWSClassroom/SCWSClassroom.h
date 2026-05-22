@@ -15,7 +15,7 @@ public:
     SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend) override;
-    bool isSessionFinished(const int& currentImageIndex, const int& countImage) override;
+    const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const override;
 };
 
 #endif // SCWSCLASSROOM_H

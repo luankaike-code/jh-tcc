@@ -8,6 +8,6 @@ void SCWSInfinityImages::delayImageChanged(SessionControlWindowBackend* sessionC
     sessionControlWindowBackend->startTimer();
 }
 
-bool SCWSInfinityImages::isSessionFinished(const int& currentImageIndex, const int& countImage) {
+const bool SCWSInfinityImages::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
     return false;
 }

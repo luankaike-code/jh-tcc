@@ -13,8 +13,8 @@ SessionControlWindowState::SessionControlWindowState(SessionControlWindowBackend
     });
 }
 
-bool SessionControlWindowState::isSessionFinished(const int& currentImageIndex, const int& countImage) {
-    return currentImageIndex > countImage;
+const bool SessionControlWindowState::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
+    return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImagesCount();
 }
 
 void SessionControlWindowState::delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) {}
@@ -34,7 +34,7 @@ void SessionControlWindowState::preventButtonPressed(SessionControlWindowBackend
 void SessionControlWindowState::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
 
-    if(isSessionFinished(sessionControlWindowBackend->getCurrentImageIndex(), sessionControlWindowBackend->getImagesCount()))
+    if(isSessionFinished(sessionControlWindowBackend))
         sessionControlWindowBackend->sessionFinish();
 
     sessionControlWindowBackend->goToNextImage();

@@ -9,7 +9,7 @@ public:
 
     void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
-    bool isSessionFinished(const int& currentImageIndex, const int& countImage) override;
+    const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const override;
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 

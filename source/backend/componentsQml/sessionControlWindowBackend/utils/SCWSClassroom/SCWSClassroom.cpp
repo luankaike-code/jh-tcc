@@ -42,10 +42,10 @@ void SCWSClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionCont
         currentRoadmapStepIndex++;
         configureCurrentRoadmapStep(sessionControlWindowBackend);
     }
-    if(isSessionFinished(sessionControlWindowBackend->getCurrentImageIndex(), sessionControlWindowBackend->getImagesCount()))
+    if(isSessionFinished(sessionControlWindowBackend))
         sessionControlWindowBackend->sessionFinish();
 }
 
-bool SCWSClassroom::isSessionFinished(const int& currentImageIndex, const int& countImage) {
+const bool SCWSClassroom::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
     return currentRoadmapStepIndex >= roadmap.size();
 }

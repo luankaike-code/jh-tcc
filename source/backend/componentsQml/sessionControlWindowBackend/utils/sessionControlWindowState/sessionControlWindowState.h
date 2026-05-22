@@ -15,7 +15,7 @@ public:
     virtual void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend);
-    virtual bool isSessionFinished(const int& currentImageIndex, const int& countImage);
+    virtual const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const;
 
     virtual void delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend);
