@@ -5,19 +5,19 @@
 
 ImagesWindowBackend::ImagesWindowBackend(QObject *parent) : QObject{parent} {}
 
-void ImagesWindowBackend::removeImageFromImagesAvailable(QString image) {
+void ImagesWindowBackend::removeImageFromImagesAvailable(const QString& image) {
     qsizetype index = imagesAvailable.indexOf(image);
     if(index > -1) {
         imagesAvailable.removeAt(index);
     }
 }
 
-void ImagesWindowBackend::removeImageFromImagesHistorical(QString image) {
+void ImagesWindowBackend::removeImageFromImagesHistorical(const QString& image) {
     int countRemovedImages = imagesHistorical.removeAll(image);
     setCurrentIndex(m_currentIndex-countRemovedImages);
 }
 
-void ImagesWindowBackend::removeImageFromImages(QString image) {
+void ImagesWindowBackend::removeImageFromImages(const QString& image) {
     qsizetype index = m_images.indexOf(image);
     if(index > -1) {
         m_images.removeAt(index);
@@ -27,7 +27,7 @@ void ImagesWindowBackend::removeImageFromImages(QString image) {
     }
 }
 
-void ImagesWindowBackend::removeImageFromAllDatas(QString image) {
+void ImagesWindowBackend::removeImageFromAllDatas(const QString& image) {
     removeImageFromImagesAvailable(image);
     removeImageFromImagesHistorical(image);
     removeImageFromImages(image);
@@ -38,7 +38,7 @@ void ImagesWindowBackend::setCurrentIndex(int newIndex) {
     emit currentIndexChanged();
 }
 
-void ImagesWindowBackend::setCurrentImage(QString image) {
+void ImagesWindowBackend::setCurrentImage(const QString& image) {
     m_currentImage = image;
     emit currentImageChanged();
 }
@@ -108,7 +108,7 @@ int ImagesWindowBackend::getCurrentIndex() const {
     return m_currentIndex;
 }
 
-QString ImagesWindowBackend::getCurrentImage() const {
+const QString& ImagesWindowBackend::getCurrentImage() const {
     return m_currentImage;
 }
 

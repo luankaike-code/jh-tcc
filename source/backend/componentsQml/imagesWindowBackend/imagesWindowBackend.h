@@ -22,18 +22,18 @@ class ImagesWindowBackend : public QObject {
 
     QString getRandomImageFromImagesAvailable() const;
 
-    void removeImageFromImagesAvailable(QString image);
-    void removeImageFromImagesHistorical(QString image);
-    void removeImageFromImages(QString image);
+    void removeImageFromImagesAvailable(const QString& image);
+    void removeImageFromImagesHistorical(const QString& image);
+    void removeImageFromImages(const QString& image);
 
     void setCurrentIndex(int newIndex);
-    void setCurrentImage(QString image);
+    void setCurrentImage(const QString& image);
 
     void updateImagesAvailable();
 public:
     ImagesWindowBackend(QObject *parent = nullptr);
 
-    Q_INVOKABLE void removeImageFromAllDatas(QString image);
+    Q_INVOKABLE void removeImageFromAllDatas(const QString& image);
 
     Q_INVOKABLE void nextImage();
     Q_INVOKABLE void preventImage();
@@ -43,7 +43,7 @@ public:
 
     int getCurrentIndex() const;
 
-    QString getCurrentImage() const;
+    const QString& getCurrentImage() const;
 
     QStringList getImages() const;
     void setImages(QStringList images);
