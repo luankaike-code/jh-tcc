@@ -43,7 +43,7 @@ DefaultWindow {
         repositoryPath: dirPathInput.text
         imageDelay: { return parseInt(drawTimeInput.text) * 1000 }
         imageCount: { return parseInt(countRefInput.text) }
-        sessionMode: comboBoxSessionModes.currentValue
+        sessionMode: { return parseInt(comboBoxSessionModes.currentValue) }
         roadmapDuration: { return parseInt(sessionDurationInput.text) * 1000 * 60 }
 
 
