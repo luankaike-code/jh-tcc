@@ -61,7 +61,6 @@ qt_add_qml_module(appflashdraws
 
         source/frontend/components/homeWindow/HomeWindow.qml
 
-        source/frontend/components/draggableArea/DraggableArea.qml
         source/frontend/components/inputs/Input.qml
         source/frontend/components/inputs/InputNumber.qml
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml

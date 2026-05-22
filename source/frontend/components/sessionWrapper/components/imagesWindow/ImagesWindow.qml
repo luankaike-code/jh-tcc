@@ -3,7 +3,6 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import flashdraws
-import "../../../draggableArea"
 import "../../../defaultWindow"
 
 DefaultWindow {
