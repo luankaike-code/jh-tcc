@@ -7,6 +7,9 @@ SCWSInfinityTime::SCWSInfinityTime(SessionControlWindowBackend* sessionControlWi
 void SCWSInfinityTime::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
     sessionControlWindowBackend->goToNextImage();
+
+    if(isSessionFinished(sessionControlWindowBackend))
+        sessionControlWindowBackend->sessionFinish();
 }
 
 void SCWSInfinityTime::preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
