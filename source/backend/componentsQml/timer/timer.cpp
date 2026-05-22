@@ -45,7 +45,7 @@ void Timer::startInfinityIntervals(const int& delay) {
     play(true);
 }
 
-const int Timer::getRemainingTime() {
+const int& Timer::getRemainingTime() {
     return m_remainingTime;
 }
 

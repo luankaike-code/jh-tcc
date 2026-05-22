@@ -27,7 +27,7 @@ class Timer : public QObject
 public:
     explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
 
-    const int getRemainingTime();
+    const int& getRemainingTime();
     const bool getIsRunning();
 
     Q_INVOKABLE void startInfinityIntervals(const int& delay);
