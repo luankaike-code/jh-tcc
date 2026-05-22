@@ -95,11 +95,11 @@ QString HomeWindowBackend::getRepositoryPath() const {
     return m_repositoryPath;
 }
 
-int HomeWindowBackend::getImageCount() const {
+const int& HomeWindowBackend::getImageCount() const {
     return m_imageCount;
 }
 
-int HomeWindowBackend::getImageDelay() const {
+const int& HomeWindowBackend::getImageDelay() const {
     return m_imageDelay;
 }
 
@@ -107,11 +107,11 @@ SessionModes::Enum HomeWindowBackend::getSessionMode() const {
     return m_sessionMode;
 }
 
-int HomeWindowBackend::getRoadmapDuration() const {
+const int& HomeWindowBackend::getRoadmapDuration() const {
     return m_roadmapDuration;
 }
 
-void HomeWindowBackend::setRoadmapDuration(int roadmapDuration) {
+void HomeWindowBackend::setRoadmapDuration(const int& roadmapDuration) {
     m_roadmapDuration = roadmapDuration;
 }
 
@@ -119,11 +119,11 @@ void HomeWindowBackend::setRepositoryPath(QString repositoryPath) {
     m_repositoryPath = repositoryPath;
 }
 
-void HomeWindowBackend::setImageCount(int imageCount) {
+void HomeWindowBackend::setImageCount(const int& imageCount) {
     m_imageCount = imageCount;
 }
 
-void HomeWindowBackend::setImageDelay(int imageDelay) {
+void HomeWindowBackend::setImageDelay(const int& imageDelay) {
     m_imageDelay = imageDelay;
 }
 

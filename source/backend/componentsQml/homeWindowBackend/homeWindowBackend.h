@@ -33,15 +33,15 @@ public:
     Q_INVOKABLE void startSession();
 
     QString getRepositoryPath() const;
-    int getImageCount() const;
-    int getImageDelay() const;
+    const int& getImageCount() const;
+    const int& getImageDelay() const;
     SessionModes::Enum getSessionMode() const;
-    int getRoadmapDuration() const;
+    const int& getRoadmapDuration() const;
 
-    void setRoadmapDuration(int roadmapDuration);
+    void setRoadmapDuration(const int& roadmapDuration);
     void setRepositoryPath(QString repositoryPath);
-    void setImageCount(int imageCount);
-    void setImageDelay(int imageDelay);
+    void setImageCount(const int& imageCount);
+    void setImageDelay(const int& imageDelay);
     void setSessionMode(SessionModes::Enum sessionMode);
 
 signals:
