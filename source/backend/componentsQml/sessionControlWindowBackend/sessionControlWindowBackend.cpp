@@ -78,15 +78,15 @@ void SessionControlWindowBackend::startTimer() {
         timer.startInfinityIntervals(m_imagesDelay);
 }
 
-bool SessionControlWindowBackend::getHasTimerLimit() const {
+const bool& SessionControlWindowBackend::getHasTimerLimit() const {
     return m_hasTimerLimit;
 }
 
-bool SessionControlWindowBackend::getHasImagesLimit() const {
+const bool& SessionControlWindowBackend::getHasImagesLimit() const {
     return m_hasImagesLimit;
 }
 
-bool SessionControlWindowBackend::getHasRoadmap() const {
+const bool& SessionControlWindowBackend::getHasRoadmap() const {
     return m_hasRoadmap;
 }
 
@@ -94,36 +94,36 @@ const bool SessionControlWindowBackend::getTimerIsRunnig() {
     return timer.getIsRunning();
 }
 
-int SessionControlWindowBackend::getRemainingTime() {
+const int& SessionControlWindowBackend::getRemainingTime() {
     return timer.getRemainingTime();
 }
 
-int SessionControlWindowBackend::getDelayImage() const {
+const int& SessionControlWindowBackend::getDelayImage() const {
     return m_imagesDelay;
 }
 
-int SessionControlWindowBackend::getImagesCount() const {
+const int& SessionControlWindowBackend::getImagesCount() const {
     return m_imagesCount;
 }
 
-int SessionControlWindowBackend::getCurrentImageIndex() const {
+const int& SessionControlWindowBackend::getCurrentImageIndex() const {
     return m_currentImageIndex;
 }
 
-int SessionControlWindowBackend::getRoadmapDuration() const {
+const int& SessionControlWindowBackend::getRoadmapDuration() const {
     return m_roadmapDuration;
 }
 
-bool SessionControlWindowBackend::getIsRestPause() const {
+const bool& SessionControlWindowBackend::getIsRestPause() const {
     return m_isRestPause;
 }
 
-void SessionControlWindowBackend::setIsRestPause(bool isRestPause) {
+void SessionControlWindowBackend::setIsRestPause(const bool& isRestPause) {
     m_isRestPause = isRestPause;
     isRestPauseChanged();
 }
 
-void SessionControlWindowBackend::setDelayImage(int delayImage) {
+void SessionControlWindowBackend::setDelayImage(const int& delayImage) {
     if(m_imagesDelay == delayImage)
         return;
 
@@ -163,27 +163,27 @@ void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionMode
     sessionModesChanged();
 }
 
-void SessionControlWindowBackend::setHasTimerLimit(bool hasTimerLimit) {
+void SessionControlWindowBackend::setHasTimerLimit(const bool& hasTimerLimit) {
     m_hasTimerLimit = hasTimerLimit;
     hasTimerLimitChanged();
 }
 
-void SessionControlWindowBackend::setRoadmapDuration(int roadmapDuration) {
+void SessionControlWindowBackend::setRoadmapDuration(const int& roadmapDuration) {
     m_roadmapDuration = roadmapDuration;
     roadmapDurationChanged();
 }
 
-void SessionControlWindowBackend::setHasImagesLimit(bool hasImagesLimit) {
+void SessionControlWindowBackend::setHasImagesLimit(const bool& hasImagesLimit) {
     m_hasImagesLimit = hasImagesLimit;
     hasImagesLimitChanged();
 }
 
-void SessionControlWindowBackend::setHasRoadmap(bool hasRoadmap) {
+void SessionControlWindowBackend::setHasRoadmap(const bool& hasRoadmap) {
     m_hasRoadmap = hasRoadmap;
     hasRoadmapChanged();
 }
 
-void SessionControlWindowBackend::setImagesCount(int imagesCount) {
+void SessionControlWindowBackend::setImagesCount(const int& imagesCount) {
     if(m_imagesCount == imagesCount)
         return;
 
@@ -191,7 +191,7 @@ void SessionControlWindowBackend::setImagesCount(int imagesCount) {
     imagesCountChanged();
 }
 
-void SessionControlWindowBackend::setCurrentImageIndex(int currentImageIndex) {
+void SessionControlWindowBackend::setCurrentImageIndex(const int& currentImageIndex) {
     m_currentImageIndex = currentImageIndex;
     currentImageIndexChanged();
 }

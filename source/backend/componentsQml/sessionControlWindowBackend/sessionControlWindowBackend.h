@@ -50,26 +50,26 @@ public:
     void updateTimerIsRunnigValue();
 
     SessionModes::Enum getSessionModes() const;
-    bool getHasTimerLimit() const;
-    bool getHasImagesLimit() const;
-    bool getHasRoadmap() const;
+    const bool& getHasTimerLimit() const;
+    const bool& getHasImagesLimit() const;
+    const bool& getHasRoadmap() const;
     const bool getTimerIsRunnig();
-    int getDelayImage() const;
-    int getImagesCount() const;
-    int getCurrentImageIndex() const;
-    int getRemainingTime();
-    int getRoadmapDuration() const;
-    bool getIsRestPause() const;
+    const int& getDelayImage() const;
+    const int& getImagesCount() const;
+    const int& getCurrentImageIndex() const;
+    const int& getRemainingTime();
+    const int& getRoadmapDuration() const;
+    const bool& getIsRestPause() const;
 
-    void setIsRestPause(bool isRestPause);
-    void setDelayImage(int delayImage);
+    void setIsRestPause(const bool& isRestPause);
+    void setDelayImage(const int& delayImage);
     void setSessionModes(SessionModes::Enum sessionModes);
-    void setHasTimerLimit(bool hasTimerLimit);
-    void setHasImagesLimit(bool hasImagesLimit);
-    void setHasRoadmap(bool hasRoadmap);
-    void setImagesCount(int ImagesCount);
-    void setCurrentImageIndex(int currentImageIndex);
-    void setRoadmapDuration(int roadmapDuration);
+    void setHasTimerLimit(const bool& hasTimerLimit);
+    void setHasImagesLimit(const bool& hasImagesLimit);
+    void setHasRoadmap(const bool& hasRoadmap);
+    void setImagesCount(const int& ImagesCount);
+    void setCurrentImageIndex(const int& currentImageIndex);
+    void setRoadmapDuration(const int& roadmapDuration);
 
 signals:
     void goToNextImage();
