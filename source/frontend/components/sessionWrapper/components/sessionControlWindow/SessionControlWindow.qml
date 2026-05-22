@@ -79,17 +79,11 @@ DefaultWindow {
         RowLayout {
             visible: backend.hasTimerLimit || backend.hasRoadmap
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            MagnitudeDisplay {
+
+            TimeDisplay {
                 value: backend.remainingTime
                 font.pixelSize: 22
                 font.bold: true
-
-                magnitudes: [
-                    MagnitudeObj {
-                        value: 1000
-                        symbol: "seg"
-                    }
-                ]
             }
         }
     }
@@ -101,17 +95,11 @@ DefaultWindow {
         ColumnLayout {
             visible: backend.hasTimerLimit || backend.hasRoadmap
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            MagnitudeDisplay {
+
+            TimeDisplay {
                 value: backend.remainingTime
                 font.pixelSize: 22
                 font.bold: true
-
-                magnitudes: [
-                    MagnitudeObj {
-                        value: 1000
-                        symbol: "seg"
-                    }
-                ]
             }
         }
 
