@@ -191,7 +191,7 @@ DefaultWindow {
             Layout.alignment: Qt.AlignHCenter
             Layout.minimumHeight: 20
 
-            MagnitudeDisplay {
+            TimeDisplay {
                 visible: {
                     return backend.sessionMode === SessionModes.Normal
                 }
@@ -200,27 +200,8 @@ DefaultWindow {
                     let time = parseInt(drawTimeInput.text) || -1
                     let count = parseInt(countRefInput.text) || -1
 
-                    return (time < 0 || count < 0)? 0 : time * count
+                    return (time < 0 || count < 0)? 0 : time * count * 1000
                 }
-
-                magnitudes: [
-                    MagnitudeObj {
-                        value: 1
-                        symbol: "seg"
-                    },
-                    MagnitudeObj {
-                        value: 60
-                        symbol: "min"
-                    },
-                    MagnitudeObj {
-                        value: 60*60
-                        symbol: "horas"
-                    },
-                    MagnitudeObj {
-                        value: 60*60*24
-                        symbol: "dias"
-                    }
-                ]
             }
         }
 
