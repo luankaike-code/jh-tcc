@@ -115,8 +115,8 @@ DefaultWindow {
             visible: backend.hasTimerLimit
             ToggleButton {
                 id: runTimeButton
-                activedSource: "qrc:/qt/qml/flashdraws/assets/pause.svg"
-                desactivedSource: "qrc:/qt/qml/flashdraws/assets/play.svg"
+                activedSource: "qrc:/qt/qml/flashdraws/assets/pause-button.svg"
+                desactivedSource: "qrc:/qt/qml/flashdraws/assets/play-button.svg"
 
                 checked: backend.timerIsRunnig
 
@@ -132,7 +132,7 @@ DefaultWindow {
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             ImageButton {
-                source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
+                source: "qrc:/qt/qml/flashdraws/assets/double-arrow-button.svg"
 
                 onClicked: backend.preventButtonPressed()
 
@@ -145,7 +145,7 @@ DefaultWindow {
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             ImageButton {
-                source: "qrc:/qt/qml/flashdraws/assets/double_arrow.svg"
+                source: "qrc:/qt/qml/flashdraws/assets/double-arrow-button.svg"
 
                 onClicked: backend.nextButtonPressed()
 
@@ -157,7 +157,7 @@ DefaultWindow {
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             ImageButton {
-                source: "qrc:/qt/qml/flashdraws/assets/exit.svg"
+                source: "qrc:/qt/qml/flashdraws/assets/exit-button.svg"
 
                 onClicked: root.finishSessionButtonClicked()
 

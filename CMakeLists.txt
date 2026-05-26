@@ -76,10 +76,10 @@ qt_add_qml_module(appflashdraws
     RESOURCES
         application.qrc
 
-        assets/pause.svg
-        assets/play.svg
-        assets/double_arrow.svg
-        assets/exit.svg
+        assets/pause-button.svg
+        assets/play-button.svg
+        assets/double-arrow-button.svg
+        assets/exit-button.svg
 )
 
 if(UNIX AND NOT APPLE)
