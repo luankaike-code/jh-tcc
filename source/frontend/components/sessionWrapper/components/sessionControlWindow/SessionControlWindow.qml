@@ -120,8 +120,8 @@ DefaultWindow {
 
                 checked: backend.timerIsRunnig
 
-                onCheckedUpdate: {
-                    checked? playTimer() : pauseTimer()
+                onCheckedUpdate: function(is_checked) {
+                    is_checked? playTimer() : pauseTimer()
                 }
 
                 height: 40
