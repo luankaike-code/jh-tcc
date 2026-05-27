@@ -5,4 +5,5 @@ Name=FlashDraws
 Comment=Flash draws to train your draws
 Exec=appflashdraws
 Terminal=false
+Icon=flashdraws
 Categories=Graphic;Graphics
