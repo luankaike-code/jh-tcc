@@ -102,6 +102,7 @@ DefaultWindow {
                 value: backend.remainingTime
                 font.pixelSize: 22
                 font.bold: true
+                Layout.minimumWidth: 100
             }
         }
 
