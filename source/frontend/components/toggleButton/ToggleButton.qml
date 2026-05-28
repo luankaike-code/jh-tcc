@@ -5,36 +5,22 @@ import "../imageButton"
 ImageButton {
     id: root
 
-    QtObject {
-        id: variables
-        property bool checked: true
-    }
-
     required property string activedSource
     required property string desactivedSource
     property bool checked: true
 
-    signal checkedUpdate(bool is_checked)
+    signal checkedUpdate()
 
-    function emitCheckedUpdate() {
-        checkedUpdate(variables.checked)
-    }
-
-    source: variables.checked? activedSource : desactivedSource
+    source: checked? activedSource : desactivedSource
 
     sourceSize.width: width
     sourceSize.height: height
 
     onCheckedChanged: {
-        if(variables.checked === checked)
-            return
-
-        variables.checked = checked
-        emitCheckedUpdate()
+        checked = checked
     }
 
     onClicked: {
-        variables.checked = !variables.checked
-        emitCheckedUpdate()
+        checked = !checked
     }
 }

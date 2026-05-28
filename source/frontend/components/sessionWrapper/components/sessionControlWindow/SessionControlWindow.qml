@@ -44,6 +44,8 @@ DefaultWindow {
         onGoToNextImage: root.nextImageButtonClicked()
         onGoToPreventImage: root.preventImageButtonClicked()
         onSessionFinish: root.finishSession()
+
+        onTimerIsRunnigChanged: runTimeButton.checked = timerIsRunnig
     }
 
     function finishSession() {
@@ -120,8 +122,8 @@ DefaultWindow {
 
                 checked: backend.timerIsRunnig
 
-                onCheckedUpdate: function(is_checked) {
-                    is_checked? playTimer() : pauseTimer()
+                onCheckedChanged: {
+                    checked? playTimer() : pauseTimer()
                 }
 
                 height: 40
