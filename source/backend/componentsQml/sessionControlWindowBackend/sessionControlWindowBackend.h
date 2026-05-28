@@ -17,6 +17,7 @@ class SessionControlWindowBackend : public QObject {
     Q_PROPERTY(bool hasRoadmap READ getHasRoadmap WRITE setHasRoadmap NOTIFY hasRoadmapChanged)
     Q_PROPERTY(bool timerIsRunnig READ getTimerIsRunnig NOTIFY timerIsRunnigChanged)
     Q_PROPERTY(bool isRestPause READ getIsRestPause WRITE setIsRestPause NOTIFY isRestPauseChanged)
+    Q_PROPERTY(bool isStarted READ getIsStarted WRITE setIsStarted NOTIFY isStartedChanged)
 
     Q_PROPERTY(int delayImage READ getDelayImage WRITE setDelayImage NOTIFY delayImageChanged REQUIRED)
     Q_PROPERTY(int imagesCount READ getImagesCount WRITE setImagesCount NOTIFY imagesCountChanged REQUIRED)
@@ -31,6 +32,7 @@ class SessionControlWindowBackend : public QObject {
     bool m_hasImagesLimit;
     bool m_hasRoadmap;
     bool m_isRestPause;
+    bool m_isStarted;
     int m_imagesDelay;
     int m_imagesCount;
     int m_roadmapDuration;
@@ -45,6 +47,7 @@ public:
     Q_INVOKABLE void pauseTimer();
     Q_INVOKABLE void playTimer();
     Q_INVOKABLE void resetTimer();
+    Q_INVOKABLE void startSession();
 
     void startTimer();
     void updateTimerIsRunnigValue();
@@ -60,6 +63,7 @@ public:
     const int& getRemainingTime();
     const int& getRoadmapDuration() const;
     const bool& getIsRestPause() const;
+    const bool& getIsStarted() const;
 
     void setIsRestPause(const bool& isRestPause);
     void setDelayImage(const int& delayImage);
@@ -70,6 +74,7 @@ public:
     void setImagesCount(const int& ImagesCount);
     void setCurrentImageIndex(const int& currentImageIndex);
     void setRoadmapDuration(const int& roadmapDuration);
+    void setIsStarted(const bool& isStarted);
 
 signals:
     void goToNextImage();
@@ -81,6 +86,7 @@ signals:
     void sessionModesChanged();
     void hasTimerLimitChanged();
     void hasRoadmapChanged();
+    void isStartedChanged();
     void hasImagesLimitChanged();
     void imagesCountChanged();
     void currentImageIndexChanged();

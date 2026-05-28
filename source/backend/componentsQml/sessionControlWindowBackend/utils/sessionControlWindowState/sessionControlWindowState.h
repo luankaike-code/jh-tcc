@@ -17,6 +17,7 @@ public:
     virtual void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const;
 
+    virtual void startSession(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend);
 };

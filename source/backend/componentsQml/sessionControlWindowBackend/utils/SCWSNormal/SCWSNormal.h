@@ -10,6 +10,7 @@ public:
     SCWSNormal(SessionControlWindowBackend* sessionControlWindowBackend);
 
     void delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) override;
+    void startSession(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 
 #endif // SCWSNORMAL_H

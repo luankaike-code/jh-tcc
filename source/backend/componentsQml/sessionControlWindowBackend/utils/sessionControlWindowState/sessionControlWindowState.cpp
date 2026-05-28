@@ -17,6 +17,8 @@ const bool SessionControlWindowState::isSessionFinished(SessionControlWindowBack
     return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImagesCount();
 }
 
+void SessionControlWindowState::startSession(SessionControlWindowBackend* sessionControlWindowBackend) {}
+
 void SessionControlWindowState::delayImageChanged(SessionControlWindowBackend* sessionControlWindowBackend) {}
 
 void SessionControlWindowState::roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend) {}

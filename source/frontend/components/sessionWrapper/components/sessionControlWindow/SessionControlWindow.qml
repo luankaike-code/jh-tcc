@@ -67,6 +67,35 @@ DefaultWindow {
 
     ColumnLayout {
         anchors.fill: parent
+        visible: !backend.isStarted
+
+        RowLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            Label {
+                text: qsTr("Aperte quando estiver pronto")
+
+                font.pixelSize: 22
+                font.bold: true
+            }
+        }
+
+        RowLayout {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            ImageButton {
+                source: "qrc:/qt/qml/flashdraws/assets/play-button.svg"
+
+                onClicked: backend.startSession()
+
+                height: 40
+                width: 40
+            }
+        }
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
         visible: backend.isRestPause
 
         RowLayout {
@@ -92,7 +121,7 @@ DefaultWindow {
 
     RowLayout {
         anchors.fill: parent
-        visible: !backend.isRestPause
+        visible: !backend.isRestPause && backend.isStarted
 
         ColumnLayout {
             visible: backend.hasTimerLimit || backend.hasRoadmap

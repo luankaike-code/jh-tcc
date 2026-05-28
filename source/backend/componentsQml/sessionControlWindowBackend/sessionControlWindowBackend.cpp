@@ -48,6 +48,15 @@ void SessionControlWindowBackend::preventButtonPressed() {
     currentState->preventButtonPressed(this);
 }
 
+void SessionControlWindowBackend::startSession() {
+    if(!currentState) {
+        std::cerr << "currentState isnt defined" << std::endl;
+        return;
+    }
+    currentState->startSession(this);
+    setIsStarted(true);
+}
+
 void SessionControlWindowBackend::pauseTimer() {
     if(m_hasTimerLimit)
         timer.stop();
@@ -118,6 +127,10 @@ const bool& SessionControlWindowBackend::getIsRestPause() const {
     return m_isRestPause;
 }
 
+const bool& SessionControlWindowBackend::getIsStarted() const {
+    return m_isStarted;
+}
+
 void SessionControlWindowBackend::setIsRestPause(const bool& isRestPause) {
     m_isRestPause = isRestPause;
     isRestPauseChanged();
@@ -171,6 +184,11 @@ void SessionControlWindowBackend::setHasTimerLimit(const bool& hasTimerLimit) {
 void SessionControlWindowBackend::setRoadmapDuration(const int& roadmapDuration) {
     m_roadmapDuration = roadmapDuration;
     roadmapDurationChanged();
+}
+
+void SessionControlWindowBackend::setIsStarted(const bool& isStarted) {
+    m_isStarted = isStarted;
+    emit isStartedChanged();
 }
 
 void SessionControlWindowBackend::setHasImagesLimit(const bool& hasImagesLimit) {
