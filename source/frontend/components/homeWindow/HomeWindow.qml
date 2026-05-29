@@ -63,7 +63,7 @@ DefaultWindow {
         anchors.fill: parent
 
         RowLayout {
-            Layout.minimumHeight: rootVariables.padding
+            Layout.minimumHeight: rootVariables.padding/2
         }
 
         RowLayout {
@@ -136,34 +136,28 @@ DefaultWindow {
                 RowLayout {
                     Layout.alignment: Qt.AlignHCenter
 
-                    ColumnLayout {
-                        RowLayout {
-                            Layout.alignment: Qt.AlignHCenter
+                    Label {
+                        text: qsTr("Modo da Sessão")
+                    }
+                }
 
-                            Label {
-                                text: qsTr("Modo da Sessão")
-                            }
-                        }
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
 
-                        RowLayout {
-                            Layout.alignment: Qt.AlignHCenter
+                    ComboBox {
+                        id: comboBoxSessionModes
+                        model: [
+                            { value: SessionModes.Normal, text: qsTr("Normal") },
+                            { value: SessionModes.Classroom, text: qsTr("Aula") },
+                            { value: SessionModes.InfinityTime, text: qsTr("Tempo Infinito") },
+                            { value: SessionModes.InfinityImages, text: qsTr("Referências Infinitas") },
+                            { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
+                        ]
 
-                            ComboBox {
-                                id: comboBoxSessionModes
-                                model: [
-                                    { value: SessionModes.Normal, text: qsTr("Normal") },
-                                    { value: SessionModes.Classroom, text: qsTr("Aula") },
-                                    { value: SessionModes.InfinityTime, text: qsTr("Tempo Infinito") },
-                                    { value: SessionModes.InfinityImages, text: qsTr("Referências Infinitas") },
-                                    { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
-                                ]
+                        Layout.preferredWidth: rootVariables.inputWidth/2
 
-                                Layout.preferredWidth: rootVariables.inputWidth/2
-
-                                textRole: "text"
-                                valueRole: "value"
-                            }
-                        }
+                        textRole: "text"
+                        valueRole: "value"
                     }
                 }
             }
@@ -218,7 +212,7 @@ DefaultWindow {
         }
 
         RowLayout {
-            Layout.minimumHeight: rootVariables.padding
+            Layout.minimumHeight: rootVariables.padding/2
         }
     }
 }
