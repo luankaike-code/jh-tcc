@@ -22,6 +22,7 @@ DefaultWindow {
     required property int roadmapDuration
     readonly property int timerRemainingTime: backend.remainingTime
     readonly property bool isRestPause: backend.isRestPause
+    readonly property bool isStarted: backend.isStarted
 
     signal sessionFinished()
     signal finishInterval()

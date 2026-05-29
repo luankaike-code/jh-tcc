@@ -83,6 +83,7 @@ Item {
     ImagesWindow {
         id: imagesWindow
         images: root.images
+        imageIsVisible: sessionControlWindow.isStarted
 
         onContextPopupOpened: sessionControlWindow.pauseTimer()
         onContextPopupClosed: sessionControlWindow.playTimer()
@@ -103,6 +104,7 @@ Item {
         onSessionFinished: root.finishSession()
         onFinishSessionButtonClicked: root.confirmSessionEnd()
         onTimerRemainingTimeChanged: root.updateImageOpacity()
+
         onIsRestPauseChanged: root.imagesWindowVisibility(!sessionControlWindow.isRestPause)
 
         onClosing: root.confirmSessionEnd()

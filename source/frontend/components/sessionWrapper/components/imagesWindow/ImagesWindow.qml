@@ -16,7 +16,7 @@ DefaultWindow {
 
     required property var images
     property int currentIndex: imagesWindowBackend.currentIndex
-
+    property bool imageIsVisible: true
     signal contextPopupOpened()
     signal contextPopupClosed()
 
@@ -76,6 +76,7 @@ DefaultWindow {
 
     Image {
         id: refImg
+        visible: imageIsVisible
         width: root.width
         height: root.height
         fillMode: Image.PreserveAspectFit
