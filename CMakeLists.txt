@@ -11,6 +11,8 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appflashdraws
+    appicon.rc
+
     source/backend/utils/filesGrabber/filesGrabber.cpp
     source/backend/componentsQml/timer/timer.cpp
     source/backend/utils/clipboard/clipboard.cpp
