@@ -12,9 +12,9 @@ import "../defaultWindow"
 DefaultWindow {
     id: root
     width: 640
-    height: 480
-    minimumWidth: 400
-    minimumHeight: 420
+    height: 500
+    minimumWidth: 520
+    minimumHeight: 480
     visible: true
     title: qsTr("FlashDraws")
 
@@ -35,8 +35,8 @@ DefaultWindow {
     QtObject {
         id: rootVariables
 
-        property int mainControlSize: 350
-        property int secondControlSize: mainControlSize/2
+        property int inputWidth: 350
+        property int padding: 45
     }
 
     HomeWindowBackend {
@@ -63,11 +63,11 @@ DefaultWindow {
         anchors.fill: parent
 
         RowLayout {
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
         }
 
         RowLayout {
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
             Layout.alignment: Qt.AlignHCenter
 
             Label {
@@ -78,67 +78,59 @@ DefaultWindow {
         }
 
         RowLayout {
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
         }
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
 
             ColumnLayout {
                 Layout.alignment: Qt.AlignHCenter
-                RowLayout {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.minimumHeight: 45
+                Layout.minimumHeight: rootVariables.padding
 
-                    Input {
-                        id: dirPathInput
+                Input {
+                    id: dirPathInput
 
-                        Layout.preferredWidth: rootVariables.mainControlSize
-                        placeholderText: qsTr("Caminho para o repositorio de referência")
+                    Layout.preferredWidth: rootVariables.inputWidth
+                    placeholderText: qsTr("Caminho para o repositório com as referências")
+                }
+
+                InputNumber {
+                    id: drawTimeInput
+
+                    visible: {
+                        return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
                     }
+
+                    Layout.preferredWidth: rootVariables.inputWidth
+                    placeholderText: qsTr("Tempo de cada referências em segundos")
+                }
+
+                InputNumber {
+                    id: countRefInput
+
+                    visible: {
+                        return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                    }
+
+                    Layout.preferredWidth: rootVariables.inputWidth
+                    placeholderText: qsTr("Quantidade de referências")
+                }
+
+                InputNumber {
+                    id: sessionDurationInput
+
+                    visible: {
+                        return SessionModeReader.hasRoadmap(backend.sessionMode)
+                    }
+
+                    Layout.preferredWidth: rootVariables.inputWidth
+                    placeholderText: qsTr("Tempo da sessão de aula em minutos")
                 }
 
                 RowLayout {
-                    Layout.alignment: Qt.AlignHCenter
-
-                    GridLayout {
-                        columns: 3
-
-                        InputNumber {
-                            id: drawTimeInput
-
-                            visible: {
-                                return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
-                            }
-
-                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                            placeholderText: qsTr("tempo em segundos")
-                        }
-
-                        InputNumber {
-                            id: countRefInput
-
-                            visible: {
-                                return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
-                            }
-
-                            Layout.alignment: Qt.AlignRight
-                            Layout.preferredWidth: dirPathInput.width / 2 - parent.columnSpacing / 2
-                            placeholderText: qsTr("qnt de refs")
-                        }
-
-                        InputNumber {
-                            id: sessionDurationInput
-
-                            visible: {
-                                return SessionModeReader.hasRoadmap(backend.sessionMode)
-                            }
-
-                            Layout.preferredWidth: dirPathInput.width / 1.5
-                            placeholderText: qsTr("tempo da sessão de aula em minutos")
-                        }
-                    }
+                    Layout.minimumHeight: rootVariables.padding / 4
                 }
 
                 RowLayout {
@@ -166,7 +158,7 @@ DefaultWindow {
                                     { value: SessionModes.Sandbox, text: qsTr("Sandbox") }
                                 ]
 
-                                Layout.preferredWidth: rootVariables.secondControlSize
+                                Layout.preferredWidth: rootVariables.inputWidth/2
 
                                 textRole: "text"
                                 valueRole: "value"
@@ -178,8 +170,12 @@ DefaultWindow {
         }
 
         RowLayout {
+            Layout.minimumHeight: rootVariables.padding
+        }
+
+        RowLayout {
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
 
             Label {
                 id: errorFeedback
@@ -207,7 +203,7 @@ DefaultWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
 
             Button {
                 width: 200
@@ -222,7 +218,7 @@ DefaultWindow {
         }
 
         RowLayout {
-            Layout.minimumHeight: 45
+            Layout.minimumHeight: rootVariables.padding
         }
     }
 }
