@@ -10,7 +10,9 @@
 
 SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
     QObject{parent},
-    currentState(nullptr), timer(this), m_currentImageIndex(0), m_imagesCount(0), m_imagesDelay(0), m_roadmapDuration(0), m_isStarted(false)
+    currentState(nullptr), timer(this),
+    m_currentImageIndex(0), m_imagesCount(0), m_imagesDelay(0), m_roadmapDuration(0),
+    m_isStarted(false), m_hasRoadmap(false), m_hasTimerLimit(false), m_hasImagesLimit(false)
 {
     setCurrentImageIndex(1);
 
