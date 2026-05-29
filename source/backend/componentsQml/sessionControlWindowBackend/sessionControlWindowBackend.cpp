@@ -9,7 +9,8 @@
 #include <iostream>
 
 SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
-    QObject{parent}, currentState(nullptr), timer(this), m_currentImageIndex(0), m_imagesCount(0), m_imagesDelay(0)
+    QObject{parent},
+    currentState(nullptr), timer(this), m_currentImageIndex(0), m_imagesCount(0), m_imagesDelay(0), m_roadmapDuration(0), m_isStarted(false)
 {
     setCurrentImageIndex(1);
 
@@ -24,6 +25,7 @@ SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
             std::cerr << "currentState isnt defined" << std::endl;
             return;
         }
+
         currentState->intervalTimerFinish(this);
     });
 }

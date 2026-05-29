@@ -153,7 +153,8 @@ DefaultWindow {
                 checked: backend.timerIsRunnig
 
                 onCheckedChanged: {
-                    checked? playTimer() : pauseTimer()
+                    if(backend.isStarted)
+                        checked? playTimer() : pauseTimer()
                 }
 
                 height: 40
