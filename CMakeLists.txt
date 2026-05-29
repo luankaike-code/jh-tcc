@@ -143,6 +143,16 @@ if(WIN32)
             RESULT_VARIABLE deploy_result
         )
     ")
+
+    set(CPACK_NSIS_CREATE_ICONS_EXTRA "
+        CreateShortCut '$DESKTOP\\\\FlashDraws.lnk' '$INSTDIR\\\\appflashdraws.exe'
+        CreateShortCut '$SMSTARTUP\\\\FlashDraws.lnk' '$INSTDIR\\\\appflashdraws.exe'
+    ")
+
+    set(CPACK_NSIS_DELETE_ICONS_EXTRA "
+        Delete '$DESKTOP\\\\FlashDraws.lnk'
+        Delete '$SMSTARTUP\\\\FlashDraws.lnk'
+    ")
 elseif(UNIX AND NOT APPLE)
     install(TARGETS appflashdraws
         BUNDLE DESTINATION .
