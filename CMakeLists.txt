@@ -75,6 +75,8 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/sessionWrapper/components/dialogConfirmFinishSession/DialogConfirmFinishSession.qml
         source/frontend/components/sessionWrapper/components/sessionControlWindow/SessionControlWindow.qml
         source/frontend/components/sessionWrapper/components/imagesWindow/ImagesWindow.qml
+
+        source/frontend/components/buttonFolderDialog/ButtonFolderDialog.qml
     RESOURCES
         application.qrc
 
