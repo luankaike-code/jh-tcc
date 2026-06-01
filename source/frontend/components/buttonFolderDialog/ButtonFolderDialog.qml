@@ -5,14 +5,12 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import Qt.labs.platform
 
-Item {
+Button {
     id: root
     property string choosedFolder
 
-    Button {
-        text: qsTr("open")
-        onClicked: folderDialog.open()
-    }
+    text: qsTr("open")
+    onClicked: folderDialog.open()
 
     FolderDialog {
         id: folderDialog
