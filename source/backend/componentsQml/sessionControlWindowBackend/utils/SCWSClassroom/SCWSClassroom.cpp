@@ -22,13 +22,6 @@ void SCWSClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* ses
     sessionControlWindowBackend->startTimer();
 }
 
-void SCWSClassroom::roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend) {
-    currentRoadmapStepIndex = 0;
-    roadmap = ClassroomSessionHelper::createSessionRoadmap(sessionControlWindowBackend->getRoadmapDuration());
-
-    configureCurrentRoadmapStep(sessionControlWindowBackend);
-}
-
 bool SCWSClassroom::isCurrentRoadmapStepFinished(SessionControlWindowBackend* sessionControlWindowBackend) {
     return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImagesCount();
 }

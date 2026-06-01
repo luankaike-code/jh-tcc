@@ -14,7 +14,6 @@ class SCWSClassroom : public SessionControlWindowState {
 public:
     SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
-    void roadmapDurationChanged(SessionControlWindowBackend* sessionControlWindowBackend) override;
     const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const override;
 };
 
