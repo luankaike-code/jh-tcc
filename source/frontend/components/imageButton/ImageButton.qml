@@ -8,6 +8,7 @@ Image {
 
     sourceSize.width: width
     sourceSize.height: height
+    fillMode: Image.PreserveAspectFit
 
     property bool sourceIsSvg: false
     signal clicked
