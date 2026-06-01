@@ -96,7 +96,7 @@ DefaultWindow {
                         Input {
                             id: dirPathInput
 
-                            Layout.preferredWidth: rootVariables.inputWidth-buttonFolderDialog.width
+                            Layout.preferredWidth: rootVariables.inputWidth-buttonFolderDialog.width-parent.spacing
                             placeholderText: qsTr("Caminho para o repositório com as referências")
                         }
                     }
@@ -106,7 +106,7 @@ DefaultWindow {
 
                         ButtonFolderDialog {
                             id: buttonFolderDialog
-                            Layout.preferredWidth: 70
+                            Layout.preferredWidth: 30
                             onChoosedFolderChanged: dirPathInput.text = choosedFolder
                         }
                     }

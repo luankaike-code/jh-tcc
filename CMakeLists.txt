@@ -84,6 +84,7 @@ qt_add_qml_module(appflashdraws
         assets/play-button.svg
         assets/double-arrow-button.svg
         assets/exit-button.svg
+        assets/folder.svg
 )
 
 if(UNIX AND NOT APPLE)
