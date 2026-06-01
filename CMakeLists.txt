@@ -117,7 +117,9 @@ target_include_directories(appflashdraws PRIVATE
 )
 
 target_link_libraries(appflashdraws
-    PRIVATE Qt6::Quick
+    PRIVATE
+        Qt6::Quick
+        Qt6::Widgets
 )
 target_link_libraries(appflashdraws PRIVATE Qt6::Widgets)
 
