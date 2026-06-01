@@ -8,6 +8,7 @@ import flashdraws
 import "../inputs"
 import "../magnitudeDisplay"
 import "../defaultWindow"
+import "../buttonFolderDialog"
 
 DefaultWindow {
     id: root
@@ -86,14 +87,29 @@ DefaultWindow {
             Layout.minimumHeight: rootVariables.padding
 
             ColumnLayout {
+                id: inputsConteiner
                 Layout.alignment: Qt.AlignHCenter
                 Layout.minimumHeight: rootVariables.padding
 
-                Input {
-                    id: dirPathInput
+                RowLayout {
+                    ColumnLayout {
+                        Input {
+                            id: dirPathInput
 
-                    Layout.preferredWidth: rootVariables.inputWidth
-                    placeholderText: qsTr("Caminho para o repositório com as referências")
+                            Layout.preferredWidth: rootVariables.inputWidth-buttonFolderDialog.width
+                            placeholderText: qsTr("Caminho para o repositório com as referências")
+                        }
+                    }
+
+                    ColumnLayout {
+                        Layout.alignment: Qt.AlignCenter
+
+                        ButtonFolderDialog {
+                            id: buttonFolderDialog
+                            Layout.preferredWidth: 70
+                            onChoosedFolderChanged: dirPathInput.text = choosedFolder
+                        }
+                    }
                 }
 
                 InputNumber {
