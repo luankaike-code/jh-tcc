@@ -5,11 +5,13 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import Qt.labs.platform
 
-Button {
+import "../imageButton"
+
+ImageButton {
     id: root
     property string choosedFolder
 
-    text: qsTr("open")
+    source: "qrc:/qt/qml/flashdraws/assets/folder.svg"
     onClicked: folderDialog.open()
 
     FolderDialog {
