@@ -11,7 +11,7 @@ ImageButton {
     id: root
     property string choosedFolder
 
-    source: "qrc:/qt/qml/flashdraws/assets/folder.svg"
+    source: "qrc:/assets/folder.svg"
     onClicked: folderDialog.open()
 
     FolderDialog {

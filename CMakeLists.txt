@@ -11,7 +11,7 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appflashdraws
-    appicon.rc
+    config/appicon.rc
 
     source/backend/utils/filesGrabber/filesGrabber.cpp
     source/backend/componentsQml/timer/timer.cpp
@@ -79,12 +79,6 @@ qt_add_qml_module(appflashdraws
         source/frontend/components/buttonFolderDialog/ButtonFolderDialog.qml
     RESOURCES
         application.qrc
-
-        assets/pause-button.svg
-        assets/play-button.svg
-        assets/double-arrow-button.svg
-        assets/exit-button.svg
-        assets/folder.svg
 )
 
 if(UNIX AND NOT APPLE)
