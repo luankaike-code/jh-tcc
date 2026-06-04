@@ -56,6 +56,7 @@ DefaultWindow {
         onErrorEmptyImageCount: showError(qsTr("Insira a quantidade de referência"), countRefInput)
         onErrorEmptyImageDelay: showError(qsTr("Insira o tempo de cada referência"), drawTimeInput)
         onErrorEmptyRoadmapDuration: showError(qsTr("Insira a duração total da sessão de aula"), sessionDurationInput)
+        onErrorNoneImageFound: showError(qsTr("O repositório não contém imagens válidas"), dirPathInput)
     }
 
     ColumnLayout {

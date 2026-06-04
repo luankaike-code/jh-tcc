@@ -55,6 +55,7 @@ signals:
     void errorEmptyImageDelay();
     void errorEmptyImageCount();
     void errorEmptyRoadmapDuration();
+    void errorNoneImageFound();
 };
 
 #endif // HOMEWINDOWBACKEND_H

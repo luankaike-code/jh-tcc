@@ -58,6 +58,11 @@ void HomeWindowBackend::openSessionWindow() {
         return;
     }
 
+    if(images.empty()) {
+        emit errorNoneImageFound();
+        return;
+    }
+
     ApplicationBackend* applicationBackend = ApplicationBackend::getInstance();
     QQmlApplicationEngine* engine = applicationBackend->getEngine();
     QQmlComponent component(applicationBackend->getEngine(), QUrl("qrc:/qt/qml/flashdraws/source/frontend/components/sessionWrapper/SessionWrapper.qml"));
