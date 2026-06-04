@@ -12,8 +12,6 @@ import "../buttonFolderDialog"
 
 DefaultWindow {
     id: root
-    width: 640
-    height: 480
     minimumWidth: 520
     minimumHeight: 480
     visible: true
