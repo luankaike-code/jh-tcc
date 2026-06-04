@@ -13,7 +13,7 @@ import "../buttonFolderDialog"
 DefaultWindow {
     id: root
     width: 640
-    height: 500
+    height: 480
     minimumWidth: 520
     minimumHeight: 480
     visible: true
@@ -37,7 +37,7 @@ DefaultWindow {
         id: rootVariables
 
         property int inputWidth: 350
-        property int padding: 45
+        property int padding: 20
     }
 
     HomeWindowBackend {
@@ -112,7 +112,8 @@ DefaultWindow {
                     }
                 }
 
-                InputNumber {
+                RowLayout {
+                    InputNumber {
                     id: drawTimeInput
 
                     visible: {
@@ -122,8 +123,10 @@ DefaultWindow {
                     Layout.preferredWidth: rootVariables.inputWidth
                     placeholderText: qsTr("Tempo de cada referências em segundos")
                 }
+                }
 
-                InputNumber {
+                RowLayout {
+                    InputNumber {
                     id: countRefInput
 
                     visible: {
@@ -133,8 +136,10 @@ DefaultWindow {
                     Layout.preferredWidth: rootVariables.inputWidth
                     placeholderText: qsTr("Quantidade de referências")
                 }
+                }
 
-                InputNumber {
+                RowLayout {
+                    InputNumber {
                     id: sessionDurationInput
 
                     visible: {
@@ -143,6 +148,7 @@ DefaultWindow {
 
                     Layout.preferredWidth: rootVariables.inputWidth
                     placeholderText: qsTr("Tempo da sessão de aula em minutos")
+                }
                 }
 
                 RowLayout {
