@@ -12,6 +12,6 @@ Clipboard* Clipboard::getInstance() {
     return instance;
 }
 
-void Clipboard::copyText(QString text)  {
+void Clipboard::copyText(const QString& text)  {
     qClipboard->setText(text);
 }

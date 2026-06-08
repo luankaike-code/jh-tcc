@@ -15,7 +15,7 @@ public:
     void operator=(const Clipboard& other) = delete;
 
     static Clipboard* getInstance();
-    void copyText(QString text);
+    void copyText(const QString& text);
 };
 
 #endif // CLIPBOARD_H
