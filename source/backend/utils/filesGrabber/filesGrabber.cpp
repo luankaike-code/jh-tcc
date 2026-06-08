@@ -5,8 +5,6 @@
 
 namespace fs = std::filesystem;
 
-FilesGrabber::FilesGrabber() {}
-
 QStringList FilesGrabber::getAllImagesAtFolder(const QString& folder) {
     QStringList images;
 

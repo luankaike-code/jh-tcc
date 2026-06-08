@@ -8,7 +8,8 @@ namespace fs = std::filesystem;
 
 class FilesGrabber {
 public:
-    explicit FilesGrabber();
+    FilesGrabber() = delete;
+    FilesGrabber(const FilesGrabber&) = delete;
 
     static QStringList getAllImagesAtFolder(const QString& folder);
 };
