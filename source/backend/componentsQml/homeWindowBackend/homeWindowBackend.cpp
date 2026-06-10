@@ -64,27 +64,22 @@ ResponseData<QStringList> HomeWindowBackend::tryGetAllImagesAtRepositoryPath() {
 }
 
 void HomeWindowBackend::openSessionWindow() {
+    ResponseData<QStringList> images = tryGetAllImagesAtRepositoryPath();
 
-    QStringList images;
-
-    try {
-        images = FilesGrabber::getAllImagesAtFolder(m_repositoryPath);
-    } catch (const fs::filesystem_error& e) {
-        switch (static_cast<std::errc>(e.code().value())) {
-        case std::errc::no_such_file_or_directory:
-            emit errorInvalidRepositoryPath();
-            break;
-        default:
-            std::cerr << "code: " << e.code() << " | " << "what: " << e.what() << std::endl;
-            throw std::invalid_argument("Error not handler");
+    switch (images.status) {
+    case ResponseData<QStringList>::ERROR_NOT_HANDLER:
+        return;
+        break;
+    case ResponseData<QStringList>::ERROR_HANDLER:
+        std::cerr << "unexpected error from HomeWindowBackend::tryGetAllImagesAtRepositoryPath" << std::endl;
+        throw std::invalid_argument("Error not handler");
+        break;
+    case ResponseData<QList<QString>>::OK:
+        if(images.data.empty()) {
+            emit errorNoneImageFound();
+            return;
         }
-
-        return;
-    }
-
-    if(images.empty()) {
-        emit errorNoneImageFound();
-        return;
+        break;
     }
 
     ApplicationBackend* applicationBackend = ApplicationBackend::getInstance();
@@ -103,7 +98,7 @@ void HomeWindowBackend::openSessionWindow() {
         item->setParent(this);
         item->setParentItem(visualParent);
 
-        item->setProperty("images", images);
+        item->setProperty("images", images.data);
         item->setProperty("delayImages", m_imageDelay);
         item->setProperty("imagesCount", m_imageCount);
         item->setProperty("sessionMode", m_sessionMode);
