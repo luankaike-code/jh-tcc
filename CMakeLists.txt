@@ -57,6 +57,8 @@ qt_add_qml_module(appflashdraws
         source/backend/helpers/classroomSessionHelper/classroomSessionHelper.h source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
         source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
         source/backend/helpers/timeConvertion/timeConvertion.h source/backend/helpers/timeConvertion/timeConvertion.cpp
+
+        source/backend/helpers/responseData/responseData.h
     QML_FILES
         source/frontend/Main.qml
         source/frontend/components/defaultWindow/DefaultWindow.qml
