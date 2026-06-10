@@ -13,7 +13,7 @@ public:
     Status status;
     T data;
 
-    ResponseData();
+    ResponseData() = default;
     inline ResponseData(Status status, T data) : status(status), data(data) {};
 };
 
