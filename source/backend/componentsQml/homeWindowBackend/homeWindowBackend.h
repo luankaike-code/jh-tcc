@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <utility>
 #include "../../enums/sessionModes.h"
+#include "../../helpers/responseData/responseData.h"
 
 class HomeWindowBackend : public QObject {
     Q_OBJECT
@@ -23,6 +25,7 @@ class HomeWindowBackend : public QObject {
 
     bool propertysValueAreValids();
     void openSessionWindow();
+    ResponseData<QStringList> tryGetAllImagesAtRepositoryPath();
 
 public slots:
     void emitSessionFinished();

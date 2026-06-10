@@ -39,6 +39,30 @@ bool HomeWindowBackend::propertysValueAreValids() {
     return false;
 }
 
+ResponseData<QStringList> HomeWindowBackend::tryGetAllImagesAtRepositoryPath() {
+    ResponseData<QStringList> response;
+    QStringList images;
+
+    try {
+        images = FilesGrabber::getAllImagesAtFolder(m_repositoryPath);
+    } catch (const fs::filesystem_error& e) {
+        switch (static_cast<std::errc>(e.code().value())) {
+        case std::errc::no_such_file_or_directory:
+            emit errorInvalidRepositoryPath();
+            response.status = response.ERROR_HANDLER;
+            return response;
+            break;
+        default:
+            std::cerr << "code: " << e.code() << " | " << "what: " << e.what() << std::endl;
+            throw std::invalid_argument("Error not handler");
+        }
+    }
+
+    response.status = response.OK;
+    response.data = images;
+    return response;
+}
+
 void HomeWindowBackend::openSessionWindow() {
 
     QStringList images;
