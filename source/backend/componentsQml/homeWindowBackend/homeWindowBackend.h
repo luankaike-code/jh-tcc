@@ -24,7 +24,8 @@ class HomeWindowBackend : public QObject {
     SessionModes::Enum m_sessionMode;
 
     bool propertysValueAreValids();
-    void openSessionWindow();
+    bool imagesResponseIsValid(const ResponseData<QStringList>& imagesResponse);
+    void tryOpenSessionWindow(const QStringList& images);
     ResponseData<QStringList> tryGetAllImagesAtRepositoryPath();
 
 public slots:

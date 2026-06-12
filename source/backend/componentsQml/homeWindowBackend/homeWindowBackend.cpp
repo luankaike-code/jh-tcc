@@ -16,8 +16,12 @@ HomeWindowBackend::HomeWindowBackend(QObject* parent) : QObject{parent} {}
 void HomeWindowBackend::startSession() {
     if(!propertysValueAreValids())
         return;
+    ResponseData<QStringList> imagesRespone = tryGetAllImagesAtRepositoryPath();
 
-    openSessionWindow();
+    if(!imagesResponseIsValid(imagesRespone))
+        return;
+
+    tryOpenSessionWindow(imagesRespone.data);
 }
 
 bool HomeWindowBackend::propertysValueAreValids() {
@@ -37,6 +41,26 @@ bool HomeWindowBackend::propertysValueAreValids() {
         return true;
 
     return false;
+}
+
+bool HomeWindowBackend::imagesResponseIsValid(const ResponseData<QStringList>& imagesResponse) {
+    switch (imagesResponse.status) {
+    case ResponseData<QStringList>::ERROR_NOT_HANDLER:
+        std::cerr << "unexpected error from HomeWindowBackend::imagesResponseIsValid" << std::endl;
+        throw std::invalid_argument("Error not handler");
+        break;
+    case ResponseData<QStringList>::ERROR_HANDLER:
+        return false;
+        break;
+    case ResponseData<QList<QString>>::OK:
+        if(imagesResponse.data.empty()) {
+            emit errorNoneImageFound();
+            return false;
+        }
+        break;
+    }
+
+    return true;
 }
 
 ResponseData<QStringList> HomeWindowBackend::tryGetAllImagesAtRepositoryPath() {
@@ -63,25 +87,7 @@ ResponseData<QStringList> HomeWindowBackend::tryGetAllImagesAtRepositoryPath() {
     return response;
 }
 
-void HomeWindowBackend::openSessionWindow() {
-    ResponseData<QStringList> images = tryGetAllImagesAtRepositoryPath();
-
-    switch (images.status) {
-    case ResponseData<QStringList>::ERROR_NOT_HANDLER:
-        return;
-        break;
-    case ResponseData<QStringList>::ERROR_HANDLER:
-        std::cerr << "unexpected error from HomeWindowBackend::tryGetAllImagesAtRepositoryPath" << std::endl;
-        throw std::invalid_argument("Error not handler");
-        break;
-    case ResponseData<QList<QString>>::OK:
-        if(images.data.empty()) {
-            emit errorNoneImageFound();
-            return;
-        }
-        break;
-    }
-
+void HomeWindowBackend::tryOpenSessionWindow(const QStringList& images) {
     ApplicationBackend* applicationBackend = ApplicationBackend::getInstance();
     QQmlApplicationEngine* engine = applicationBackend->getEngine();
     QQmlComponent component(applicationBackend->getEngine(), QUrl("qrc:/qt/qml/flashdraws/source/frontend/components/sessionWrapper/SessionWrapper.qml"));
@@ -98,7 +104,7 @@ void HomeWindowBackend::openSessionWindow() {
         item->setParent(this);
         item->setParentItem(visualParent);
 
-        item->setProperty("images", images.data);
+        item->setProperty("images", images);
         item->setProperty("delayImages", m_imageDelay);
         item->setProperty("imageCount", m_imageCount);
         item->setProperty("sessionMode", m_sessionMode);
