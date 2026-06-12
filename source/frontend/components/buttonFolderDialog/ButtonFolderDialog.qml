@@ -9,24 +9,27 @@ import "../imageButton"
 
 ImageButton {
     id: root
-    property string choosedFolder
+    signal folderChoosed(string folderPath)
 
     source: "qrc:/assets/folder.svg"
     onClicked: folderDialog.open()
 
-    function getValidFolderPath() {
-        let strFolderPath = String(folderDialog.folder)
-        let systemFolderPath = strFolderPath.split("file:///")[1]
-
-        let validFolderPath = systemFolderPath
-        if(Qt.platform.os === "linux" && systemFolderPath[0] !== "/")
-            validFolderPath = "/"+validFolderPath
-
-        return validFolderPath
-    }
-
     FolderDialog {
         id: folderDialog
-        onFolderChanged: root.choosedFolder = getValidFolderPath()
+
+        function getValidFolderPath() {
+            let strFolderPath = String(folderDialog.folder)
+            let systemFolderPath = strFolderPath.split("file:///")[1]
+
+            let validFolderPath = systemFolderPath
+            if(Qt.platform.os === "linux" && systemFolderPath[0] !== "/")
+                validFolderPath = "/"+validFolderPath
+
+            return validFolderPath
+        }
+
+        onAccepted: {
+            root.folderChoosed(getValidFolderPath())
+        }
     }
 }

@@ -106,7 +106,9 @@ DefaultWindow {
                         ButtonFolderDialog {
                             id: buttonFolderDialog
                             Layout.preferredWidth: 30
-                            onChoosedFolderChanged: dirPathInput.text = choosedFolder
+                            onFolderChoosed: (folderPath) => {
+                                dirPathInput.text = folderPath
+                            }
                         }
                     }
                 }
