@@ -11,7 +11,7 @@
 SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
     QObject{parent},
     currentState(nullptr), timer(this),
-    m_currentImageIndex(0), m_imageCount(0), m_imagesDelay(0), m_roadmapDuration(0),
+    m_currentImageIndex(0), m_imageCount(0), m_imageDelay(0), m_roadmapDuration(0),
     m_isStarted(false), m_hasRoadmap(false), m_hasTimerLimit(false), m_hasImagesLimit(false)
 {
     setCurrentImageIndex(1);
@@ -87,8 +87,8 @@ SessionModes::Enum SessionControlWindowBackend::getSessionModes() const {
 }
 
 void SessionControlWindowBackend::startTimer() {
-    if(m_imagesDelay > 0)
-        timer.startInfinityIntervals(m_imagesDelay);
+    if(m_imageDelay > 0)
+        timer.startInfinityIntervals(m_imageDelay);
 }
 
 const bool& SessionControlWindowBackend::getHasTimerLimit() const {
@@ -112,7 +112,7 @@ const int& SessionControlWindowBackend::getRemainingTime() {
 }
 
 const int& SessionControlWindowBackend::getDelayImage() const {
-    return m_imagesDelay;
+    return m_imageDelay;
 }
 
 const int& SessionControlWindowBackend::getImageCount() const {
@@ -141,10 +141,10 @@ void SessionControlWindowBackend::setIsRestPause(const bool& isRestPause) {
 }
 
 void SessionControlWindowBackend::setDelayImage(const int& delayImage) {
-    if(m_imagesDelay == delayImage)
+    if(m_imageDelay == delayImage)
         return;
 
-    m_imagesDelay = delayImage;
+    m_imageDelay = delayImage;
     delayImageChanged();
 }
 

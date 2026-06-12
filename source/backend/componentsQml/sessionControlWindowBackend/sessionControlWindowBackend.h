@@ -33,7 +33,7 @@ class SessionControlWindowBackend : public QObject {
     bool m_hasRoadmap;
     bool m_isRestPause;
     bool m_isStarted;
-    int m_imagesDelay;
+    int m_imageDelay;
     int m_imageCount;
     int m_roadmapDuration;
     int m_currentImageIndex;
