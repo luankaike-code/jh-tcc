@@ -11,7 +11,7 @@
 
 namespace fs = std::filesystem;
 
-HomeWindowBackend::HomeWindowBackend(QObject *parent) : QObject{parent} {}
+HomeWindowBackend::HomeWindowBackend(QObject* parent) : QObject{parent} {}
 
 void HomeWindowBackend::startSession() {
     if(!propertysValueAreValids())
@@ -93,7 +93,7 @@ void HomeWindowBackend::openSessionWindow() {
         QObject::connect(object, SIGNAL(sessionFinished()), this, SLOT(emitSessionFinished()));
         engine->setObjectOwnership(object, QQmlEngine::JavaScriptOwnership);
 
-        QQuickItem *item = qobject_cast<QQuickItem*>(object);
+        QQuickItem* item = qobject_cast<QQuickItem*>(object);
 
         item->setParent(this);
         item->setParentItem(visualParent);

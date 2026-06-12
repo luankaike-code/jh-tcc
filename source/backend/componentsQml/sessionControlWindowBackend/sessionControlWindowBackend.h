@@ -39,7 +39,7 @@ class SessionControlWindowBackend : public QObject {
     int m_currentImageIndex;
 
 public:
-    explicit SessionControlWindowBackend(QObject *parent = nullptr);
+    explicit SessionControlWindowBackend(QObject* parent = nullptr);
     ~SessionControlWindowBackend();
 
     Q_INVOKABLE void nextButtonPressed();

@@ -25,7 +25,7 @@ class Timer : public QObject
 
     int m_remainingTime;
 public:
-    explicit Timer(QObject *parent = nullptr, int timeElapsedDelay = 50);
+    explicit Timer(QObject* parent = nullptr, int timeElapsedDelay = 50);
 
     const int& getRemainingTime();
     const bool getIsRunning();

@@ -8,7 +8,7 @@
 #include "utils/SCWSClassroom/SCWSClassroom.h"
 #include <iostream>
 
-SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
+SessionControlWindowBackend::SessionControlWindowBackend(QObject* parent) :
     QObject{parent},
     currentState(nullptr), timer(this),
     m_currentImageIndex(0), m_imageCount(0), m_imageDelay(0), m_roadmapDuration(0),

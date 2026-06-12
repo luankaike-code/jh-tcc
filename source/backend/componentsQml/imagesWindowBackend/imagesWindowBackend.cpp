@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-ImagesWindowBackend::ImagesWindowBackend(QObject *parent) : QObject{parent} {}
+ImagesWindowBackend::ImagesWindowBackend(QObject* parent) : QObject{parent} {}
 
 void ImagesWindowBackend::removeImageFromImagesAvailable(const QString& image) {
     qsizetype index = imagesAvailable.indexOf(image);

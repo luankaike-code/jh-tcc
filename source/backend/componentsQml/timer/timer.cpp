@@ -1,7 +1,7 @@
 #include "timer.h"
 #include <iostream>
 
-Timer::Timer(QObject *parent, int timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
+Timer::Timer(QObject* parent, int timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
     connect(&qTimerElapsed, &QTimer::timeout, this, [this](){
         emitTimeElapsed();

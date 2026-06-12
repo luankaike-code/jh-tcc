@@ -31,7 +31,7 @@ public slots:
     void emitSessionFinished();
 
 public:
-    explicit HomeWindowBackend(QObject *parent = nullptr);
+    explicit HomeWindowBackend(QObject* parent = nullptr);
 
     Q_INVOKABLE void startSession();
 
