@@ -9,7 +9,7 @@ Item {
     id: root
     required property var images
     required property int delayImages
-    required property int imagesCount
+    required property int imageCount
     required property int sessionMode
     required property int roadmapDuration
 
@@ -94,7 +94,7 @@ Item {
     SessionControlWindow {
         id: sessionControlWindow
         delayImages: root.delayImages
-        imagesCount: root.imagesCount
+        imageCount: root.imageCount
         sessionMode: root.sessionMode
         roadmapDuration: root.roadmapDuration
 

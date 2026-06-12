@@ -5,7 +5,7 @@
 SessionControlWindowState::SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend) : QObject{sessionControlWindowBackend} {}
 
 const bool SessionControlWindowState::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
-    return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImagesCount();
+    return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImageCount();
 }
 
 void SessionControlWindowState::startSession(SessionControlWindowBackend* sessionControlWindowBackend) {}

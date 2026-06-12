@@ -11,7 +11,7 @@
 SessionControlWindowBackend::SessionControlWindowBackend(QObject *parent) :
     QObject{parent},
     currentState(nullptr), timer(this),
-    m_currentImageIndex(0), m_imagesCount(0), m_imagesDelay(0), m_roadmapDuration(0),
+    m_currentImageIndex(0), m_imageCount(0), m_imagesDelay(0), m_roadmapDuration(0),
     m_isStarted(false), m_hasRoadmap(false), m_hasTimerLimit(false), m_hasImagesLimit(false)
 {
     setCurrentImageIndex(1);
@@ -115,8 +115,8 @@ const int& SessionControlWindowBackend::getDelayImage() const {
     return m_imagesDelay;
 }
 
-const int& SessionControlWindowBackend::getImagesCount() const {
-    return m_imagesCount;
+const int& SessionControlWindowBackend::getImageCount() const {
+    return m_imageCount;
 }
 
 const int& SessionControlWindowBackend::getCurrentImageIndex() const {
@@ -205,12 +205,12 @@ void SessionControlWindowBackend::setHasRoadmap(const bool& hasRoadmap) {
     hasRoadmapChanged();
 }
 
-void SessionControlWindowBackend::setImagesCount(const int& imagesCount) {
-    if(m_imagesCount == imagesCount)
+void SessionControlWindowBackend::setImageCount(const int& imageCount) {
+    if(m_imageCount == imageCount)
         return;
 
-    m_imagesCount = imagesCount;
-    imagesCountChanged();
+    m_imageCount = imageCount;
+    imageCountChanged();
 }
 
 void SessionControlWindowBackend::setCurrentImageIndex(const int& currentImageIndex) {

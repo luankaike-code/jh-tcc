@@ -20,7 +20,7 @@ class SessionControlWindowBackend : public QObject {
     Q_PROPERTY(bool isStarted READ getIsStarted WRITE setIsStarted NOTIFY isStartedChanged)
 
     Q_PROPERTY(int delayImage READ getDelayImage WRITE setDelayImage NOTIFY delayImageChanged REQUIRED)
-    Q_PROPERTY(int imagesCount READ getImagesCount WRITE setImagesCount NOTIFY imagesCountChanged REQUIRED)
+    Q_PROPERTY(int imageCount READ getImageCount WRITE setImageCount NOTIFY imageCountChanged REQUIRED)
     Q_PROPERTY(int roadmapDuration READ getRoadmapDuration WRITE setRoadmapDuration NOTIFY roadmapDurationChanged REQUIRED)
     Q_PROPERTY(int currentImageIndex READ getCurrentImageIndex WRITE setCurrentImageIndex NOTIFY currentImageIndexChanged)
     Q_PROPERTY(int remainingTime READ getRemainingTime NOTIFY remainingTimeChanged)
@@ -34,7 +34,7 @@ class SessionControlWindowBackend : public QObject {
     bool m_isRestPause;
     bool m_isStarted;
     int m_imagesDelay;
-    int m_imagesCount;
+    int m_imageCount;
     int m_roadmapDuration;
     int m_currentImageIndex;
 
@@ -58,7 +58,7 @@ public:
     const bool& getHasRoadmap() const;
     const bool getTimerIsRunnig();
     const int& getDelayImage() const;
-    const int& getImagesCount() const;
+    const int& getImageCount() const;
     const int& getCurrentImageIndex() const;
     const int& getRemainingTime();
     const int& getRoadmapDuration() const;
@@ -71,7 +71,7 @@ public:
     void setHasTimerLimit(const bool& hasTimerLimit);
     void setHasImagesLimit(const bool& hasImagesLimit);
     void setHasRoadmap(const bool& hasRoadmap);
-    void setImagesCount(const int& ImagesCount);
+    void setImageCount(const int& ImageCount);
     void setCurrentImageIndex(const int& currentImageIndex);
     void setRoadmapDuration(const int& roadmapDuration);
     void setIsStarted(const bool& isStarted);
@@ -88,7 +88,7 @@ signals:
     void hasRoadmapChanged();
     void isStartedChanged();
     void hasImagesLimitChanged();
-    void imagesCountChanged();
+    void imageCountChanged();
     void currentImageIndexChanged();
     void remainingTimeChanged();
     void roadmapDurationChanged();

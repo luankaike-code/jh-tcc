@@ -100,7 +100,7 @@ void HomeWindowBackend::openSessionWindow() {
 
         item->setProperty("images", images.data);
         item->setProperty("delayImages", m_imageDelay);
-        item->setProperty("imagesCount", m_imageCount);
+        item->setProperty("imageCount", m_imageCount);
         item->setProperty("sessionMode", m_sessionMode);
         item->setProperty("roadmapDuration", m_roadmapDuration);
 

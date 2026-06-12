@@ -17,7 +17,7 @@ DefaultWindow {
     flags: Qt.WindowStaysOnTopHint | Qt.Window | Qt.WindowTitleHint
 
     required property int delayImages
-    required property int imagesCount
+    required property int imageCount
     required property int sessionMode
     required property int roadmapDuration
     readonly property int timerRemainingTime: backend.remainingTime
@@ -38,7 +38,7 @@ DefaultWindow {
     SessionControlWindowBackend {
         id: backend
         sessionModes: root.sessionMode
-        imagesCount: root.imagesCount
+        imageCount: root.imageCount
         roadmapDuration: root.roadmapDuration
         delayImage: root.delayImages
 
@@ -140,7 +140,7 @@ DefaultWindow {
             visible: backend.hasImagesLimit
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Label {
-                text: qsTr("%1 / %2").arg(backend.currentImageIndex).arg(backend.imagesCount)
+                text: qsTr("%1 / %2").arg(backend.currentImageIndex).arg(backend.imageCount)
             }
         }
 
