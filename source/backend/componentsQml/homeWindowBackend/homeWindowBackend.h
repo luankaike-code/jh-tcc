@@ -35,17 +35,17 @@ public:
 
     Q_INVOKABLE void startSession();
 
-    QString getRepositoryPath() const;
+    const QString& getRepositoryPath() const;
     const int& getImageCount() const;
     const int& getImageDelay() const;
-    SessionModes::Enum getSessionMode() const;
+    const SessionModes::Enum& getSessionMode() const;
     const int& getRoadmapDuration() const;
 
     void setRoadmapDuration(const int& roadmapDuration);
-    void setRepositoryPath(QString repositoryPath);
+    void setRepositoryPath(const QString& repositoryPath);
     void setImageCount(const int& imageCount);
     void setImageDelay(const int& imageDelay);
-    void setSessionMode(SessionModes::Enum sessionMode);
+    void setSessionMode(const SessionModes::Enum& sessionMode);
 
 signals:
     void sessionModeChanged();

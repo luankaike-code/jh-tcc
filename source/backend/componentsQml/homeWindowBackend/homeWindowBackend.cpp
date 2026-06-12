@@ -115,7 +115,7 @@ void HomeWindowBackend::emitSessionFinished() {
     emit sessionFinished();
 }
 
-QString HomeWindowBackend::getRepositoryPath() const {
+const QString& HomeWindowBackend::getRepositoryPath() const {
     return m_repositoryPath;
 }
 
@@ -127,7 +127,7 @@ const int& HomeWindowBackend::getImageDelay() const {
     return m_imageDelay;
 }
 
-SessionModes::Enum HomeWindowBackend::getSessionMode() const {
+const SessionModes::Enum& HomeWindowBackend::getSessionMode() const {
     return m_sessionMode;
 }
 
@@ -139,7 +139,7 @@ void HomeWindowBackend::setRoadmapDuration(const int& roadmapDuration) {
     m_roadmapDuration = roadmapDuration;
 }
 
-void HomeWindowBackend::setRepositoryPath(QString repositoryPath) {
+void HomeWindowBackend::setRepositoryPath(const QString& repositoryPath) {
     m_repositoryPath = repositoryPath;
 }
 
@@ -151,7 +151,7 @@ void HomeWindowBackend::setImageDelay(const int& imageDelay) {
     m_imageDelay = imageDelay;
 }
 
-void HomeWindowBackend::setSessionMode(SessionModes::Enum sessionMode) {
+void HomeWindowBackend::setSessionMode(const SessionModes::Enum& sessionMode) {
     m_sessionMode = sessionMode;
     sessionModeChanged();
 }
