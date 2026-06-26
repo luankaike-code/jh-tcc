@@ -33,7 +33,7 @@ void ImagesWindowBackend::removeImageFromAllDatas(const QString& image) {
     removeImageFromImages(image);
 }
 
-void ImagesWindowBackend::setCurrentIndex(int newIndex) {
+void ImagesWindowBackend::setCurrentIndex(const int& newIndex) {
     m_currentIndex = newIndex < 0? 0 : newIndex;
     emit currentIndexChanged();
 }
@@ -112,11 +112,11 @@ const QString& ImagesWindowBackend::getCurrentImage() const {
     return m_currentImage;
 }
 
-QStringList ImagesWindowBackend::getImages() const {
+const QStringList& ImagesWindowBackend::getImages() const {
     return m_images;
 }
 
-void ImagesWindowBackend::setImages(QStringList images) {
+void ImagesWindowBackend::setImages(const QStringList& images) {
     if(m_images == images)
         return;
 

@@ -26,7 +26,7 @@ class ImagesWindowBackend : public QObject {
     void removeImageFromImagesHistorical(const QString& image);
     void removeImageFromImages(const QString& image);
 
-    void setCurrentIndex(int newIndex);
+    void setCurrentIndex(const int& newIndex);
     void setCurrentImage(const QString& image);
 
     void updateImagesAvailable();
@@ -45,8 +45,8 @@ public:
 
     const QString& getCurrentImage() const;
 
-    QStringList getImages() const;
-    void setImages(QStringList images);
+    const QStringList& getImages() const;
+    void setImages(const QStringList& images);
 signals:
     void currentIndexChanged();
     void imagesChanged();
