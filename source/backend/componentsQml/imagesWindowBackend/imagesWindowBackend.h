@@ -10,7 +10,7 @@ class ImagesWindowBackend : public QObject {
     QML_ELEMENT
 
     Q_PROPERTY(int currentIndex READ getCurrentIndex NOTIFY currentIndexChanged)
-    Q_PROPERTY(QStringList images READ getImages WRITE setImages NOTIFY imagesChanged)
+    Q_PROPERTY(QStringList images READ getImages WRITE setImages NOTIFY imagesChanged REQUIRED)
     Q_PROPERTY(QString currentImage READ getCurrentImage NOTIFY currentImageChanged)
 
     int m_currentIndex;
