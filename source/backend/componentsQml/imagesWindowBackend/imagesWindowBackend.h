@@ -33,7 +33,7 @@ class ImagesWindowBackend : public QObject {
 public:
     ImagesWindowBackend(QObject* parent = nullptr);
 
-    Q_INVOKABLE void removeImageFromAllDatas(const QString& image);
+    Q_INVOKABLE void removeImageFromAllBuffers(const QString& image);
 
     Q_INVOKABLE void nextImage();
     Q_INVOKABLE void preventImage();

@@ -27,7 +27,7 @@ void ImagesWindowBackend::removeImageFromImages(const QString& image) {
     }
 }
 
-void ImagesWindowBackend::removeImageFromAllDatas(const QString& image) {
+void ImagesWindowBackend::removeImageFromAllBuffers(const QString& image) {
     removeImageFromImagesAvailable(image);
     removeImageFromImagesHistorical(image);
     removeImageFromImages(image);
@@ -100,7 +100,7 @@ void ImagesWindowBackend::copyCurrentImageToClipboard() {
 }
 
 void ImagesWindowBackend::removeCurrentImage() {
-    removeImageFromAllDatas(m_currentImage);
+    removeImageFromAllBuffers(m_currentImage);
     nextImage();
 }
 
