@@ -15,7 +15,7 @@ void SessionControlWindowState::nextButtonPressed(SessionControlWindowBackend* s
     sessionControlWindowBackend->goToNextImage();
 }
 
-void SessionControlWindowState::preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SessionControlWindowState::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->resetTimer();
     sessionControlWindowBackend->goToPreventImage();
 }

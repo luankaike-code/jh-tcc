@@ -12,7 +12,7 @@ void SCWSInfinityTime::nextButtonPressed(SessionControlWindowBackend* sessionCon
         sessionControlWindowBackend->sessionFinish();
 }
 
-void SCWSInfinityTime::preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWSInfinityTime::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()-1);
     sessionControlWindowBackend->goToPreventImage();
 }

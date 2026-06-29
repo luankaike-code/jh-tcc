@@ -8,7 +8,7 @@ public:
     SCWSInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend);
 
     void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
-    void preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
+    void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 

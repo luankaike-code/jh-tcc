@@ -10,7 +10,7 @@ void SCWSSandbox::nextButtonPressed(SessionControlWindowBackend* sessionControlW
     sessionControlWindowBackend->goToNextImage();
 }
 
-void SCWSSandbox::preventButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWSSandbox::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()-1);
     sessionControlWindowBackend->goToPreventImage();
 }

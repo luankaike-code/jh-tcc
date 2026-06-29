@@ -43,7 +43,7 @@ public:
     ~SessionControlWindowBackend();
 
     Q_INVOKABLE void nextButtonPressed();
-    Q_INVOKABLE void preventButtonPressed();
+    Q_INVOKABLE void pressPreventButton();
     Q_INVOKABLE void pauseTimer();
     Q_INVOKABLE void playTimer();
     Q_INVOKABLE void resetTimer();

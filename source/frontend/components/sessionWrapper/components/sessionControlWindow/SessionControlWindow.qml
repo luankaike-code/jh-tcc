@@ -168,7 +168,7 @@ DefaultWindow {
             ImageButton {
                 source: "qrc:/assets/double-arrow-button.svg"
 
-                onClicked: backend.preventButtonPressed()
+                onClicked: backend.pressPreventButton()
 
                 mirror: true
                 height: 40
