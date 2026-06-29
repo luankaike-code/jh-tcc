@@ -36,12 +36,12 @@ SessionControlWindowBackend::~SessionControlWindowBackend() {
     delete currentState;
 }
 
-void SessionControlWindowBackend::SessionControlWindowBackend::nextButtonPressed() {
+void SessionControlWindowBackend::SessionControlWindowBackend::pressNextButton() {
     if(!currentState) {
         std::cerr << "currentState isnt defined" << std::endl;
         return;
     }
-    currentState->nextButtonPressed(this);
+    currentState->pressNextButton(this);
 }
 
 void SessionControlWindowBackend::pressPreventButton() {

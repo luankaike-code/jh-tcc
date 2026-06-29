@@ -5,7 +5,7 @@
 
 SCWSSandbox::SCWSSandbox(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {}
 
-void SCWSSandbox::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWSSandbox::pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
     sessionControlWindowBackend->goToNextImage();
 }

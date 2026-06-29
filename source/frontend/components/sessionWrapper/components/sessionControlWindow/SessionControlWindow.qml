@@ -181,7 +181,7 @@ DefaultWindow {
             ImageButton {
                 source: "qrc:/assets/double-arrow-button.svg"
 
-                onClicked: backend.nextButtonPressed()
+                onClicked: backend.pressNextButton()
 
                 height: 40
                 width: 40

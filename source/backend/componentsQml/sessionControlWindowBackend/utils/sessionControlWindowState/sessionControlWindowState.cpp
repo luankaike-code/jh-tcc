@@ -10,7 +10,7 @@ const bool SessionControlWindowState::isSessionFinished(SessionControlWindowBack
 
 void SessionControlWindowState::startSession(SessionControlWindowBackend* sessionControlWindowBackend) {}
 
-void SessionControlWindowState::nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SessionControlWindowState::pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->resetTimer();
     sessionControlWindowBackend->goToNextImage();
 }

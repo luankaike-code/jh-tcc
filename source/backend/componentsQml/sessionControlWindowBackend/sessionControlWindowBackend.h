@@ -42,7 +42,7 @@ public:
     explicit SessionControlWindowBackend(QObject* parent = nullptr);
     ~SessionControlWindowBackend();
 
-    Q_INVOKABLE void nextButtonPressed();
+    Q_INVOKABLE void pressNextButton();
     Q_INVOKABLE void pressPreventButton();
     Q_INVOKABLE void pauseTimer();
     Q_INVOKABLE void playTimer();

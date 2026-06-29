@@ -12,7 +12,7 @@ public:
     SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend = nullptr);
     virtual ~SessionControlWindowState() = default;
 
-    virtual void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend);
+    virtual void pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const;

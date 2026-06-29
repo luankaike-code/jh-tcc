@@ -7,7 +7,7 @@ class SCWSSandbox : public SessionControlWindowState {
 public:
     SCWSSandbox(SessionControlWindowBackend* sessionControlWindowBackend);
 
-    void nextButtonPressed(SessionControlWindowBackend* sessionControlWindowBackend) override;
+    void pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const override;
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
