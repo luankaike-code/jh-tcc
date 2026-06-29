@@ -80,7 +80,7 @@ signals:
     void goToNextImage();
     void goToPreventImage();
 
-    void sessionFinish();
+    void sessionFinished();
 
     void isRestPauseChanged();
     void sessionModesChanged();

@@ -36,7 +36,7 @@ void SCWSClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionCont
         configureCurrentRoadmapStep(sessionControlWindowBackend);
     }
     if(isSessionFinished(sessionControlWindowBackend))
-        sessionControlWindowBackend->sessionFinish();
+        sessionControlWindowBackend->sessionFinished();
 }
 
 const bool SCWSClassroom::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {

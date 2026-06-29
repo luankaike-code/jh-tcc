@@ -24,7 +24,7 @@ void SessionControlWindowState::intervalTimerFinish(SessionControlWindowBackend*
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
 
     if(isSessionFinished(sessionControlWindowBackend))
-        sessionControlWindowBackend->sessionFinish();
+        sessionControlWindowBackend->sessionFinished();
 
     sessionControlWindowBackend->goToNextImage();
 }
