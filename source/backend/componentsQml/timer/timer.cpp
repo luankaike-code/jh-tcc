@@ -1,5 +1,4 @@
 #include "timer.h"
-#include <iostream>
 
 Timer::Timer(QObject* parent, const int& timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
