@@ -17,7 +17,7 @@ class Timer : public QObject
     QTimer qTimer;
     QTimer qTimerElapsed;
 
-    void emitTimeElapsed(int customRemainingTime=-1);
+    void emitTimeElapsed(const int& customRemainingTime=-1);
     void intervalTimeout();
 
     int timeElapsedDelay;
@@ -25,13 +25,13 @@ class Timer : public QObject
 
     int m_remainingTime;
 public:
-    explicit Timer(QObject* parent = nullptr, int timeElapsedDelay = 50);
+    explicit Timer(QObject* parent = nullptr, const int& timeElapsedDelay = 50);
 
     const int& getRemainingTime();
     const bool getIsRunning();
 
     Q_INVOKABLE void startInfinityIntervals(const int& delay);
-    Q_INVOKABLE void play(bool resetTimer=false);
+    Q_INVOKABLE void play(const bool& resetTimer=false);
     Q_INVOKABLE void stop();
 signals:
     void finishInterval();
