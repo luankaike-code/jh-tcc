@@ -11,8 +11,8 @@ class Timer : public QObject
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(const int remainingTime READ getRemainingTime NOTIFY timeElapsed)
-    Q_PROPERTY(const bool isRunning READ getIsRunning NOTIFY isRunningChanged)
+    Q_PROPERTY(int remainingTime READ getRemainingTime NOTIFY timeElapsed)
+    Q_PROPERTY(bool isRunning READ getIsRunning NOTIFY isRunningChanged)
 
     QTimer qTimer;
     QTimer qTimerElapsed;
