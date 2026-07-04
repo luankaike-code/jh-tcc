@@ -1,9 +1,6 @@
 #include "SCWMClassroom.h"
 
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
-#include "../../helpers/timeConvertion/timeConvertion.h"
-#include <iostream>
-#include <stdexcept>
 
 SCWMClassroom::SCWMClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
     SessionControlWindowMode(sessionControlWindowBackend), currentRoadmapStepIndex(0) {}
