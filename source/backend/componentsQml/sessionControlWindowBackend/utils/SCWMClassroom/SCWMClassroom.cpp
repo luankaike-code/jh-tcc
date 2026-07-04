@@ -3,12 +3,17 @@
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
 
 SCWMClassroom::SCWMClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
-    SessionControlWindowMode(sessionControlWindowBackend), currentRoadmapStepIndex(0) {}
+    SessionControlWindowMode(sessionControlWindowBackend), currentRoadmapStepIndex(0),
+    roadmap(ClassroomSessionHelper::createSessionRoadmap(sessionControlWindowBackend->getRoadmapDuration())) {
+}
+
+void SCWMClassroom::startSession(SessionControlWindowBackend* sessionControlWindowBackend) {
+    configureCurrentRoadmapStep(sessionControlWindowBackend);
+}
 
 void SCWMClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* sessionControlWindowBackend) {
-    if(currentRoadmapStepIndex >= roadmap.size())
+    if(currentRoadmapStepIndex >= roadmap.size() && roadmap.size() > 0)
         return;
-
     ClassroomSessionRoadmapStep& currentStep = roadmap[currentRoadmapStepIndex];
     ClassroomSessionHelper::printRoadmap(roadmap);
 

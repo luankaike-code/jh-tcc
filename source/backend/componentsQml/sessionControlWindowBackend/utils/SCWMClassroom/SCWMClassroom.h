@@ -11,6 +11,7 @@ class SCWMClassroom : public SessionControlWindowMode {
     void configureCurrentRoadmapStep(SessionControlWindowBackend* sessionControlWindowBackend);
 
     bool isCurrentRoadmapStepFinished(SessionControlWindowBackend* sessionControlWindowBackend);
+    void startSession(SessionControlWindowBackend* sessionControlWindowBackend) override;
 public:
     SCWMClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
