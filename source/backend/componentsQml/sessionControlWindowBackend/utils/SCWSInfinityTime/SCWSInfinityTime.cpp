@@ -9,7 +9,7 @@ void SCWSInfinityTime::pressNextButton(SessionControlWindowBackend* sessionContr
     sessionControlWindowBackend->goToNextImage();
 
     if(isSessionFinished(sessionControlWindowBackend))
-        sessionControlWindowBackend->sessionFinish();
+        sessionControlWindowBackend->sessionFinished();
 }
 
 void SCWSInfinityTime::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
