@@ -5,12 +5,12 @@
 
 class SessionControlWindowBackend;
 
-class SessionControlWindowState : public QObject {
+class SessionControlWindowMode : public QObject {
     Q_OBJECT
 
 public:
-    SessionControlWindowState(SessionControlWindowBackend* sessionControlWindowBackend = nullptr);
-    virtual ~SessionControlWindowState() = default;
+    SessionControlWindowMode(SessionControlWindowBackend* sessionControlWindowBackend = nullptr);
+    virtual ~SessionControlWindowMode() = default;
 
     virtual void pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend);
     virtual void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend);

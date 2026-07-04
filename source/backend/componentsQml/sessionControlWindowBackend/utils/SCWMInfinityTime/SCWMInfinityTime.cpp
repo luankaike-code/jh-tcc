@@ -1,10 +1,10 @@
-#include "SCWSInfinityTime.h"
+#include "SCWMInfinityTime.h"
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
 #include <iostream>
 
-SCWSInfinityTime::SCWSInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowState(sessionControlWindowBackend) {}
+SCWMInfinityTime::SCWMInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend) : SessionControlWindowMode(sessionControlWindowBackend) {}
 
-void SCWSInfinityTime::pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWMInfinityTime::pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
     sessionControlWindowBackend->goToNextImage();
 
@@ -12,11 +12,11 @@ void SCWSInfinityTime::pressNextButton(SessionControlWindowBackend* sessionContr
         sessionControlWindowBackend->sessionFinished();
 }
 
-void SCWSInfinityTime::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWMInfinityTime::pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()-1);
     sessionControlWindowBackend->goToPreventImage();
 }
 
-void SCWSInfinityTime::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWMInfinityTime::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
     std::cerr << "Timer is not be activated" << std::endl;
 }

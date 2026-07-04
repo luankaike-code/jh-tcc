@@ -1,14 +1,14 @@
-#include "SCWSClassroom.h"
+#include "SCWMClassroom.h"
 
 #include "../sessionControlWindowBackend/sessionControlWindowBackend.h"
 #include "../../helpers/timeConvertion/timeConvertion.h"
 #include <iostream>
 #include <stdexcept>
 
-SCWSClassroom::SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
-    SessionControlWindowState(sessionControlWindowBackend), currentRoadmapStepIndex(0) {}
+SCWMClassroom::SCWMClassroom(SessionControlWindowBackend* sessionControlWindowBackend) :
+    SessionControlWindowMode(sessionControlWindowBackend), currentRoadmapStepIndex(0) {}
 
-void SCWSClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWMClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* sessionControlWindowBackend) {
     if(currentRoadmapStepIndex >= roadmap.size())
         return;
 
@@ -22,11 +22,11 @@ void SCWSClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* ses
     sessionControlWindowBackend->startTimer();
 }
 
-bool SCWSClassroom::isCurrentRoadmapStepFinished(SessionControlWindowBackend* sessionControlWindowBackend) {
+bool SCWMClassroom::isCurrentRoadmapStepFinished(SessionControlWindowBackend* sessionControlWindowBackend) {
     return sessionControlWindowBackend->getCurrentImageIndex() > sessionControlWindowBackend->getImageCount();
 }
 
-void SCWSClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
+void SCWMClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) {
     sessionControlWindowBackend->setCurrentImageIndex(sessionControlWindowBackend->getCurrentImageIndex()+1);
     if(!sessionControlWindowBackend->getIsRestPause())
         sessionControlWindowBackend->goToNextImage();
@@ -39,6 +39,6 @@ void SCWSClassroom::intervalTimerFinish(SessionControlWindowBackend* sessionCont
         sessionControlWindowBackend->sessionFinished();
 }
 
-const bool SCWSClassroom::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
+const bool SCWMClassroom::isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const {
     return currentRoadmapStepIndex >= roadmap.size();
 }

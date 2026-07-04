@@ -1,11 +1,11 @@
 #include "sessionControlWindowBackend.h"
 #include "../../helpers/sessionModeReader/sessionModeReader.h"
 
-#include "utils/SCWSInfinityImages/SCWSInfinityImages.h"
-#include "utils/SCWSInfinityTime/SCWSInfinityTime.h"
-#include "utils/SCWSNormal/SCWSNormal.h"
-#include "utils/SCWSSandbox/SCWSSandbox.h"
-#include "utils/SCWSClassroom/SCWSClassroom.h"
+#include "utils/SCWMInfinityImages/SCWMInfinityImages.h"
+#include "utils/SCWMInfinityTime/SCWMInfinityTime.h"
+#include "utils/SCWMNormal/SCWMNormal.h"
+#include "utils/SCWMSandbox/SCWMSandbox.h"
+#include "utils/SCWMClassroom/SCWMClassroom.h"
 #include <iostream>
 
 SessionControlWindowBackend::SessionControlWindowBackend(QObject* parent) :
@@ -157,19 +157,19 @@ void SessionControlWindowBackend::setSessionModes(SessionModes::Enum sessionMode
     currentState = nullptr;
     switch (sessionModes) {
         case SessionModes::Enum::Classroom:
-            currentState = new SCWSClassroom(this);
+            currentState = new SCWMClassroom(this);
             break;
         case SessionModes::Enum::InfinityImages:
-            currentState = new SCWSInfinityImages(this);
+            currentState = new SCWMInfinityImages(this);
             break;
         case SessionModes::Enum::Normal:
-            currentState = new SCWSNormal(this);
+            currentState = new SCWMNormal(this);
             break;
         case SessionModes::Enum::InfinityTime:
-            currentState = new SCWSInfinityTime(this);
+            currentState = new SCWMInfinityTime(this);
             break;
         case SessionModes::Enum::Sandbox:
-            currentState = new SCWSSandbox(this);
+            currentState = new SCWMSandbox(this);
             break;
         default:
             std::cerr << sessionModes << " isnt a valid SessionModes::Enum" << std::endl;

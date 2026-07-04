@@ -1,10 +1,10 @@
-#ifndef SCWSCLASSROOM_H
-#define SCWSCLASSROOM_H
+#ifndef SCWMCLASSROOM_H
+#define SCWMCLASSROOM_H
 
-#include "../sessionControlWindowState/sessionControlWindowState.h"
+#include "../sessionControlWindowMode/sessionControlWindowMode.h"
 #include "../../helpers/classroomSessionHelper/classroomSessionHelper.h"
 
-class SCWSClassroom : public SessionControlWindowState {
+class SCWMClassroom : public SessionControlWindowMode {
     std::vector<ClassroomSessionRoadmapStep> roadmap;
     int currentRoadmapStepIndex;
 
@@ -12,9 +12,9 @@ class SCWSClassroom : public SessionControlWindowState {
 
     bool isCurrentRoadmapStepFinished(SessionControlWindowBackend* sessionControlWindowBackend);
 public:
-    SCWSClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
+    SCWMClassroom(SessionControlWindowBackend* sessionControlWindowBackend);
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
     const bool isSessionFinished(SessionControlWindowBackend* sessionControlWindowBackend) const override;
 };
 
-#endif // SCWSCLASSROOM_H
+#endif // SCWMCLASSROOM_H

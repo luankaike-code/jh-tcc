@@ -1,11 +1,11 @@
-#ifndef SCWSSANDBOX_H
-#define SCWSSANDBOX_H
+#ifndef SCWMSANDBOX_H
+#define SCWMSANDBOX_H
 
-#include "../sessionControlWindowState/sessionControlWindowState.h"
+#include "../sessionControlWindowMode/sessionControlWindowMode.h"
 
-class SCWSSandbox : public SessionControlWindowState {
+class SCWMSandbox : public SessionControlWindowMode {
 public:
-    SCWSSandbox(SessionControlWindowBackend* sessionControlWindowBackend);
+    SCWMSandbox(SessionControlWindowBackend* sessionControlWindowBackend);
 
     void pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
@@ -13,4 +13,4 @@ public:
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 
-#endif // SCWSSANDBOX_H
+#endif // SCWMSANDBOX_H

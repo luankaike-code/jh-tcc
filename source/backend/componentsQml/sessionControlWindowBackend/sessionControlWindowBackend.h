@@ -5,7 +5,7 @@
 #include <QQmlEngine>
 #include "../../enums/sessionModes.h"
 #include "../timer/timer.h"
-#include "utils/sessionControlWindowState/sessionControlWindowState.h"
+#include "utils/sessionControlWindowMode/sessionControlWindowMode.h"
 
 class SessionControlWindowBackend : public QObject {
     Q_OBJECT
@@ -26,7 +26,7 @@ class SessionControlWindowBackend : public QObject {
     Q_PROPERTY(int remainingTime READ getRemainingTime NOTIFY remainingTimeChanged)
 
     Timer timer;
-    SessionControlWindowState* currentState;
+    SessionControlWindowMode* currentState;
     SessionModes::Enum m_sessionModes;
     bool m_hasTimerLimit;
     bool m_hasImagesLimit;

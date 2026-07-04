@@ -1,15 +1,15 @@
-#ifndef SCWSINFINITYTIME_H
-#define SCWSINFINITYTIME_H
+#ifndef SCWMINFINITYTIME_H
+#define SCWMINFINITYTIME_H
 
-#include "../sessionControlWindowState/sessionControlWindowState.h"
+#include "../sessionControlWindowMode/sessionControlWindowMode.h"
 
-class SCWSInfinityTime : public SessionControlWindowState {
+class SCWMInfinityTime : public SessionControlWindowMode {
 public:
-    SCWSInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend);
+    SCWMInfinityTime(SessionControlWindowBackend* sessionControlWindowBackend);
 
     void pressNextButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void pressPreventButton(SessionControlWindowBackend* sessionControlWindowBackend) override;
     void intervalTimerFinish(SessionControlWindowBackend* sessionControlWindowBackend) override;
 };
 
-#endif // SCWSINFINITYTIME_H
+#endif // SCWMINFINITYTIME_H

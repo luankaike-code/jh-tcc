@@ -21,7 +21,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
     source/backend/helpers/sessionModeReader/sessionModeReader.cpp
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
-    source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
+    source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.cpp
     source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
     source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
     source/backend/helpers/timeConvertion/timeConvertion.cpp
@@ -47,12 +47,12 @@ qt_add_qml_module(appflashdraws
 
         source/backend/helpers/sessionModeReader/sessionModeReader.h source/backend/helpers/sessionModeReader/sessionModeReader.cpp
 
-        source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.h source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowState/sessionControlWindowState.cpp
-        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityTime/SCWSInfinityTime.cpp
-        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSSandbox/SCWSSandbox.cpp
-        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSNormal/SCWSNormal.cpp
-        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSInfinityImages/SCWSInfinityImages.cpp
-        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSClassroom/SCWSClassroom.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWSClassroom/SCWSClassroom.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.h source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityTime/SCWMInfinityTime.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityTime/SCWMInfinityTime.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMSandbox/SCWMSandbox.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMSandbox/SCWMSandbox.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMNormal/SCWMNormal.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMNormal/SCWMNormal.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityImages/SCWMInfinityImages.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityImages/SCWMInfinityImages.cpp
+        source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMClassroom/SCWMClassroom.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMClassroom/SCWMClassroom.cpp
 
         source/backend/helpers/classroomSessionHelper/classroomSessionHelper.h source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
         source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
