@@ -167,7 +167,7 @@ elseif(UNIX AND NOT APPLE)
             WORLD_READ WORLD_EXECUTE
     )
 
-    install(FILES flashdraws.desktop
+    install(FILES "config/flashdraws.desktop"
         DESTINATION share/applications
         PERMISSIONS
             OWNER_READ OWNER_WRITE
