@@ -44,7 +44,7 @@ DefaultWindow {
 
         onGoToNextImage: root.nextImageButtonClicked()
         onGoToPreventImage: root.preventImageButtonClicked()
-        onSessionFinish: root.finishSession()
+        onSessionFinished: root.finishSession()
 
         onTimerIsRunnigChanged: runTimeButton.checked = timerIsRunnig
     }
