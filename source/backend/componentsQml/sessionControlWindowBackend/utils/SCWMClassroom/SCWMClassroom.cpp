@@ -14,8 +14,10 @@ void SCWMClassroom::startSession(SessionControlWindowBackend* sessionControlWind
 void SCWMClassroom::configureCurrentRoadmapStep(SessionControlWindowBackend* sessionControlWindowBackend) {
     if(currentRoadmapStepIndex >= roadmap.size() && roadmap.size() > 0)
         return;
+    if(roadmap.empty())
+        roadmap = ClassroomSessionHelper::createSessionRoadmap(sessionControlWindowBackend->getRoadmapDuration());
+
     ClassroomSessionRoadmapStep& currentStep = roadmap[currentRoadmapStepIndex];
-    ClassroomSessionHelper::printRoadmap(roadmap);
 
     sessionControlWindowBackend->setCurrentImageIndex(1);
     sessionControlWindowBackend->setIsRestPause(currentStep.isRestStep);
