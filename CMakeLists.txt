@@ -19,7 +19,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/homeWindowBackend/homeWindowBackend.cpp
     source/backend/applicationBackend/applicationBackend.cpp
     source/backend/componentsQml/imagesWindowBackend/imagesWindowBackend.cpp
-    source/backend/helpers/sessionModeReader/sessionModeReader.cpp
+    source/backend/utils/sessionModeReader/sessionModeReader.cpp
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
     source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.cpp
     source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
@@ -45,7 +45,7 @@ qt_add_qml_module(appflashdraws
 
         source/backend/enums/sessionModes.h
 
-        source/backend/helpers/sessionModeReader/sessionModeReader.h source/backend/helpers/sessionModeReader/sessionModeReader.cpp
+        source/backend/utils/sessionModeReader/sessionModeReader.h source/backend/utils/sessionModeReader/sessionModeReader.cpp
 
         source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.h source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.cpp
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityTime/SCWMInfinityTime.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMInfinityTime/SCWMInfinityTime.cpp
@@ -106,7 +106,7 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/applicationBackend/
     source/backend/componentsQml/imagesWindowBackend/
     source/backend/enums/
-    source/backend/helpers/sessionModeReader/
+    source/backend/utils/sessionModeReader/
     source/backend/helpers/classroomSessionHelper/
     source/backend/componentsQml/sessionControlWindowBackend/
     source/backend/helpers/classroomSessionHelper/helpers/classroomSessionRoadmapStep/
