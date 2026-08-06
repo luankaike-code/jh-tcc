@@ -23,7 +23,7 @@ qt_add_executable(appflashdraws
     source/backend/componentsQml/sessionControlWindowBackend/sessionControlWindowBackend.cpp
     source/backend/componentsQml/sessionControlWindowBackend/utils/sessionControlWindowMode/sessionControlWindowMode.cpp
     source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
-    source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
+    source/backend/helpers/classroomSessionHelper/helpers/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
     source/backend/helpers/timeConvertion/timeConvertion.cpp
 )
 
@@ -55,7 +55,7 @@ qt_add_qml_module(appflashdraws
         source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMClassroom/SCWMClassroom.h source/backend/componentsQml/sessionControlWindowBackend/utils/SCWMClassroom/SCWMClassroom.cpp
 
         source/backend/helpers/classroomSessionHelper/classroomSessionHelper.h source/backend/helpers/classroomSessionHelper/classroomSessionHelper.cpp
-        source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
+        source/backend/helpers/classroomSessionHelper/helpers/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h source/backend/helpers/classroomSessionHelper/helpers/classroomSessionRoadmapStep/classroomSessionRoadmapStep.cpp
         source/backend/helpers/timeConvertion/timeConvertion.h source/backend/helpers/timeConvertion/timeConvertion.cpp
 
         source/backend/helpers/responseData/responseData.h
@@ -109,7 +109,7 @@ target_include_directories(appflashdraws PRIVATE
     source/backend/helpers/sessionModeReader/
     source/backend/helpers/classroomSessionHelper/
     source/backend/componentsQml/sessionControlWindowBackend/
-    source/backend/helpers/classroomSessionHelper/utils/classroomSessionRoadmapStep/
+    source/backend/helpers/classroomSessionHelper/helpers/classroomSessionRoadmapStep/
     source/backend/helpers/timeConvertion/
 )
 

@@ -2,7 +2,7 @@
 #define CLASSROOMSESSIONHELPER_H
 
 #include <vector>
-#include "./utils/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h"
+#include "./helpers/classroomSessionRoadmapStep/classroomSessionRoadmapStep.h"
 
 class ClassroomSessionHelper {
 protected:
