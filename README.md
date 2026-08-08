@@ -48,4 +48,3 @@ Os dados de usarmos para fazer a lógica das sessões de aula foi **COPIADA** do
 - [Rafael Pelligrini](https://github.com/jefin282)
 - [Daniel da Silva](https://github.com/Dani00097)
 - [Victoria Teixeira Paiva](https://github.com/Victoria-1914)
-- Joshua de Oliveira
