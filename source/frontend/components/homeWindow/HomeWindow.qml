@@ -89,6 +89,7 @@ DefaultWindow {
                 id: inputsConteiner
                 Layout.alignment: Qt.AlignHCenter
                 Layout.minimumHeight: rootVariables.padding
+                spacing: 8
 
                 RowLayout {
                     ColumnLayout {
@@ -114,12 +115,12 @@ DefaultWindow {
                 }
 
                 RowLayout {
+                    visible: {
+                        return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                    }
+
                     InputNumber {
                         id: drawTimeInput
-
-                        visible: {
-                            return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
-                        }
 
                         Layout.preferredWidth: rootVariables.inputWidth
                         placeholderText: qsTr("Tempo de cada referências em segundos")
@@ -127,12 +128,12 @@ DefaultWindow {
                 }
 
                 RowLayout {
+                    visible: {
+                        return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                    }
+
                     InputNumber {
                         id: countRefInput
-
-                        visible: {
-                            return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
-                        }
 
                         Layout.preferredWidth: rootVariables.inputWidth
                         placeholderText: qsTr("Quantidade de referências")
@@ -140,12 +141,12 @@ DefaultWindow {
                 }
 
                 RowLayout {
+                    visible: {
+                        return SessionModeReader.hasRoadmap(backend.sessionMode)
+                    }
+
                     InputNumber {
                         id: sessionDurationInput
-
-                        visible: {
-                            return SessionModeReader.hasRoadmap(backend.sessionMode)
-                        }
 
                         Layout.preferredWidth: rootVariables.inputWidth
                         placeholderText: qsTr("Tempo da sessão de aula em minutos")
