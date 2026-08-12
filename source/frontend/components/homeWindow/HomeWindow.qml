@@ -115,41 +115,41 @@ DefaultWindow {
 
                 RowLayout {
                     InputNumber {
-                    id: drawTimeInput
+                        id: drawTimeInput
 
-                    visible: {
-                        return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                        visible: {
+                            return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                        }
+
+                        Layout.preferredWidth: rootVariables.inputWidth
+                        placeholderText: qsTr("Tempo de cada referências em segundos")
                     }
-
-                    Layout.preferredWidth: rootVariables.inputWidth
-                    placeholderText: qsTr("Tempo de cada referências em segundos")
-                }
                 }
 
                 RowLayout {
                     InputNumber {
-                    id: countRefInput
+                        id: countRefInput
 
-                    visible: {
-                        return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                        visible: {
+                            return SessionModeReader.hasImagesLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
+                        }
+
+                        Layout.preferredWidth: rootVariables.inputWidth
+                        placeholderText: qsTr("Quantidade de referências")
                     }
-
-                    Layout.preferredWidth: rootVariables.inputWidth
-                    placeholderText: qsTr("Quantidade de referências")
-                }
                 }
 
                 RowLayout {
                     InputNumber {
-                    id: sessionDurationInput
+                        id: sessionDurationInput
 
-                    visible: {
-                        return SessionModeReader.hasRoadmap(backend.sessionMode)
+                        visible: {
+                            return SessionModeReader.hasRoadmap(backend.sessionMode)
+                        }
+
+                        Layout.preferredWidth: rootVariables.inputWidth
+                        placeholderText: qsTr("Tempo da sessão de aula em minutos")
                     }
-
-                    Layout.preferredWidth: rootVariables.inputWidth
-                    placeholderText: qsTr("Tempo da sessão de aula em minutos")
-                }
                 }
 
                 RowLayout {
