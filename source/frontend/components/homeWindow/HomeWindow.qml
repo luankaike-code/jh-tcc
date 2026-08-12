@@ -34,7 +34,7 @@ DefaultWindow {
     QtObject {
         id: rootVariables
 
-        property int inputWidth: 350
+        property int inputWidth: 400
         property int padding: 20
     }
 
