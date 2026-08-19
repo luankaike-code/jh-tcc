@@ -10,17 +10,22 @@ Image {
     sourceSize.height: height
     fillMode: Image.PreserveAspectFit
 
-    property bool sourceIsSvg: false
     signal clicked
+
+    QtObject{
+        id: variables
+
+        property bool sourceIsSvg: false
+    }
 
     onSourceChanged: {
         const strSource = String(source)
         const splitedSource = strSource.split(".")
         const sourceExtention = splitedSource[splitedSource.length-1]
-        sourceIsSvg = sourceExtention.toLowerCase() === "svg"
+        variables.sourceIsSvg = sourceExtention.toLowerCase() === "svg"
     }
 
-    layer.enabled: sourceIsSvg
+    layer.enabled: variables.sourceIsSvg
     layer.effect: MultiEffect {
         colorization: 1.0
         colorizationColor: mouseArea.containsMouse? Material.accent : Material.foreground
