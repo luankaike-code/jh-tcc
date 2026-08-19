@@ -11,6 +11,7 @@ Planejamos esse escopo para desenvolvermos o nosso TCC
 
 - **Tipo de Aplicativo**: Desktop Multiplataforma Open Source Offline
 - **Engine**: [Qt Creator](https://www.qt.io/development/tools/qt-creator-ide)
+- **Versão do Qt**: 6.5.3
 - **Linguagens de programação**: [C++](https://pt.wikipedia.org/wiki/C%2B%2B), [QML](https://pt.wikipedia.org/wiki/QML)
 - **Categorias em que o aplicativo se encaixa**:
   - Open Source
