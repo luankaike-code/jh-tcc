@@ -14,10 +14,6 @@ ImageButton {
     sourceSize.width: width
     sourceSize.height: height
 
-    onCheckedChanged: {
-        checked = checked
-    }
-
     onClicked: {
         checked = !checked
     }
