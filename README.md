@@ -6,9 +6,18 @@ Nosso objetivo será atender a carência do mercado por um aplicativo open sourc
 Nosso objetivo não é substituir os exercícios feitos no papel, aliás os recomendamos. Mas sabemos que migrar para o ambiente digital é algo desafiador, e acreditarmos que fazer desenhos gestuais é uma das melhores formas de fazer essa transição.
 
 ## Capturas de tela
-![Página Inicial](assets/screenshot_home.png)
-![Sessão não iniciada](assets/screenshot_session_no_started.png)
-![Sessão iniciada](assets/screenshot_session_started.png)
+
+<div align="center">
+  <img src="assets/screenshot_home.png" alt="Página Inicial" width="400">
+</div>
+
+<div align="center">
+  <img src="assets/screenshot_session_no_started.png" alt="Sessão não iniciada" width="400">
+</div>
+
+<div align="center">
+  <img src="assets/screenshot_session_started.png" alt="Sessão iniciada" width="400">
+</div>
 
 ## Escopo
 
