@@ -5,6 +5,11 @@
 Nosso objetivo será atender a carência do mercado por um aplicativo open source que auxilie em sessões de exercícios de desenho gestual em ambientes digitais com pouco espaço.
 Nosso objetivo não é substituir os exercícios feitos no papel, aliás os recomendamos. Mas sabemos que migrar para o ambiente digital é algo desafiador, e acreditarmos que fazer desenhos gestuais é uma das melhores formas de fazer essa transição.
 
+## Capturas de tela
+![Página Inicial](assets/screenshot_home.png)
+![Sessão não iniciada](assets/screenshot_session_no_started.png)
+![Sessão iniciada](assets/screenshot_session_started.png)
+
 ## Escopo
 
 Planejamos esse escopo para desenvolvermos o nosso TCC
