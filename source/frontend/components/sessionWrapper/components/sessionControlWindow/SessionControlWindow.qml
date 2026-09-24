@@ -154,7 +154,6 @@ DefaultWindow {
                 checked: backend.timerIsRunnig
 
                 onCheckedChanged: {
-                    console.log(height, " ", width)
                     if(backend.isStarted)
                         checked? playTimer() : pauseTimer()
                 }
