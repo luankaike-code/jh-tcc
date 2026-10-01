@@ -154,7 +154,7 @@ DefaultWindow {
                 checked: backend.timerIsRunnig
 
                 onCheckedChanged: {
-                    if(backend.isStarted)
+                    if(backend.isStarted && changedFromClick)
                         checked? playTimer() : pauseTimer()
                 }
 
