@@ -1,6 +1,6 @@
 #include "timer.h"
 
-Timer::Timer(QObject* parent, const int& timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay) {
+Timer::Timer(QObject* parent, const int& timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay), m_remainingTime(0) {
     connect(&qTimer, &QTimer::timeout, this, &Timer::intervalTimeout);
     connect(&qTimerElapsed, &QTimer::timeout, this, [this](){
         emitTimeElapsed();
@@ -16,7 +16,6 @@ void Timer::emitTimeElapsed(const int& customRemainingTime) {
 
 void Timer::play(const bool& resetTimer) {
     qTimerElapsed.start();
-
     qTimer.start(resetTimer? intervalDelay : m_remainingTime);
     emit isRunningChanged();
 }
