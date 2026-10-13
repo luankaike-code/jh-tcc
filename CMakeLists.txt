@@ -118,7 +118,6 @@ target_link_libraries(appflashdraws
         Qt6::Quick
         Qt6::Widgets
 )
-target_link_libraries(appflashdraws PRIVATE Qt6::Widgets)
 
 install(TARGETS appflashdraws
     BUNDLE DESTINATION .
