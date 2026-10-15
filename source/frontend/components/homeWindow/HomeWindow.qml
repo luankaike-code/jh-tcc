@@ -41,11 +41,10 @@ DefaultWindow {
     HomeWindowBackend {
         id: backend
         repositoryPath: dirPathInput.text
-        imageDelay: { return parseInt(drawTimeInput.text) * 1000 }
+        imageDelay: drawTimeInput.getValue()
         imageCount: { return parseInt(countRefInput.text) }
         sessionMode: { return parseInt(comboBoxSessionModes.currentValue) }
-        roadmapDuration: { return parseInt(sessionDurationInput.text) * 1000 * 60 }
-
+        roadmapDuration: sessionDurationInput.getValue()
 
         onSessionStarted: root.hide()
         onSessionFinished: root.show()
@@ -119,11 +118,17 @@ DefaultWindow {
                         return SessionModeReader.hasTimerLimit(backend.sessionMode) && !SessionModeReader.hasRoadmap(backend.sessionMode)
                     }
 
-                    InputNumber {
+                    InputNumberWithMagnitude {
                         id: drawTimeInput
 
-                        Layout.preferredWidth: rootVariables.inputWidth
-                        placeholderText: qsTr("Tempo de cada referências em segundos")
+                        conteinerWidth: rootVariables.inputWidth
+                        placeholderText: qsTr("Tempo de cada referências")
+
+                        model: [
+                            { value: 1000, text: qsTr("Seg") },
+                            { value: 1000*60, text: qsTr("Min") },
+                            { value: 1000*60*60, text: qsTr("Hr") },
+                        ]
                     }
                 }
 
@@ -145,11 +150,19 @@ DefaultWindow {
                         return SessionModeReader.hasRoadmap(backend.sessionMode)
                     }
 
-                    InputNumber {
+                    InputNumberWithMagnitude {
                         id: sessionDurationInput
 
-                        Layout.preferredWidth: rootVariables.inputWidth
-                        placeholderText: qsTr("Tempo da sessão de aula em minutos")
+                        conteinerWidth: rootVariables.inputWidth
+                        placeholderText: qsTr("Tempo da sessão de aula")
+
+                        model: [
+                            { value: 1000, text: qsTr("Seg") },
+                            { value: 1000*60, text: qsTr("Min") },
+                            { value: 1000*60*60, text: qsTr("Hr") },
+                        ]
+
+                        currentIndex: 1
                     }
                 }
 
@@ -211,10 +224,10 @@ DefaultWindow {
                 }
 
                 value: {
-                    let time = parseInt(drawTimeInput.text) || -1
+                    let time = drawTimeInput.getValue() || -1
                     let count = parseInt(countRefInput.text) || -1
 
-                    return (time < 0 || count < 0)? 0 : time * count * 1000
+                    return (time < 0 || count < 0)? 0 : time * count
                 }
             }
         }
