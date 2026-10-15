@@ -67,6 +67,8 @@ qt_add_qml_module(appflashdraws
 
         source/frontend/components/inputs/Input.qml
         source/frontend/components/inputs/InputNumber.qml
+        source/frontend/components/inputs/InputNumberWithMagnitude.qml
+
         source/frontend/components/magnitudeDisplay/MagnitudeDisplay.qml
         source/frontend/components/magnitudeDisplay/MagnitudeObj.qml
         source/frontend/components/magnitudeDisplay/TimeDisplay.qml
