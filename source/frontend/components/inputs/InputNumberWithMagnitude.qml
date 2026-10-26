@@ -18,7 +18,7 @@ RowLayout {
     InputNumber {
         id: input
         placeholderText: root.placeholderText
-        Layout.preferredWidth: conteinerWidth - magnitude.width
+        Layout.preferredWidth: conteinerWidth - magnitude.width - root.spacing
         isEmphasisError: root.isEmphasisError
     }
 
