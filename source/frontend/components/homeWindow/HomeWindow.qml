@@ -62,6 +62,14 @@ DefaultWindow {
         onErrorNoneImageFound: showError(qsTr("O repositório não contém imagens válidas"), dirPathInput)
     }
 
+    Label {
+        x: root.width - width - rootVariables.padding/2
+        y: root.height - height - rootVariables.padding/2
+        text: qsTr("Distribuído sob GPL 3.0v")
+
+        Material.foreground: Material.Grey
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
