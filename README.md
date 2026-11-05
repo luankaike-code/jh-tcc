@@ -55,6 +55,7 @@ Recomendamos muito que se comece no modo de sessão normal com 30 segundos por r
 Como não somos experientes no assunto, também recomendamos ver o que os experientes dizem para fazer, como esse [vídeo](https://www.youtube.com/watch?v=rPvjn-grSKI) do Marcelo Clara, vulgo "Mestre do Desenho".
 
 ## Compilação
+
 A Compilação do projeto é dependente do ambiente fornecido pelo QTCreator.
 Para lançamento utilizamos o CPack. Sendo Linux e Windows os únicos OS's testados.
 
@@ -63,6 +64,7 @@ Para lançamento utilizamos o CPack. Sendo Linux e Windows os únicos OS's testa
 Os dados de usarmos para fazer a lógica das sessões de aula foi **COPIADA** do site [SketchDaily ](https://www.sketchdaily.net/). Total créditos a ele, já planejamos criamos nosso próprio acervo de dados para esse tipo de sessão. Mas devido ao prazo e escopo do projeto optamos por colocar isso como última prioridade
 
 ## Grupo
+
 - [Luan Mack](https://github.com/luankaike-code)
 - [Rafael Pelligrini](https://github.com/jefin282)
 - [Daniel da Silva](https://github.com/Dani00097)
