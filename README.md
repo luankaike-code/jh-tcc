@@ -1,5 +1,8 @@
 # FlashDraws
 
+FlashDraws é uma aplicação desktop criada como Trabalho de Conclusão de Curso(TCC).
+Sua finalidade é servir como ferramenta de auxílio para estudo artístico.
+
 ## Objetivo do projeto
 
 Nosso objetivo será atender a carência do mercado por um aplicativo open source que auxilie em sessões de exercícios de desenho gestual em ambientes digitais com pouco espaço.
@@ -57,7 +60,7 @@ Como não somos experientes no assunto, também recomendamos ver o que os experi
 ## Compilação
 
 A Compilação do projeto é dependente do ambiente fornecido pelo QTCreator.
-Para lançamento utilizamos o CPack. Sendo Linux e Windows os únicos OS's testados.
+Para lançamento utilizamos o CPack. Sendo Linux (fedora e debian) e Windows os únicos sistemas operacionais testados.
 
 ## Observações
 
