@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 luankaike-code <https://github.com/luankaike-code>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "timer.h"
 
 Timer::Timer(QObject* parent, const int& timeElapsedDelay) : QObject{parent}, timeElapsedDelay(timeElapsedDelay), m_remainingTime(0) {
