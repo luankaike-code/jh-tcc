@@ -2,7 +2,7 @@
 Type=Application
 Version=1.0
 Name=FlashDraws
-Comment=Flash draws to train your draws
+Comment=Faça desenhos gestuais
 Exec=appflashdraws
 Terminal=false
 Icon=flashdraws
