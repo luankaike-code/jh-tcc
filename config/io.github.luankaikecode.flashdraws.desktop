@@ -6,4 +6,4 @@ Comment=Faça desenhos gestuais
 Exec=appflashdraws
 Terminal=false
 Icon=flashdraws
-Categories=Graphic;Graphics
+Categories=Graphics;2DGraphics;RasterGraphics
