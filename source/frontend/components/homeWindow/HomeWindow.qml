@@ -65,7 +65,7 @@ DefaultWindow {
     Label {
         x: root.width - width - rootVariables.padding/2
         y: root.height - height - rootVariables.padding/2
-        text: qsTr("Distribuído sob GPL 3.0v")
+        text: qsTr("Distribuído sob GPL 3.0")
 
         Material.foreground: Material.Grey
     }
