@@ -191,6 +191,7 @@ elseif(UNIX AND NOT APPLE)
     )
 
     # RPM (FEDORA) CONFIGURATION
+    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Um aplicativo para facilitar a prática de desenho gestual")
     set(CPACK_RPM_PACKAGE_ARCHITECTURE "x86_64")
     set(CPACK_RPM_PACKAGE_REQUIRES
         "qt6-qtdeclarative, qt6-qtbase-gui, qt6-qtimageformats"
@@ -200,6 +201,7 @@ elseif(UNIX AND NOT APPLE)
 
     # DEB (DEBIAN) CONFIGURATION
     set(CPACK_DEBIAN_PACKAGE_SECTION "devel")
+    set(CPACK_RPM_PACKAGE_DESCRIPTION "Um aplicativo para facilitar a prática de desenho gestual")
     set(CPACK_DEBIAN_PACKAGE_DEPENDS
         "qt6-declarative-dev"
     )
