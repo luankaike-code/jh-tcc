@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-project(flashdraws VERSION 0.1.2 LANGUAGES CXX)
+project(flashdraws VERSION 0.2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
@@ -133,7 +133,7 @@ set(CPACK_PACKAGE_DESCRIPTION "Ferramenta para facilitar a prática de desenhos 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.md")
 set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/luankaike-code/jh-tcc")
-set(CPACK_PACKAGE_VERSION "0.1.2")
+set(CPACK_PACKAGE_VERSION "0.2.0")
 
 install(
     FILES

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Version=1.0
+Version=0.2.0
 Name=FlashDraws
 Comment=Faça desenhos gestuais
 Exec=appflashdraws
