@@ -203,13 +203,7 @@ elseif(UNIX AND NOT APPLE)
     # DEB (DEBIAN) CONFIGURATION
     set(CPACK_DEBIAN_PACKAGE_SECTION "devel")
     set(CPACK_DEBIAN_PACKAGE_DEPENDS
-        "qml6-module-qtquick"
-        "qml6-module-qtquick-controls"
-        "qml6-module-qtquick-layouts"
-        "qml6-module-qtquick-templates"
-        "qml6-module-qtquick-effects"
-        "qt6-image-formats-plugins"
-        "qt6-qpa-plugins"
+        "qt6-declarative-dev"
     )
     set(CPACK_DEBIAN_PACKAGE_GENERATE_SHLIBS ON)
 endif()
