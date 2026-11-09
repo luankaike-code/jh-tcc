@@ -198,7 +198,7 @@ elseif(UNIX AND NOT APPLE)
         "qt6-qtdeclarative, qt6-qtbase-gui, qt6-qtimageformats"
     )
     set(CPACK_RPM_PACKAGE_AUTOREQ ON)
-    set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+    set(CPACK_RPM_PACKAGE_LICENSE "GPL-3.0-or-later")
 
     # DEB (DEBIAN) CONFIGURATION
     set(CPACK_DEBIAN_PACKAGE_SECTION "devel")
