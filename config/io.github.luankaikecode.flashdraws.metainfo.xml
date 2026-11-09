@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>io.github.luankaikecode.flashdraws</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0-or-later</project_license>
+    <name>FlashDraws</name>
+    <summary>Ferramenta para desenhos gestuais</summary>
+    <url type="homepage">https://github.com/luankaike-code/jh-tcc</url>
+
+    <description>
+        <p>
+            FlashDraws é uma ferramenta feita para facilitar a prática do desenho gestual
+        </p>
+        <ul>
+            <li>Escolha aleatória de referências dentro de uma pasta local</li>
+            <li>Quatro modos de sessão (Normal, Aula, Tempo Infinito e Referências Infinitas)</li>
+        </ul>
+    </description>
+
+    <launchable type="desktop-id">io.github.luankaikecode.flashdraws.desktop</launchable>
+
+    <screenshots>
+        <screenshot type="default">
+            <caption>Tela principal</caption>
+            <image>https://github.com/luankaike-code/jh-tcc/blob/main/assets/screenshot_home.png?raw=true</image>
+        </screenshot>
+        <screenshot>
+            <caption>Tela de sessão não iniciada</caption>
+            <image>https://github.com/luankaike-code/jh-tcc/blob/main/assets/screenshot_session_no_started.png?raw=true</image>
+        </screenshot>
+        <screenshot>
+            <caption>Tela de sessão iniciada</caption>
+            <image>https://github.com/luankaike-code/jh-tcc/blob/main/assets/screenshot_session_started.png?raw=true</image>
+        </screenshot>
+    </screenshots>
+
+    <releases>
+        <release version="0.2.0" date="2026-03-30"/>
+    </releases>
+</component>

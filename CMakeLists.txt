@@ -221,6 +221,11 @@ elseif(UNIX AND NOT APPLE)
                 WORLD_READ WORLD_EXECUTE
     )
 
+    install(FILES "config/io.github.luankaikecode.flashdraws.metainfo.xml"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/metainfo"
+    )
+
+
     # RPM (FEDORA) CONFIGURATION
     set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Um aplicativo para facilitar a prática de desenho gestual")
     set(CPACK_RPM_PACKAGE_ARCHITECTURE "x86_64")
