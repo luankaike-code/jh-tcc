@@ -135,6 +135,37 @@ set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/luankaike-code/jh-tcc")
 set(CPACK_PACKAGE_VERSION "0.1.2")
 
+install(
+    FILES
+        "assets/screenshot_home.png"
+        "assets/screenshot_home.png.license"
+        "assets/screenshot_session_started.png"
+        "assets/screenshot_session_started.png.license"
+        "assets/screenshot_session_no_started.png"
+        "assets/screenshot_session_no_started.png.license"
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/doc/flashdraws/assets/"
+    PERMISSIONS
+        OWNER_READ OWNER_WRITE
+        GROUP_READ WORLD_READ
+        WORLD_READ WORLD_EXECUTE
+)
+
+install(FILES "README.md"
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/doc/flashdraws/"
+    PERMISSIONS
+        OWNER_READ OWNER_WRITE
+        GROUP_READ WORLD_READ
+        WORLD_READ WORLD_EXECUTE
+)
+
+install(FILES "LICENSE.md"
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/doc/flashdraws/copyright"
+    PERMISSIONS
+        OWNER_READ OWNER_WRITE
+        GROUP_READ WORLD_READ
+        WORLD_READ WORLD_EXECUTE
+)
+
 if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "FlashDraws")
     set(CPACK_NSIS_PACKAGE_NAME "FlashDraws")
