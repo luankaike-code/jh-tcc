@@ -126,6 +126,15 @@ install(TARGETS appflashdraws
 
 ## RELEASE CONFIGURATION
 
+set(CPACK_PACKAGE_NAME "FlashDraws")
+set(CPACK_PACKAGE_VENDOR "luankaike-code")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ferramenta para facilitar a prática de desenhos gestuais")
+set(CPACK_PACKAGE_DESCRIPTION "Ferramenta para facilitar a prática de desenhos gestuais")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.md")
+set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/luankaike-code/jh-tcc")
+set(CPACK_PACKAGE_VERSION "0.1.2")
+
 if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "FlashDraws")
     set(CPACK_NSIS_PACKAGE_NAME "FlashDraws")
@@ -180,10 +189,6 @@ elseif(UNIX AND NOT APPLE)
                 GROUP_READ WORLD_READ
                 WORLD_READ WORLD_EXECUTE
     )
-
-    set(CPACK_PACKAGE_NAME "flashdraws")
-    set(CPACK_PACKAGE_CONTACT "luankaikemacksantos@gmail.com")
-    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A app to make flash draws")
 
     # RPM (FEDORA) CONFIGURATION
     set(CPACK_RPM_PACKAGE_ARCHITECTURE "x86_64")
