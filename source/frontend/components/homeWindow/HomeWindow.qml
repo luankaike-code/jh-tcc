@@ -17,7 +17,7 @@ import "../buttonFolderDialog"
 DefaultWindow {
     id: root
     minimumWidth: 520
-    minimumHeight: 480
+    minimumHeight: 520
     visible: true
     title: qsTr("FlashDraws")
 
