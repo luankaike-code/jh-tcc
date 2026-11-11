@@ -14,7 +14,7 @@
 
 SessionControlWindowBackend::SessionControlWindowBackend(QObject* parent) :
     QObject{parent},
-    currentState(nullptr), timer(this),
+    currentState(nullptr), timer(this), m_isRestPause(false),
     m_currentImageIndex(0), m_imageCount(0), m_imageDelay(0), m_roadmapDuration(0),
     m_isStarted(false), m_hasRoadmap(false), m_hasTimerLimit(false), m_hasImagesLimit(false)
 {
