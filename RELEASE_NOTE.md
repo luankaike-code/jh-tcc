@@ -1,6 +1,5 @@
 # FLASHDRAWS v0.2.0
 
-
 ## Adições
 
 - Adoção da licença GPL-3.0v para toda aplicação
@@ -11,6 +10,7 @@
 - Botão "pause" crescendo **infinitamente**
 - Modo Aula tratando de forma errônea os intervalos
 - Pacote .deb não garantindo todas as dependencias necessárias
+- Texto errônio na janela de controle da sessão
 
 ## Melhorias
 
