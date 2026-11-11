@@ -10,7 +10,7 @@
 - Botão "pause" crescendo **infinitamente**
 - Modo Aula tratando de forma errônea os intervalos
 - Pacote .deb não garantindo todas as dependencias necessárias
-- Texto errônio na janela de controle da sessão
+- Textos se sobrepondo nas telas
 
 ## Melhorias
 
